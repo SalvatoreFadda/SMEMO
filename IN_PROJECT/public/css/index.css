@@ -19,17 +19,12 @@ div.container {
 }
 
 #welcome {
-  display: none;
+  display: block;
 }
 
 #smemo img {
   flex: 1;
   /* animation: rotate-anime 3s linear infinite; */
-}
-
-@keyframes rotate-anime {
-  0%  {transform: rotate(0);}
-  100%  {transform: rotate(360deg);}
 }
 
 .welcome-ins {
@@ -62,7 +57,12 @@ div.container {
 }
 
 #intentVideo {
- display: block;
+ display: none;
+}
+
+@keyframes rotate-anime {
+  0%  {transform: rotate(0);}
+  100%  {transform: rotate(360deg);}
 }
 
 
