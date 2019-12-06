@@ -31,19 +31,19 @@ interactiveCanvas.ready({
       document.querySelector('#chiedimi').style.display = 'block';
      }
       //document.querySelector('#chiedimiMessage').innerText = data.message;
-     //Timer function --> da usare quando si fa il caricamento del nuovo intento, da inserire dentro l'if della scena
+     //passaggio dalla creazione degli intenti alla visualizazzione degli intenti creati
     if (data.scene === 'createIntent') { 
-     /*setTimeout(() => {
+     setTimeout(() => {
       document.querySelector('#backHome').style.display = 'none';
       document.querySelector('#impostazioni').style.display = 'none';
       document.querySelector('#tutorial').style.display = 'none';
       document.querySelector('#cards').style.display = 'none';
       document.querySelector('#insegnami').style.display = 'none';
       document.querySelector('#welcome').style.display = 'block';
-      //playIntVid();
-     }, 500);*/
+      playIntVid();
+     }, 500);
       //document.querySelector('#intentVideo').style.display = 'none';
-      document.querySelector('#welcome').style.display = 'block';
+      document.querySelector('#welcome').style.display = 'none';
       //document.querySelector('#impostazioni').style.display = 'block';
       //document.querySelector('#tutorial').style.display = 'block';
     }
