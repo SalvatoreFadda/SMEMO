@@ -19,7 +19,7 @@ div.container {
 }
 
 #welcome {
-  display: block;
+  display: none;
 }
 
 #smemo img {
@@ -28,7 +28,7 @@ div.container {
 }
 
 .welcome-ins {
-  display: block; 
+  display: block;
 
 }
 
@@ -45,7 +45,7 @@ div.container {
 }
 
 #tutorial {
- display: none;
+ display: block;
 }
 
 #cards {
@@ -53,7 +53,7 @@ div.container {
 }
 
 #impostazioni {
- display: none;
+ display: block;
 }
 
 #intentVideo {
@@ -64,6 +64,3 @@ div.container {
   0%  {transform: rotate(0);}
   100%  {transform: rotate(360deg);}
 }
-
-
-
