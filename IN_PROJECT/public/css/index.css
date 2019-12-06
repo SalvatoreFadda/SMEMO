@@ -19,7 +19,7 @@ div.container {
 }
 
 #welcome {
-  display: block;
+  display: none;
 }
 
 #smemo img {
@@ -39,12 +39,10 @@ div.container {
 
 #insegnami {
  display: none;
- vertical-align: top;
 }
 
 #chiedimi {
  display: none;
- vertical-align: top;
 }
 
 #backHome {
@@ -53,17 +51,18 @@ div.container {
 
 #tutorial {
  display: none;
- vertical-align: top;
 }
 
 #cards {
  display: none;
- vertical-align: top;
 }
 
 #impostazioni {
  display: none;
- vertical-align: top;
+}
+
+#intentVideo {
+ display: block;
 }
 
 
