@@ -19,12 +19,17 @@ div.container {
 }
 
 #welcome {
-  display: none;
+  display: block;
+
 }
 
 #smemo img {
   flex: 1;
   /* animation: rotate-anime 3s linear infinite; */
+width: 80%;
+top: 2px;
+position: relative;
+margin-bottom: 100px;
 }
 
 .welcome-ins {
@@ -34,26 +39,55 @@ div.container {
 
 #insegnami {
  display: none;
+ width: 25%;
+ margin-bottom: 100px;
 }
 
 #chiedimi {
  display: none;
+ width: 25%;
+ margin-bottom: 100px;
 }
 
+#bottone {
+  display: inline-block;
+  width: 25%;
+  left: 500px;
+  bottom: -70px;
+  position: absolute;
+}
 #backHome {
+  /* per visualizzare inserire display: inline-block */
  display: none;
+ width: 10%;
+ top: 2px;
+ left: 50%;
+ position: absolute;
 }
 
 #tutorial {
- display: block;
-}
-
-#cards {
- display: none;
+ display: inline-block;
+ width: 10%;
+ top: 2px;
+ right: 10px;
+ position: absolute;
 }
 
 #impostazioni {
- display: block;
+ display: inline-block;
+width: 10%;
+top: 2px;
+position: absolute;
+right: 100px;
+}
+
+#cards {
+  /* per visualizzare inserire display: inline-block */
+ display: none;
+ width: 60%;
+ left: -260px;
+ bottom: 20px;
+ position: absolute;
 }
 
 #intentVideo {
