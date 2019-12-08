@@ -72,6 +72,7 @@ font-style: normal;
 
 #bottone {
   display: inline-block;
+  margin: auto;
   width: 20%;
   left: 550px;
   bottom: -100px;
