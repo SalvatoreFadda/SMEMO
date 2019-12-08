@@ -1,18 +1,9 @@
 'use strict';
 
-//video 
-var intVid = document.getElementById("intentVideo"); 
-
-function playIntVid() { 
-  intVid.play(); 
-} 
-
-
-
 //interactive canvas call response
 interactiveCanvas.ready({
   onUpdate(data) {
-    // Display the insegnami page.
+    //visualizzazione pagina dove il bambino insegna a SMEMO
     if (data.scene === 'insegnami') {
       document.querySelector('#welcome').style.display = 'none';
       document.querySelector('#backHome').style.display = 'block';
@@ -21,7 +12,7 @@ interactiveCanvas.ready({
       document.querySelector('#cards').style.display = 'block';
       document.querySelector('#insegnami').style.display = 'block';
     }
-    //Display the chiedimi page
+    //visualizzazione pagina della richietsa del bambino a SMEMO
     if (data.scene === 'chiedimi') {
       document.querySelector('#welcome').style.display = 'none';
       document.querySelector('#backHome').style.display = 'block';
@@ -29,24 +20,47 @@ interactiveCanvas.ready({
       document.querySelector('#tutorial').style.display = 'block';
       document.querySelector('#cards').style.display = 'block';
       document.querySelector('#chiedimi').style.display = 'block';
+	//document.querySelector('#chiedimiMessage').innerText = data.message;
      }
-      //document.querySelector('#chiedimiMessage').innerText = data.message;
-     //passaggio dalla creazione degli intenti alla visualizazzione degli intenti creati
+    //passaggio dalla creazione degli intenti alla visualizazzione degli intenti creati
     if (data.scene === 'createIntent') { 
-     setTimeout(() => {
       document.querySelector('#backHome').style.display = 'none';
       document.querySelector('#impostazioni').style.display = 'none';
       document.querySelector('#tutorial').style.display = 'none';
       document.querySelector('#cards').style.display = 'none';
       document.querySelector('#insegnami').style.display = 'none';
-      document.querySelector('#welcome').style.display = 'block';
-      playIntVid();
-     }, 500);
-      //document.querySelector('#intentVideo').style.display = 'none';
-      document.querySelector('#welcome').style.display = 'none';
-      //document.querySelector('#impostazioni').style.display = 'block';
-      //document.querySelector('#tutorial').style.display = 'block';
+      document.querySelector('#intentVideo').style.display = 'block';
+      //document.getElementById("tada").autoplay();
     }
+    //visualizzazione impostazioni
+    if (data.scene === 'impostazioni'){
+    }
+    //visualizzazione impostazioni per cambio sfondo
+    if (data.scene === 'sfondo'){
+    }
+    //visualizzazione impostazioni per cambio colore
+    if (data.scene === 'colore'){
+    }
+    //visualizzazione impostazioni per cambio voce
+    if (data.scene === 'voce'){
+    }
+    //visualizzazione nuova card
+    if (data.scene === 'newCard'){
+    }
+    //visualizzazione delle cards
+    if (data.scene === 'cardsPage'){
+    }
+    //visualizzazione pagina della singola card
+    if (data.scene === 'singleCard'){
+    }
+    //ritorno alla home page(welcome)
+    if (data.scene === 'home'){
+    }
+
+    //default page
+    else {
+    }
+
   }
 });
 
