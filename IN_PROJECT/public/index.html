@@ -77,6 +77,8 @@
     <link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;," />
     <link rel="stylesheet" href="css/index.css" />
     <script src="https://www.gstatic.com/assistant/interactivecanvas/api/interactive_canvas.min.js"></script>
+<link rel="stylesheet" href="https://use.typekit.net/mib7gnh.css">
+
   </head>
 
   <body>
@@ -85,10 +87,19 @@
       <div id="welcome">
         <img src="assets/images/smemoLogo.svg";>
 
-	<div id="insChied">
-	  <img src="assets/images/insegna.png" data-choice="insegnami" style="max-width:30%;">
-	  <img src="assets/images/chiedi.png" data-choice="chiedimi" style="max-width:30%;">
-	</div>
+        <div class="column" id="testo">
+          <div> Ciao, bentornato! </div>
+          <div> Giochiamo insieme? </div>
+      </div>
+
+<div class="row">
+
+	  <img src="assets/images/insegnami.svg" data-choice="insegnami" style="max-width:30%" id="ins;">
+	  <img src="assets/images/chiedimi.svg" data-choice="chiedimi" style="max-width:30%" id="chied;">
+</div>
+
+
+
 
 <div id="bottone">
         <img src="assets/images/bottone.svg" data-choice="bottone;">
@@ -104,6 +115,7 @@
 	<!-- <img src="assets/images/redLine.svg" style="max-width:10%;"> -->
 	<img src="assets/images/bottone.svg" data-choice="bottone" style="max-width:20%;">
        </div>
+
        <div id="chiedimi">
         <img src="assets/images/robot.svg";>
 	<div id="chiedimiMessage">

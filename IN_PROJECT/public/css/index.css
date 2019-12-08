@@ -1,6 +1,8 @@
 html {
   display: flex;
   height: 100%;
+
+
 }
 
 body {
@@ -26,7 +28,7 @@ div.container {
 #smemo img {
   flex: 1;
   /* animation: rotate-anime 3s linear infinite; */
-width: 80%;
+width: 60%;
 top: 2px;
 position: relative;
 margin-bottom: 100px;
@@ -37,23 +39,42 @@ margin-bottom: 100px;
 
 }
 
+#ins {
+  width: 2px;
+  margin-top: 200px;
+
+}
+
+#chied {
+  width: 20%;
+margin-top: 200px;
+}
+
 #insegnami {
  display: none;
- width: 25%;
- margin-bottom: 100px;
+
 }
 
 #chiedimi {
  display: none;
- width: 25%;
+ width: 20%;
  margin-bottom: 100px;
+}
+
+#testo {
+  color: #5BC0EC;
+  font-family: gill-sans-nova, sans-serif;
+font-weight: 900;
+font-size: 30px;
+font-style: normal;
+
 }
 
 #bottone {
   display: inline-block;
-  width: 25%;
-  left: 500px;
-  bottom: -70px;
+  width: 20%;
+  left: 550px;
+  bottom: -100px;
   position: absolute;
 }
 #backHome {
@@ -67,7 +88,7 @@ margin-bottom: 100px;
 
 #tutorial {
  display: inline-block;
- width: 10%;
+ width: 15%;
  top: 2px;
  right: 10px;
  position: absolute;
@@ -75,7 +96,7 @@ margin-bottom: 100px;
 
 #impostazioni {
  display: inline-block;
-width: 10%;
+width: 15%;
 top: 2px;
 position: absolute;
 right: 100px;
