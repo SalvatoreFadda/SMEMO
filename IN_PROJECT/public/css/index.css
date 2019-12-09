@@ -19,7 +19,7 @@ body {
 
 #backHome {
   /* per visualizzare inserire display: inline-block */
- display: block;
+ display: none;
  width: 10%;
  top: 2px;
  left: 50%;
@@ -63,7 +63,7 @@ right: 100px;
 
 #robotDx {
   /* per visualizzare inserire display: inline-block */
-  display: inline-block;
+  display: none;
   width: 15%;
   position: absolute;
   margin: auto;
@@ -78,7 +78,7 @@ div.container {
 
 #welcome {
   /* per visualizzare inserire display: block */
-  display: none;
+  display: block;
 
 }
 
@@ -163,7 +163,7 @@ font-style: normal;
 
 #singleCard {
 
-  display: block;
+  display: none;
 }
 
 

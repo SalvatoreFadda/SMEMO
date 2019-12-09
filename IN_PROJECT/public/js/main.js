@@ -29,18 +29,19 @@ interactiveCanvas.ready({
       document.querySelector('#singleCard').style.display = 'none';
       document.querySelector('#impostazioni').style.display = 'none';
       document.querySelector('#tutorial').style.display = 'none';
+      document.querySelector('#impostazioni').style.display = 'none';
       document.querySelector('#cards').style.display = 'none';
       document.querySelector('#backHome').style.display = 'none';
       document.querySelector('#intentVideo').style.display = 'block';
       document.getElementById("tada").autoplay = true;
       document.getElementById("tada").load();
-    //timer lungo quato il video
-      //all fine dle timer
-      document.getElementById("tada").autoplay = false;
-      document.querySelector('#intentVideo').style.display = 'none';
-      document.querySelector('#bottone').style.display = 'block';
-      document.querySelector('#backHome').style.display = 'block';
-      document.querySelector('#newCard').style.display = 'block';
+      setTimeout(() => {
+        document.getElementById("tada").autoplay = false;
+        document.querySelector('#intentVideo').style.display = 'none';
+        document.querySelector('#bottone').style.display = 'block';
+        document.querySelector('#backHome').style.display = 'block';
+        document.querySelector('#newCard').style.display = 'block';
+      }, 5000);
     }
     //visualizzazione impostazioni, di default parte l'impostazione della voce
     if (data.scene === 'impostazioni'){
