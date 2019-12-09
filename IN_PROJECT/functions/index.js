@@ -94,6 +94,11 @@ app.intent('Default Fallback Intent', conv => {
       conv.ask(`Non ho capito ${value}, puoi ripetere?`);
     }
     else conv.ask(`Non ho capito, puoi ripetere?`);
+    conv.ask(new HtmlResponse({
+      data: {
+        scene: 'home',
+      }
+    }));
   });
 });
 
@@ -117,10 +122,20 @@ app.intent('Contesto(2-new)', conv => {
     contestoDaUser: contestoDatoDaUser,
   };
   conv.contexts.set('Domanda', 1, parameters);
+  conv.ask(new HtmlResponse({
+    data: {
+      scene: 'insegnami',
+    }
+  }));
 });
 
 app.intent('Contesto(2)Fallback', conv => {
   conv.ask('Scusa ma non conosco questa categoria, scegline un altra');
+  conv.ask(new HtmlResponse({
+    data: {
+      scene: 'insegnami',
+    }
+  }));
 });
 
 app.intent('Domanda(3)', conv => {
@@ -131,10 +146,14 @@ app.intent('Domanda(3)', conv => {
      contestoDatoDaUser: contestoDatoDaUser, domandaDatoDaUser: conv.input.raw
   };
   conv.contexts.set('Risposta', 1, parameters);
+  conv.ask(new HtmlResponse({
+    data: {
+      scene: 'insegnami',
+    }
+  }));
 });
 
 app.intent('Risposta(4)', conv => {
-  conv.ask('Benissimo, ho imparato qualcosa di nuovo !')
   var contestoDatoDaUser = conv.contexts.input.risposta.parameters.contestoDatoDaUser;
   var domandaDatoDaUser = conv.contexts.input.risposta.parameters.domandaDatoDaUser;
   const parameters = {
@@ -199,15 +218,27 @@ const response = responses[0];
 .catch(err => {
 console.error(err);
 });
+
 }
 
 app.intent('CambioNome', conv => {
+  conv.ask(new HtmlResponse({
+    data: {
+      scene: 'chiedimi',
+    }
+  }));
   const name = conv.parameters.name;
   conv.ask(`Da ora ti chiamerò ${name}`);
   return admin.database().ref('data/userName').set(name);
+
 });
 
 app.intent('CambioSesso', conv => {
+  conv.ask(new HtmlResponse({
+    data: {
+      scene: 'chiedimi',
+    }
+  }));
   const sesso = conv.parameters.sesso;
   conv.ask(`Perfetto`);
   return admin.database().ref('data/sesso').set(sesso);
@@ -215,6 +246,11 @@ app.intent('CambioSesso', conv => {
 
 
 app.intent('#barzelletta', conv => {
+  conv.ask(new HtmlResponse({
+    data: {
+      scene: 'chiedimi',
+    }
+  }));
   const ssml = '<speak>' +
     /*'Here are <say-as interpret-as="characters">SSML</say-as> samples. ' +
     'I can pause <break time="3" />. ' +
@@ -245,25 +281,6 @@ app.intent('vai alla Home', conv => {
   }));
 });
 
-app.intent('mostra carta', conv => {
-  conv.ask(`questo è un esempio`);
-    conv.ask(new BasicCard({
-      text: `Ecco l'esempio di carta  \nbreaks`, // Note the two spaces before '\n' required for
-                                   // a line break to be rendered in the card.
-      subtitle: 'This is a subtitle',
-      title: 'Title: this is a title',
-      buttons: new Button({
-        title: 'This is a button',
-        url: 'https://assistant.google.com/',
-      }),
-      image: new Image({
-        url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
-        alt: 'Image alternate text',
-      }),
-      display: 'CROPPED',
-    }));
-    conv.ask('Which response would you like to see next?');
-});
 
 
 

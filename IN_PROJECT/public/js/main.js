@@ -4,7 +4,7 @@
 interactiveCanvas.ready({
   onUpdate(data) {
     //visualizzazione pagina dove il bambino insegna a SMEMO
-    if (data.scene === 'insegnamia') {
+    if (data.scene === 'insegnami') {
       document.querySelector('#welcome').style.display = 'none';
       document.querySelector('#backHome').style.display = 'block';
       document.querySelector('#insegnami').style.display = 'block';
@@ -17,14 +17,14 @@ interactiveCanvas.ready({
 	//document.querySelector('#chiedimiMessage').innerText = data.message;
      }
     //passaggio dalla creazione degli intenti alla visualizazzione degli intenti creati
-    if (data.scene === 'createIntent') { 
+    if (data.scene === 'createIntent') {
       document.querySelector('#robotCentro').style.display = 'none';
       document.querySelector('#insegnami').style.display = 'none';
       document.querySelector('#robotDx').style.display = 'block';
       document.querySelector('#singleCard').style.display = 'block';
     }
     //visualizzazione della card appena creata
-    if (data.scene === 'insegnami'){
+    if (data.scene === 'newCard'){
       document.querySelector('#robotDx').style.display = 'none';
       document.querySelector('#singleCard').style.display = 'none';
       document.querySelector('#impostazioni').style.display = 'none';
@@ -34,7 +34,7 @@ interactiveCanvas.ready({
       document.querySelector('#backHome').style.display = 'none';
       document.querySelector('#intentVideo').style.display = 'block';
       document.getElementById("tada").autoplay = true;
-      //document.getElementById("tada").load();
+      document.getElementById("tada").load();
       setTimeout(() => {
         document.getElementById("tada").autoplay = false;
         document.querySelector('#intentVideo').style.display = 'none';

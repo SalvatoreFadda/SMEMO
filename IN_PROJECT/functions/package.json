@@ -12,6 +12,7 @@
     "node": "8"
   },
   "dependencies": {
+    "@firebase/component": "^0.1.0",
     "actions-on-google": "^2.12.0",
     "dialogflow": "^1.0.0",
     "firebase-admin": "^8.6.0",
