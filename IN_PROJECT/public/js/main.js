@@ -4,7 +4,7 @@
 interactiveCanvas.ready({
   onUpdate(data) {
     //visualizzazione pagina dove il bambino insegna a SMEMO
-    if (data.scene === 'insegnami') {
+    if (data.scene === 'insegnamia') {
       document.querySelector('#welcome').style.display = 'none';
       document.querySelector('#backHome').style.display = 'block';
       document.querySelector('#insegnami').style.display = 'block';
@@ -24,7 +24,7 @@ interactiveCanvas.ready({
       document.querySelector('#singleCard').style.display = 'block';
     }
     //visualizzazione della card appena creata
-    if (data.scene === 'newCard'){
+    if (data.scene === 'insegnami'){
       document.querySelector('#robotDx').style.display = 'none';
       document.querySelector('#singleCard').style.display = 'none';
       document.querySelector('#impostazioni').style.display = 'none';
@@ -34,7 +34,7 @@ interactiveCanvas.ready({
       document.querySelector('#backHome').style.display = 'none';
       document.querySelector('#intentVideo').style.display = 'block';
       document.getElementById("tada").autoplay = true;
-      document.getElementById("tada").load();
+      //document.getElementById("tada").load();
       setTimeout(() => {
         document.getElementById("tada").autoplay = false;
         document.querySelector('#intentVideo').style.display = 'none';
