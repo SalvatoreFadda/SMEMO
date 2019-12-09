@@ -52,6 +52,15 @@ interactiveCanvas.ready({
       document.querySelector('#voce').style.display = 'block';
       //immagine voce più grnade, altre 2 pù piccole
     }
+    //visualizzazione impostazioni per cambio nome
+    if (data.scene === 'nome'){
+      //alla fine dello sviluppo scrivere tutti gli id delle pagine da cui può partire a none
+      document.querySelector('#backHome').style.display = 'block';
+      document.querySelector('#tutorial').style.display = 'block';
+      document.querySelector('#robotDx').style.display = 'block';
+      document.querySelector('#nome').style.display = 'block';
+      //immagine colore più grnade, altre 2 pù piccole
+    }
     //visualizzazione impostazioni per cambio sfondo
     if (data.scene === 'sfondo'){
       //alla fine dello sviluppo scrivere tutti gli id delle pagine da cui può partire a none
