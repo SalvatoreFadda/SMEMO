@@ -30,8 +30,8 @@ body {
 #backHome {
   /* per visualizzare inserire display: inline-block */
  display: inline-block;
- width: 10%;
- top: 2px;
+ width: 8%;
+ top: 3px;
  left: 20px;
  position: absolute;
 }
@@ -39,7 +39,7 @@ body {
 #tutorial {
 
  display: inline-block;
- width: 10%;
+ width: 8%;
  top: 2px;
  right: 10px;
  position: absolute;
@@ -47,7 +47,7 @@ body {
 
 #impostazioni {
  display: inline-block;
-width: 10%;
+width: 8%;
 top: 2px;
 position: absolute;
 right: 100px;
@@ -64,17 +64,19 @@ right: 100px;
 }
 
 #robotDx {
-  /* per visualizzare inserire display: block */
-  display: none;
+  /* per visualizzare inserire display: inline-block */
+  display: block;
   width: 15%;
-
+margin-left: 74%;
+bottom: 40%;
+position: absolute;
 }
 
 #bottone {
   /* per visualizzare inserire display: block */
   display: block;
       width: 20%;
-      margin-left: 0;
+      margin-left: 40%;
       bottom: 0;
       position: absolute;
 }
@@ -82,7 +84,7 @@ right: 100px;
 #cards {
   /* per visualizzare inserire display: inline-block */
   display: inline-block;
-  width: 15%;
+  width: 10%;
   left: 15px;
   bottom: 10px;
   position: absolute;
@@ -98,7 +100,7 @@ div.container {
 
 #welcome {
   /* per visualizzare inserire display: block */
-  display: block;
+  display: none;
 
 }
 
@@ -125,7 +127,7 @@ div.container {
 
 #testo {
   /* per visualizzare inserire display: inline-block */
-  color: var(azzurro);
+  color: var(--azzurro);
   font-family: gill-sans-nova, sans-serif;
 font-weight: 900;
 font-size: 30px;
@@ -151,7 +153,7 @@ font-style: normal;
 
 #testo2  {
 display: inline;
-  color: #5ABFEA;
+  color: var(--azzurro);
   font-family: gill-sans-nova, sans-serif;
 font-weight: 900;
 font-size: 30px;
@@ -192,7 +194,7 @@ margin: auto;
 
 #testoDefault {
   display: inline;
-    color: #5ABFEA;
+    color: var(--azzurro);
     font-family: gill-sans-nova, sans-serif;
   font-weight: 900;
   font-size: 30px;
@@ -203,39 +205,64 @@ margin: auto;
                           /* PAGINA - VOCE */
 
 #voce {
-  display: none;
+  /* per visualizzare inserire display: block */
+  display: block;
 }
 
 #maschio {
   display: inline-block;
-  width: 8%;
+  width: 7%;
+
+
 }
 
 #femmina {
   display: inline-block;
-  width: 8%;
+  width: 7%;
+
+
 }
 
 #T {
   display: inline-block;
-    color: #5ABFEA;
+    color: var(--azzurro);
     font-family: gill-sans-nova, sans-serif;
   font-weight: 900;
   font-size: 15px;
+  margin: auto;
+  margin-bottom: 2%;
+
 }
 
 #bloccoVoce {
   display: block;
-  width: 20%;
-  margin-left: -50px;
+  width: 15%;
+  margin-left: -45px;
 }
 
 #bloccoSfondo {
   display: block;
-  width: 20%;
-  margin-left: -85px;
+  width: 15%;
+  margin-left: -65px;
 }
 
+#T2 {
+  display: inline-block;
+    color: var(--azzurro);
+    font-family: gill-sans-nova, sans-serif;
+  font-weight: 900;
+  font-size: 15px;
+  margin-left: 63%;
+  line-height: 5px;
+}
+#T2F {
+  display: inline-block;
+    color: var(--rosso);
+    font-family: gill-sans-nova, sans-serif;
+  font-weight: 900;
+  font-size: 15px;
+  margin-left: 63%;
+}
 
 
                         /* PAGINA - SFONDO */
