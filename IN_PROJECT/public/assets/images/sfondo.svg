@@ -1,0 +1,43 @@
+<svg id="Livello_1" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 154 122">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        isolation: isolate;
+      }
+
+      .cls-2 {
+        font-size: 19.29px;
+        fill: #9bc53d;
+        font-family: GillSans-Bold, Gill Sans;
+        font-weight: 700;
+      }
+
+      .cls-3 {
+        letter-spacing: -0.01em;
+      }
+
+      .cls-4 {
+        letter-spacing: 0em;
+      }
+
+      .cls-5, .cls-6 {
+        fill: none;
+      }
+
+      .cls-6 {
+        stroke: #9bc53d;
+        stroke-width: 2.31px;
+      }
+    </style>
+  </defs>
+  <title>sfondo</title>
+  <g id="Group_25" data-name="Group 25">
+    <g id="SFONDO" class="cls-1">
+      <text class="cls-2" transform="translate(31.14 69.85)">SF<tspan class="cls-3" x="23.8" y="0">O</tspan><tspan class="cls-4" x="39.94" y="0">NDO</tspan></text>
+    </g>
+    <g id="Rectangle_24" data-name="Rectangle 24">
+      <rect class="cls-5" x="-43.46" y="8.9" width="185.41" height="103.88" rx="29.32"/>
+      <path class="cls-6" d="M11.37,10.06H112.63a28.16,28.16,0,0,1,28.16,28.16V83.46a28.16,28.16,0,0,1-28.16,28.16H11.37Z"/>
+    </g>
+  </g>
+</svg>

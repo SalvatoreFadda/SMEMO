@@ -1,0 +1,39 @@
+<svg id="Livello_1" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 154 122">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        isolation: isolate;
+      }
+
+      .cls-2 {
+        font-size: 19.29px;
+        fill: #e55934;
+        font-family: GillSans-Bold, Gill Sans;
+        font-weight: 700;
+      }
+
+      .cls-3 {
+        letter-spacing: -0.03em;
+      }
+
+      .cls-4, .cls-5 {
+        fill: none;
+      }
+
+      .cls-5 {
+        stroke: #e55934;
+        stroke-width: 2.31px;
+      }
+    </style>
+  </defs>
+  <title>voce</title>
+  <g>
+    <g id="VOCE" class="cls-1">
+      <text class="cls-2" transform="translate(33.19 70.05)"><tspan class="cls-3">V</tspan><tspan x="14" y="0">OCE</tspan></text>
+    </g>
+    <g id="Rectangle_22" data-name="Rectangle 22">
+      <rect class="cls-4" x="-41.41" y="9.1" width="185.41" height="103.88" rx="29.32"/>
+      <path class="cls-5" d="M13.62,10.25H114.68a28.17,28.17,0,0,1,28.16,28.17V83.66a28.16,28.16,0,0,1-28.16,28.16H13.37Z"/>
+    </g>
+  </g>
+</svg>

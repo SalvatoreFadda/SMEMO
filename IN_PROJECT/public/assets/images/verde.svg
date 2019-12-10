@@ -1,0 +1,34 @@
+<svg id="Livello_1" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 117 131">
+  <defs>
+    <style>
+      .cls-1, .cls-3 {
+        fill: #66b032;
+      }
+
+      .cls-2, .cls-3 {
+        isolation: isolate;
+      }
+
+      .cls-3 {
+        font-size: 20px;
+        font-family: GillSans-Bold, Gill Sans;
+        font-weight: 700;
+      }
+
+      .cls-4 {
+        letter-spacing: -0.01em;
+      }
+
+      .cls-5 {
+        letter-spacing: -0.04em;
+      }
+    </style>
+  </defs>
+  <title>verde</title>
+  <g>
+    <rect id="Rectangle_28" data-name="Rectangle 28" class="cls-1" x="7.24" y="4.89" width="102.52" height="73.73" rx="15"/>
+    <g id="verde" class="cls-2">
+      <text class="cls-3" transform="translate(26.72 117.89)"><tspan class="cls-4">v</tspan><tspan x="11.38" y="0">e</tspan><tspan class="cls-5" x="23.3" y="0">r</tspan><tspan x="32.3" y="0">de</tspan></text>
+    </g>
+  </g>
+</svg>

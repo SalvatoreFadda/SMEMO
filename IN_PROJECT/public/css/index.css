@@ -184,7 +184,7 @@ margin: auto;
 
 #defaultPage {
   /* per visualizzare inserire display: block */
-  display: block;
+  display: none;
 }
 
 #robotDefault {
@@ -203,4 +203,36 @@ margin: auto;
   font-size: 30px;
   font-style: normal;
   margin: auto;
+}
+
+                          /* PAGINA - VOCE */
+
+#voce {
+  display: block;
+}
+
+#maschio {
+  display: inline-block;
+  width: 7%;
+}
+
+#femmina {
+  display: inline-block;
+  width: 7%;
+}
+
+#spazioSmall {
+  width: 5px;
+
+
+}
+
+#dinosauriSmall {
+  width: 5px;
+
+}
+
+#caramelleSmall {
+  width: 5px;
+
 }

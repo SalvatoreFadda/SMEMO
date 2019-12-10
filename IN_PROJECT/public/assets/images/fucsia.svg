@@ -1,0 +1,30 @@
+<svg id="Livello_1" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 117 131">
+  <defs>
+    <style>
+      .cls-1, .cls-3 {
+        fill: #fa21d0;
+      }
+
+      .cls-2, .cls-3 {
+        isolation: isolate;
+      }
+
+      .cls-3 {
+        font-size: 20px;
+        font-family: GillSans-Bold, Gill Sans;
+        font-weight: 700;
+      }
+
+      .cls-4 {
+        letter-spacing: 0.03em;
+      }
+    </style>
+  </defs>
+  <title>fucsia</title>
+  <g>
+    <rect id="Rectangle_31" data-name="Rectangle 31" class="cls-1" x="7.24" y="4.89" width="102.52" height="73.73" rx="15"/>
+    <g id="fucsia" class="cls-2">
+      <text class="cls-3" transform="translate(29.66 117.89)"><tspan class="cls-4">f</tspan><tspan x="7.94" y="0">ucsia</tspan></text>
+    </g>
+  </g>
+</svg>
