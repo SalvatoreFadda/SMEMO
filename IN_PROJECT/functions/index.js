@@ -22,7 +22,7 @@ const app = dialogflow({
 const projectId = 'smemo-c2001';
 const sessionId = '981dbc33-7c54-5419-2cce-edf90efd2170';
 const query = 'ciao';
-const languageCode = 'it';
+const languageCode = 'it-IT';
 const dialog = require('dialogflow');
 let privateKey = '-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDZF7mTCoP7OVK2\n7w5kcWuaam0btHATHuFaDo9Iz12NRSoxP6q2EanVFiD11l7PSRasvP4e+ybk1G2g\nMBw+gFjibUSrl4l4Cut56sTPSU/5MNvxSXXSr/tmGmEWVxJgejNINt9Cyf8OG6U6\nIJJlOPoIGkZBwi4Zb2GMBs/+79mQyrUtMfJldED+9SDIcDba0jWfjucJs8APp5gh\nWBvh715VlhkpGx9SG3v4JSjaWaN/A+eYWVLwFUcuA7g/nBvnDCKEt6O/CNZglXk5\ntUv0Lw5TWt55LubS58k3BCCJ6TF6X6Q3fTtkYunRy+4dwtjO4Ux0LyROUGByUef1\n77LcY8cdAgMBAAECggEAHhN23sO0sD/rUTPCWzEJds2qyw1O/58mGlttB2nPLKy5\n4TPQW0QMMtzLeTOXVAFstkbCsBkcdNRnUauIpjIS3l/EBT/LyEk/AVeAp7Ug8sWN\nmxqRy7wcyLL742PxxFL5utX7TV39y38R/4EWtxZTMX8uX5re1yBCs+sXstqY2kGx\nrUNu3vjzWqbVZ/fIl9SjS/hjmcBTheb4WiBqTLVP344cC7FNRsRyL4MPZqLfK72h\nL8Do7Fz7aV+5la5uPrLMZ5/qSHeRUy8plWSPSVHzGv4Q+dZrr10I9MA9Fxyp1ta2\nQVx8plkZNjJ6mBBgi3zKM1WIv/G2dwHcZTtfdy6oswKBgQD7oGtsh8M9UEQDGAaH\nuLE17MSxhPiQ83HWNTSGYcMxbN26nz/LOhUOQwIheTgJSCasIK2AowoCP2aVzTpr\nswUH7Wz2PidZ1sAezFDRighiw+Dzwjj8kWbPccVELfwIHuhMBjkWzwQgD97pAmM4\ngUP+9ev9VPdVF88vI8jveEh/2wKBgQDc3aadtTU6OTXi6+K5paArpuZ5Ehc/keI1\nGQv1VVOXHFivdv+TFJQ5dnOZfxhjUJHlclbrkgbVuC3DkmzbEhfnyPogSkje566e\ni7oIMtM2w0CRfjwCFknGMWz+LwSitc2Bx1CwhZaDvXOWm6Y1076cOa88pI0fsLkS\nQQlLItviZwKBgQCLI16jacL1EYA6MbvSqrca+WyeOMf15xfIei0sLbzwhKFrA4oU\nB28DLtxrxArPXx07SuqF2iG7snE4Xn5ydVBP3OLGmwHJdK1RmmsKIwiWDHhEcd5v\nErvF88Q/+imGGAkdmMdSrHA8hmodcFuLMDd4MWYn9Ca73+mJyIDgoiN8xwKBgDOC\nLb1R6Vvuw7ZsNK//BF+pyM4rfeiBaTPg530LrTbskXI6Wlg+0GKmUUdW8KUYwS21\ngLfnklh9X47gsypUCecwY8TsDhqOBZdMFtKap895sbE8s1n5QLNMC5Mr+/TGWWsO\nxK6mOPf4UuCo5BZhj253tXp7Fb5yRHcRW81+D7G5AoGBAPLhLf2Bm0dm9QZbw0Ka\ntbO7IVvZTm3baejxgFB5NR31AoL5qmSUfYW7k4DeKHHjH2vfGGWs3VugGvOoPcEC\n7XXsrM5gmuObWlz8Qt1OByrp+QopVVRXVaF2JVERvWlUTnTUoZJOa7f1QyTlTwgi\ntQPBBhK/hOOXUbFVDU408YM8\n-----END PRIVATE KEY-----\n';
 let clientEmail = "client-access@smemo-c2001.iam.gserviceaccount.com";
@@ -117,7 +117,12 @@ app.intent('Insegnare(1)', conv => {
 
 app.intent('Contesto(2-new)', conv => {
   conv.ask(`A quale domanda devo rispondere ?`);
-  var contestoDatoDaUser = conv.parameters.categoria;
+  if (conv.parameters.categoria != null) {
+    var contestoDatoDaUser = conv.parameters.categoria;
+  }
+  else {
+    var contestoDatoDaUser = conv.contexts.input.contesto.parameters.contestoDaUser;
+  }
   const parameters = {
     contestoDaUser: contestoDatoDaUser,
   };
@@ -157,69 +162,52 @@ app.intent('Risposta(4)', conv => {
   var contestoDatoDaUser = conv.contexts.input.risposta.parameters.contestoDatoDaUser;
   var domandaDatoDaUser = conv.contexts.input.risposta.parameters.domandaDatoDaUser;
   const parameters = {
-     contestoDatoDaUser: contestoDatoDaUser, domandaDatoDaUser: domandaDatoDaUser, risposta: conv.input.raw
+     contestoDatoDaUser: contestoDatoDaUser
   };
-  conv.contexts.set('CreazioneIntento', 1, parameters);
+  conv.ask(new HtmlResponse({
+  /*  data: {
+      scene: 'newCard',
+    }*/
+  }));
+  CreateIntent(contestoDatoDaUser, domandaDatoDaUser, conv.input.raw);
+  conv.ask(`Se vuoi creare altro in questa categoria di: ${contestoDatoDaUser}`);
+  conv.contexts.set('LoopCreazioneIntento', 1, parameters);
+});
 
+app.intent('Loop Creazione Intento', conv => {
+  // TODO verifica che "conv.contexts.input.loopcreazioneintento.parameters.contestoDatoDaUser" contenga veramente il vecchio contesto
+  if(conv.parameters.categoria != conv.contexts.input.loopcreazioneintento.parameters.contestoDatoDaUser) {
+    conv.ask("OK, ti riporto alla schermata iniziale");
+    conv.ask(new HtmlResponse({
+      data: {
+        scene: 'home',
+      }
+    }));
+    // TODO far partire stelline e poi home
+  }
+  else {
+    conv.ask(`a quale nuova domanda devo rispondere ?`);
+    const parameters = {
+      contestoDaUser: conv.parameters.categoria,
+    };
+    conv.contexts.set('Domanda', 1, parameters);
+    conv.ask(new HtmlResponse({
+      data: {
+        scene: 'insegnami', // TODO far vedere schermata con gli intenti creati
+      }
+    }));
+  }
+});
+
+app.intent('Fallback Loop Creazione Intento', conv => {
+  conv.ask("OK, ti riporto alla schermata iniziale");
   conv.ask(new HtmlResponse({
     data: {
-      scene: 'newCard',
+      scene: 'home',
     }
   }));
-
-  CreateIntent(contestoDatoDaUser, domandaDatoDaUser, conv.input.raw);
 });
 
-
-function CreateIntent(contestoDatoDaUser, domandaDatoDaUser, rispostaDatoDaUser){
-
-// per Create Intent --------
-
-const formattedParent = client.projectAgentPath('smemo-c2001');
-const intent = {
-  "displayName": String(domandaDatoDaUser),
-  "trainingPhrases": [
-    {
-      "type": "TYPE_UNSPECIFIED",
-      "parts": [
-        {
-          "text": String(domandaDatoDaUser)
-        }
-      ],
-      "timesAddedCount": 0
-    }
-  ],
-  "parameters": [
-    {
-      "displayName": "categoria",
-      "value": String(contestoDatoDaUser)
-    }
-  ],
-  "messages": [
-    {
-      "text": {
-        "text": [
-          rispostaDatoDaUser
-        ]
-      }
-    }
-    ]};
-const req = {
-  parent: formattedParent,
-  intent: intent,
-};
-
-// create intent
-client.createIntent(req)
-.then(responses => {
-const response = responses[0];
-// doThingsWith(response)
-})
-.catch(err => {
-console.error(err);
-});
-
-}
 
 app.intent('CambioNome', conv => {
   conv.ask(new HtmlResponse({
@@ -281,7 +269,87 @@ app.intent('vai alla Home', conv => {
   }));
 });
 
+app.intent('Chiedimi', conv => {
+  conv.ask(new HtmlResponse({
+    data: {
+      scene: 'chiedimi',
+    }
+  }));
+  const parameters = {
+  };
+  conv.contexts.set('chiedimi', 5, parameters);
+  conv.ask(`Perfetto, ora chiedimi quello che mi hai insegnato o altro.`);
+});
 
+app.intent('vai alle impostazioni', conv => {
+  conv.ask(new HtmlResponse({
+    data: {
+      scene: 'chiedimi',
+    }
+  }));
+  const parameters = {
+  };
+  conv.contexts.set('impostazioni', 5, parameters);
+  conv.ask(`Ok, ora siamo nelle impostazioni.`);
+});
+
+
+//############## FUNZIONI ###################################################################
+
+function CreateIntent(contestoDatoDaUser, domandaDatoDaUser, rispostaDatoDaUser){
+// per Create Intent --------
+const formattedParent = client.projectAgentPath('smemo-c2001');
+const intent = {
+  "displayName": String(domandaDatoDaUser),
+  "inputContextNames": [
+    "projects/smemo-c2001/agent/sessions/-/contexts/chiedimi"
+  ],
+  "trainingPhrases": [
+    {
+      "type": "TYPE_UNSPECIFIED",
+      "parts": [
+        {
+          "text": String(domandaDatoDaUser)
+        }
+      ],
+      "timesAddedCount": 0
+    }
+  ],
+  "outputContexts": [
+    {
+      "name": "projects/smemo-c2001/agent/sessions/-/contexts/chiedimi",
+      "lifespanCount": 5,
+    }
+  ],
+  "parameters": [
+    {
+      "displayName": "categoria",
+      "value": String(contestoDatoDaUser)
+    }
+  ],
+  "messages": [
+    {
+      "text": {
+        "text": [
+          rispostaDatoDaUser
+        ]
+      }
+    }
+    ]};
+const req = {
+  parent: formattedParent,
+  intent: intent,
+};
+// create intent
+client.createIntent(req)
+.then(responses => {
+const response = responses[0];
+// doThingsWith(response)
+})
+.catch(err => {
+console.error(err);
+});
+}
 
 
 exports.fulfillment = functions.https.onRequest(app);

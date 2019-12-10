@@ -13,6 +13,7 @@ interactiveCanvas.ready({
     if (data.scene === 'chiedimi') {
       document.querySelector('#welcome').style.display = 'none';
       document.querySelector('#backHome').style.display = 'block';
+      document.querySelector('#chiedimiMess').innerText = data.message;
       document.querySelector('#chiedimi').style.display = 'block';
 	//document.querySelector('#chiedimiMessage').innerText = data.message;
      }
@@ -20,6 +21,8 @@ interactiveCanvas.ready({
     if (data.scene === 'createIntent') {
       document.querySelector('#robotCentro').style.display = 'none';
       document.querySelector('#insegnami').style.display = 'none';
+      //scritta con il nome dell'intento
+      //scitta a quale domanda devo rispondere? --> sempre la stessa
       document.querySelector('#robotDx').style.display = 'block';
       document.querySelector('#singleCard').style.display = 'block';
     }
@@ -43,7 +46,7 @@ interactiveCanvas.ready({
         document.querySelector('#newCard').style.display = 'block';
       }, 5000);
     }
-    //visualizzazione impostazioni, di default parte l'impostazione della voce
+    //visualizzazione impostazioni, di default parte l'impostazione della voce(che si occupa di cambiare il colore al robot)
     if (data.scene === 'impostazioni'){
       //alla fine dello sviluppo scrivere tutti gli id delle pagine da cui può partire a none
       document.querySelector('#backHome').style.display = 'block';
@@ -51,15 +54,6 @@ interactiveCanvas.ready({
       document.querySelector('#robotDx').style.display = 'block';
       document.querySelector('#voce').style.display = 'block';
       //immagine voce più grnade, altre 2 pù piccole
-    }
-    //visualizzazione impostazioni per cambio nome
-    if (data.scene === 'nome'){
-      //alla fine dello sviluppo scrivere tutti gli id delle pagine da cui può partire a none
-      document.querySelector('#backHome').style.display = 'block';
-      document.querySelector('#tutorial').style.display = 'block';
-      document.querySelector('#robotDx').style.display = 'block';
-      document.querySelector('#nome').style.display = 'block';
-      //immagine colore più grnade, altre 2 pù piccole
     }
     //visualizzazione impostazioni per cambio sfondo
     if (data.scene === 'sfondo'){
@@ -69,15 +63,6 @@ interactiveCanvas.ready({
       document.querySelector('#robotDx').style.display = 'block';
       document.querySelector('#sfondo').style.display = 'block';
       //immagine sfondo più grnade, altre 2 pù piccole
-    }
-    //visualizzazione impostazioni per cambio colore
-    if (data.scene === 'colore'){
-      //alla fine dello sviluppo scrivere tutti gli id delle pagine da cui può partire a none
-      document.querySelector('#backHome').style.display = 'block';
-      document.querySelector('#tutorial').style.display = 'block';
-      document.querySelector('#robotDx').style.display = 'block';
-      document.querySelector('#colore').style.display = 'block';
-      //immagine colore più grnade, altre 2 pù piccole
     }
     //ritorno alla home page(welcome)
     if (data.scene === 'home'){
@@ -95,6 +80,7 @@ interactiveCanvas.ready({
     }
     //default page
     else {
+      document.querySelector('#defaultPage').style.display = 'block';    
     }
 
   }
