@@ -29,17 +29,17 @@ body {
 
 #backHome {
   /* per visualizzare inserire display: inline-block */
- display: none;
+ display: inline-block;
  width: 10%;
  top: 2px;
- left: 50%;
+ left: 20px;
  position: absolute;
 }
 
 #tutorial {
 
  display: inline-block;
- width: 15%;
+ width: 10%;
  top: 2px;
  right: 10px;
  position: absolute;
@@ -47,7 +47,7 @@ body {
 
 #impostazioni {
  display: inline-block;
-width: 15%;
+width: 10%;
 top: 2px;
 position: absolute;
 right: 100px;
@@ -55,10 +55,11 @@ right: 100px;
 
 #robotCentro {
   /* per visualizzare inserire display: block */
-  display: block;
+  display: none;
   width: 20%;
   margin: auto;
   position: relative;
+  top: -80px;
 
 }
 
@@ -71,20 +72,20 @@ right: 100px;
 
 #bottone {
   /* per visualizzare inserire display: block */
-display: block;
-width: 25%;
-margin: auto;
-bottom: -250px;
-position: relative;
+  display: block;
+      width: 20%;
+      margin-left: 39.5%;
+      bottom: 0;
+      position: absolute;
 }
 
 #cards {
   /* per visualizzare inserire display: inline-block */
- display: inline-block;
- width: 22%;
- left: -20px;
- bottom: -75px;
- position: absolute;
+  display: inline-block;
+  width: 15%;
+  left: 15px;
+  bottom: 10px;
+  position: absolute;
 }
 
 
@@ -104,39 +105,31 @@ div.container {
 #smemo img {
   flex: 1;
   /* animation: rotate-anime 3s linear infinite; */
-width: 60%;
-top: 2px;
-position: relative;
-margin-bottom: 100px;
+
 }
 
+#smemoLogo {
+  width: 70%;
+    top: -100px;
+    position: relative;
 
+}
 
 #ins {
-  width: 2px;
-  margin-top: 200px;
+  width: 50%;
+
 
 }
 
 #chied {
-  width: 20%;
-margin-top: 200px;
-}
-
-#insegnami {
- display: none;
+  width: 50%;
 
 }
 
-#chiedimi {
- display: none;
- width: 20%;
- margin-bottom: 100px;
-}
+
 
 #testo {
   /* per visualizzare inserire display: inline-block */
-  display: none;
   color: var(azzurro);
   font-family: gill-sans-nova, sans-serif;
 font-weight: 900;
@@ -156,7 +149,7 @@ font-style: normal;
 
 /* per visualizzare inserire display: block */
 #insegnami {
-  display: inline-block;
+  display: none;
 }
 
 
@@ -169,6 +162,7 @@ font-weight: 900;
 font-size: 30px;
 font-style: normal;
 margin: auto;
+
 
 }
 
@@ -186,7 +180,27 @@ margin: auto;
 #newCard {
   display: none;
 }
+                            /* PAGINA - DEFAULT */
 
 #defaultPage {
-  display: none;
+  /* per visualizzare inserire display: block */
+  display: block;
+}
+
+#robotDefault {
+
+  width: 20%;
+  margin: auto;
+  position: relative;
+  top: -80px;
+}
+
+#testoDefault {
+  display: inline;
+    color: #5ABFEA;
+    font-family: gill-sans-nova, sans-serif;
+  font-weight: 900;
+  font-size: 30px;
+  font-style: normal;
+  margin: auto;
 }
