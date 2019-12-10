@@ -74,7 +74,7 @@ right: 100px;
   /* per visualizzare inserire display: block */
   display: block;
       width: 20%;
-      margin-left: 39.5%;
+      margin-left: 0;
       bottom: 0;
       position: absolute;
 }
@@ -98,7 +98,7 @@ div.container {
 
 #welcome {
   /* per visualizzare inserire display: block */
-  display: none;
+  display: block;
 
 }
 
@@ -208,23 +208,45 @@ margin: auto;
                           /* PAGINA - VOCE */
 
 #voce {
-  display: block;
+  display: none;
 }
 
 #maschio {
   display: inline-block;
-  width: 7%;
+  width: 8%;
 }
 
 #femmina {
   display: inline-block;
-  width: 7%;
+  width: 8%;
 }
+
+#T {
+  display: inline-block;
+    color: #5ABFEA;
+    font-family: gill-sans-nova, sans-serif;
+  font-weight: 900;
+  font-size: 15px;
+}
+
+#bloccoVoce {
+  display: block;
+  width: 20%;
+  margin-left: -50px;
+}
+
+#bloccoSfondo {
+  display: block;
+  width: 20%;
+  margin-left: -85px;
+}
+
+
+
+                        /* PAGINA - SFONDO */
 
 #spazioSmall {
   width: 5px;
-
-
 }
 
 #dinosauriSmall {
