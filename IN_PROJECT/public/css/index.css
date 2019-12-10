@@ -68,7 +68,7 @@ right: 100px;
   display: block;
   width: 15%;
 margin-left: 74%;
-bottom: 40%;
+bottom: 35%;
 position: absolute;
 }
 
@@ -223,12 +223,12 @@ margin: auto;
 
 }
 
-#T {
+#Tvoce {
   display: inline-block;
     color: var(--azzurro);
     font-family: gill-sans-nova, sans-serif;
   font-weight: 900;
-  font-size: 15px;
+  font-size: 20px;
   margin: auto;
   margin-bottom: 2%;
 
@@ -266,17 +266,47 @@ margin: auto;
 
 
                         /* PAGINA - SFONDO */
+#sfondi {
+  /* per visualizzare inserire display: block */
+  display: none;
+}
+
+#Tsfondi {
+  display: inline-block;
+    color: var(--azzurro);
+    font-family: gill-sans-nova, sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+  margin: auto;
+  margin-bottom: 2%;
+}
+
 
 #spazioSmall {
-  width: 5px;
+  display: inline-block;
+  width: 10%;
+
 }
 
 #dinosauriSmall {
-  width: 5px;
+  display: inline-block;
+  width: 10%;
 
 }
 
 #caramelleSmall {
-  width: 5px;
+  display: inline-block;
+  width: 10%;
+}
 
+#bloccoVoce2 {
+  display: block;
+  width: 15%;
+  margin-left: -65px;
+}
+
+#bloccoSfondo2 {
+  display: block;
+  width: 15%;
+  margin-left: -45px;
 }
