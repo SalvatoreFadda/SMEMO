@@ -15,6 +15,16 @@ body {
   align-items: center;
 }
 
+:root {
+
+  --azzurro: #5ABFEA;
+  --giallo: #FDDB06;
+  --rosso: #E45934;
+  --verde: #99C33F;
+  --arancione: #EE7829;
+
+}
+
                                   /* ELEMENTI GLOBALI */
 
 #backHome {
@@ -43,32 +53,41 @@ position: absolute;
 right: 100px;
 }
 
-#cards {
-  /* per visualizzare inserire display: inline-block */
- display: inline-block;
- width: 60%;
- left: -260px;
- bottom: 20px;
- position: absolute;
-}
-
 #robotCentro {
-  /* per visualizzare inserire display: inline-block */
-  display: none;
-  width: 15%;
-  position: absolute;
+  /* per visualizzare inserire display: block */
+  display: block;
+  width: 20%;
   margin: auto;
+  position: relative;
 
 }
 
 #robotDx {
-  /* per visualizzare inserire display: inline-block */
+  /* per visualizzare inserire display: block */
   display: none;
   width: 15%;
-  position: absolute;
-  margin: auto;
 
 }
+
+#bottone {
+  /* per visualizzare inserire display: block */
+display: block;
+width: 25%;
+margin: auto;
+bottom: -250px;
+position: relative;
+}
+
+#cards {
+  /* per visualizzare inserire display: inline-block */
+ display: inline-block;
+ width: 22%;
+ left: -20px;
+ bottom: -75px;
+ position: absolute;
+}
+
+
                                       /* PAGINA - HOME */
 
 div.container {
@@ -78,7 +97,7 @@ div.container {
 
 #welcome {
   /* per visualizzare inserire display: block */
-  display: block;
+  display: none;
 
 }
 
@@ -118,7 +137,7 @@ margin-top: 200px;
 #testo {
   /* per visualizzare inserire display: inline-block */
   display: none;
-  color: #5BC0EC;
+  color: var(azzurro);
   font-family: gill-sans-nova, sans-serif;
 font-weight: 900;
 font-size: 30px;
@@ -126,14 +145,6 @@ font-style: normal;
 
 }
 
-#bottone {
-  display: inline-block;
-  margin: auto;
-  width: 20%;
-  left: 550px;
-  bottom: -100px;
-  position: absolute;
-}
 
 
 #intentVideo {
@@ -145,19 +156,22 @@ font-style: normal;
 
 /* per visualizzare inserire display: block */
 #insegnami {
-  display: none;
+  display: inline-block;
 }
 
 
 
 #testo2  {
-
-  color: #5BC0EC;
+display: inline;
+  color: #5ABFEA;
   font-family: gill-sans-nova, sans-serif;
 font-weight: 900;
 font-size: 30px;
 font-style: normal;
+margin: auto;
+
 }
+
 
                               /* PAGINA - SINGLE CARD */
 
@@ -170,5 +184,9 @@ font-style: normal;
                              /* PAGINA - NEW CARD */
 
 #newCard {
+  display: none;
+}
+
+#defaultPage {
   display: none;
 }
