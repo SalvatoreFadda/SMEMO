@@ -55,17 +55,18 @@ right: 100px;
 
 #robotCentro {
   /* per visualizzare inserire display: block */
-  display: none;
+  display: block;
   width: 20%;
   margin: auto;
-  position: relative;
-  top: -80px;
+  position: absolute;
+    left: 40%;
+    bottom: 60%;
 
 }
 
 #robotDx {
   /* per visualizzare inserire display: inline-block */
-  display: block;
+  display: none;
   width: 15%;
 margin-left: 74%;
 bottom: 30%;
@@ -151,7 +152,7 @@ font-style: normal;
 
 
 
-#testo2  {
+#testoIns  {
 display: inline;
   color: var(--azzurro);
   font-family: gill-sans-nova, sans-serif;
@@ -159,10 +160,88 @@ font-weight: 900;
 font-size: 30px;
 font-style: normal;
 margin: auto;
+}
 
+                           /* PAGINA - DOMANDA */
+#domanda {
+  /* per visualizzare inserire display: block */
+  display: block;
+}
+
+#testoDomanda  {
+display: inline;
+  color: var(--azzurro);
+  font-family: gill-sans-nova, sans-serif;
+font-weight: 900;
+font-size: 30px;
+font-style: normal;
+margin: auto;
+}
+
+                             /* PAGINA - RISPOSTA */
+#risposta {
+  /* per visualizzare inserire display: block */
+  display: none;
+}
+
+#testoRisposta  {
+display: inline;
+  color: var(--azzurro);
+  font-family: gill-sans-nova, sans-serif;
+font-weight: 900;
+font-size: 30px;
+font-style: normal;
+margin: auto;
+}
+                            /* PAGINA - CONTINUA */
+
+ #continua {
+   /* per visualizzare inserire display: block */
+   display: none;
+ }
+
+#testoContinua {
+  display: inline;
+    color: var(--azzurro);
+    font-family: gill-sans-nova, sans-serif;
+  font-weight: 900;
+  font-size: 35px;
+  font-style: normal;
+  margin: auto;
+  line-height: 9px;
+  position: absolute;
+    bottom: 46%;
+    right: 23%;
 
 }
 
+#testoContinua2 {
+  display: inline;
+    color: var(--azzurro);
+    font-family: gill-sans-nova, sans-serif;
+  font-weight: 900;
+  font-size: 25px;
+  font-style: normal;
+  margin: auto;
+  line-height: 7px;
+  position: absolute;
+left: 28%;
+bottom: 30%;
+}
+
+#testoContinua3 {
+  display: inline;
+    color: var(--rosso);
+    font-family: gill-sans-nova, sans-serif;
+  font-weight: 900;
+  font-size: 30px;
+  font-style: normal;
+  margin: auto;
+  line-height: 7px;
+  position: absolute;
+    left: 44%;
+    bottom: 28%;
+}
 
                               /* PAGINA - SINGLE CARD */
 
@@ -343,7 +422,7 @@ margin: auto;
                           /* PAGINA - NOME */
 #nome {
   /* per visualizzare inserire display: block */
-  display: block;
+  display: none;
 }
 
 #Tnome {
