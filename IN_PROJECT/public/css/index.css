@@ -67,7 +67,7 @@ right: 100px;
 }
 
 #robotDx {
-  /* per visualizzare inserire display: inline-block */
+  /* per visualizzare inserire display: block */
   display: none;
   width: 15%;
 margin-left: 74%;
@@ -110,8 +110,9 @@ div.container {
 
 #smemoLogo {
   width: 70%;
-    top: -100px;
-    position: relative;
+  top: 80px;
+  position: absolute;
+  left: 192px;
 
 }
 
@@ -130,11 +131,13 @@ div.container {
 
 #testo {
   /* per visualizzare inserire display: inline-block */
+  display: block;
   color: var(--azzurro);
   font-family: gill-sans-nova, sans-serif;
 font-weight: 900;
 font-size: 30px;
 font-style: normal;
+
 
 }
 
@@ -156,7 +159,7 @@ font-style: normal;
 
 
 #testoIns  {
-display: inline;
+display: block;
   color: var(--azzurro);
   font-family: gill-sans-nova, sans-serif;
 font-weight: 900;
