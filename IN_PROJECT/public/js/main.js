@@ -7,22 +7,22 @@ interactiveCanvas.ready({
     //visualizzazione pagina dove il bambino insegna a SMEMO
     if (data.scene === 'insegnami') {
       noneSelector('insegnami');
-      document.querySelector('#impostazioni').style.display = 'block';
-      document.querySelector('#tutorial').style.display = 'block';
-      document.querySelector('#cards').style.display = 'block';
+      document.querySelector('#impostazioni').style.display = 'inline-block';
+      document.querySelector('#tutorial').style.display = 'inline-block';
+      document.querySelector('#cards').style.display = 'inline-block';
       document.querySelector('#bottone').style.display = 'block';
       document.querySelector('#robotCentro').style.display = 'block';
-      document.querySelector('#backHome').style.display = 'block';
+      document.querySelector('#backHome').style.display = 'inline-block';
       document.querySelector('#insegnami').style.display = 'block';
     }
     //visualizzazione pagina della richietsa del bambino a SMEMO
     if (data.scene === 'chiedimi') {
       noneSelector('chiedimi');
-      document.querySelector('#impostazioni').style.display = 'block';
-      document.querySelector('#tutorial').style.display = 'block';
-      document.querySelector('#cards').style.display = 'block';
+      document.querySelector('#impostazioni').style.display = 'inline-block';
+      document.querySelector('#tutorial').style.display = 'inline-block';
+      document.querySelector('#cards').style.display = 'inline-block';
       document.querySelector('#bottone').style.display = 'block';
-      document.querySelector('#backHome').style.display = 'block';
+      document.querySelector('#backHome').style.display = 'inline-block';
       document.querySelector('#robotCentro').style.display = 'block';
       //document.querySelector('#chiedimiMess').innerText = data.message;
       document.querySelector('#chiedimi').style.display = 'block';
@@ -44,15 +44,15 @@ interactiveCanvas.ready({
         document.getElementById("tada").autoplay = false;
         document.querySelector('#intentVideo').style.display = 'none';
         document.querySelector('#bottone').style.display = 'block';
-        document.querySelector('#backHome').style.display = 'block';
+        document.querySelector('#backHome').style.display = 'inline-block';
         document.querySelector('#newCard').style.display = 'block';
       }, 7000);
     }
     //visualizzazione impostazioni, di default parte l'impostazione della voce(che si occupa di cambiare anche il colore del robot)
     if (data.scene === 'impostazioni'){
       noneSelector('impostazioni');
-      document.querySelector('#backHome').style.display = 'block';
-      document.querySelector('#tutorial').style.display = 'block';
+      document.querySelector('#backHome').style.display = 'inline-block';
+      document.querySelector('#tutorial').style.display = 'inline-block';
       document.querySelector('#bottone').style.display = 'block';
       document.querySelector('#robotDx').style.display = 'block';
       document.querySelector('#voce').style.display = 'block';
@@ -61,8 +61,8 @@ interactiveCanvas.ready({
     //visualizzazione impostazioni per cambio sfondo
     if (data.scene === 'sfondi'){
       noneSelector('sfondi');
-      document.querySelector('#backHome').style.display = 'block';
-      document.querySelector('#tutorial').style.display = 'block';
+      document.querySelector('#backHome').style.display = 'inline-block';
+      document.querySelector('#tutorial').style.display = 'inline-block';
       document.querySelector('#bottone').style.display = 'block';
       document.querySelector('#robotDx').style.display = 'block';
       document.querySelector('#sfondi').style.display = 'block';
@@ -71,8 +71,8 @@ interactiveCanvas.ready({
     //visualizzazione impostazioni per cambio nome
     if (data.scene === 'nome'){
       noneSelector('nome');
-      document.querySelector('#backHome').style.display = 'block';
-      document.querySelector('#tutorial').style.display = 'block';
+      document.querySelector('#backHome').style.display = 'inline-block';
+      document.querySelector('#tutorial').style.display = 'inline-block';
       document.querySelector('#bottone').style.display = 'block';
       document.querySelector('#robotDx').style.display = 'block';
       document.querySelector('#nome').style.display = 'block';
@@ -81,10 +81,10 @@ interactiveCanvas.ready({
     //ritorno alla home page(welcome)
     if (data.scene === 'home'){
       noneSelector('home');
-      document.querySelector('#impostazioni').style.display = 'block';
-      document.querySelector('#tutorial').style.display = 'block';
+      //document.querySelector('#impostazioni').style.display = 'inline-block';
+      //document.querySelector('#tutorial').style.display = 'inline-block';
       document.querySelector('#bottone').style.display = 'block';
-      document.querySelector('#cards').style.display = 'block';
+      document.querySelector('#cards').style.display = 'inline-block';
       document.querySelector('#welcome').style.display = 'block';
     }
     //visualizzazione delle cards
