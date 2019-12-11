@@ -22,8 +22,10 @@ body {
   --rosso: #E45934;
   --verde: #99C33F;
   --arancione: #EE7829;
+  --bianco: #ffffff;
 
 }
+
 
                                   /* ELEMENTI GLOBALI */
 
@@ -55,7 +57,7 @@ right: 100px;
 
 #robotCentro {
   /* per visualizzare inserire display: block */
-  display: block;
+  display: none;
   width: 20%;
   margin: auto;
   position: absolute;
@@ -101,7 +103,7 @@ div.container {
 
 #welcome {
   /* per visualizzare inserire display: block */
-  display: none;
+  display: block;
 
 }
 
@@ -145,6 +147,7 @@ font-style: normal;
 
                                /* PAGINA - INSEGNAMI */
 
+/* accendere robotCentro */
 /* per visualizzare inserire display: block */
 #insegnami {
   display: none;
@@ -163,9 +166,11 @@ margin: auto;
 }
 
                            /* PAGINA - DOMANDA */
+
+/* accendere robotCentro */
 #domanda {
   /* per visualizzare inserire display: block */
-  display: block;
+  display: none;
 }
 
 #testoDomanda  {
@@ -179,6 +184,8 @@ margin: auto;
 }
 
                              /* PAGINA - RISPOSTA */
+
+/* accendere robotCentro */
 #risposta {
   /* per visualizzare inserire display: block */
   display: none;
@@ -195,6 +202,7 @@ margin: auto;
 }
                             /* PAGINA - CONTINUA */
 
+/* accendere robotCentro */
  #continua {
    /* per visualizzare inserire display: block */
    display: none;
@@ -252,10 +260,30 @@ bottom: 30%;
 
 
                              /* PAGINA - NEW CARD */
-
+/* accendere robotDx */
 #newCard {
+  /* per visualizzare inserire display: block */
   display: none;
+
 }
+
+#testoNewCard {
+  display: inline;
+    color: var(--bianco);
+    font-family: gill-sans-nova, sans-serif;
+  font-weight: 900;
+  font-size: 30px;
+  font-style: normal;
+  margin: auto;
+}
+
+#card1 {
+  width: 30%;
+  margin: auto;
+  position: relative;
+  top: -80px;
+}
+
                             /* PAGINA - DEFAULT */
 
 #defaultPage {
@@ -283,6 +311,7 @@ bottom: 30%;
 
                           /* PAGINA - VOCE */
 
+/* accendere robotDx */
 #voce {
   /* per visualizzare inserire display: block */
   display: none;
@@ -362,6 +391,8 @@ bottom: 30%;
 
 
                         /* PAGINA - SFONDO */
+
+/* accendere robotDx */
 #sfondi {
   /* per visualizzare inserire display: block */
   display: none;
@@ -420,6 +451,8 @@ bottom: 30%;
   bottom: 33%;
 }
                           /* PAGINA - NOME */
+
+/* accendere robotDx */
 #nome {
   /* per visualizzare inserire display: block */
   display: none;
