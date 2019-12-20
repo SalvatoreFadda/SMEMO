@@ -1,0 +1,91 @@
+<svg id="Livello_1" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 855.13 413.68">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #e55934;
+      }
+
+      .cls-2 {
+        fill: #9bc53d;
+      }
+
+      .cls-3 {
+        fill: #fa7921;
+      }
+
+      .cls-4 {
+        fill: #5bc0eb;
+      }
+
+      .cls-5 {
+        fill: #0247fe;
+      }
+
+      .cls-6 {
+        fill: #8601af;
+      }
+
+      .cls-7, .cls-8 {
+        isolation: isolate;
+      }
+
+      .cls-8 {
+        font-size: 20px;
+        fill: #fff;
+        font-family: GillSansStd-ExtraBold, Gill Sans Std;
+        font-weight: 800;
+      }
+
+      .cls-9 {
+        letter-spacing: -0.13em;
+      }
+
+      .cls-10 {
+        letter-spacing: -0.02em;
+      }
+
+      .cls-11 {
+        letter-spacing: -0.03em;
+      }
+
+      .cls-12 {
+        letter-spacing: -0.08em;
+      }
+
+      .cls-13 {
+        letter-spacing: -0.02em;
+      }
+
+      .cls-14 {
+        letter-spacing: 0em;
+      }
+    </style>
+  </defs>
+  <title>Tavola disegno 1</title>
+  <g>
+    <rect id="Rectangle_44" data-name="Rectangle 44" class="cls-1" x="52.78" y="83.56" width="191.56" height="101.56" rx="17"/>
+    <rect id="Rectangle_54" data-name="Rectangle 54" class="cls-2" x="331.78" y="83.56" width="191.56" height="101.56" rx="17"/>
+    <rect id="Rectangle_55" data-name="Rectangle 55" class="cls-3" x="610.78" y="83.56" width="191.56" height="101.56" rx="17"/>
+    <rect id="Rectangle_56" data-name="Rectangle 56" class="cls-4" x="52.78" y="228.56" width="191.56" height="101.56" rx="17"/>
+    <rect id="Rectangle_57" data-name="Rectangle 57" class="cls-5" x="331.78" y="228.56" width="191.56" height="101.56" rx="17"/>
+    <rect id="Rectangle_58" data-name="Rectangle 58" class="cls-6" x="610.78" y="228.56" width="191.56" height="101.56" rx="17"/>
+    <g id="MATEMATICA" class="cls-7">
+      <text class="cls-8" transform="translate(72.29 139.56)">M<tspan class="cls-9" x="19.58" y="0">A</tspan><tspan x="35" y="0">TEM</tspan><tspan class="cls-9" x="81.66" y="0">A</tspan><tspan x="97.08" y="0">TI</tspan><tspan class="cls-10" x="119.16" y="0">C</tspan><tspan x="134.06" y="0">A</tspan></text>
+    </g>
+    <g id="GEOGRAFIA" class="cls-7">
+      <text class="cls-8" transform="translate(361.05 139.56)">GEOGRAFIA</text>
+    </g>
+    <g id="STORIA" class="cls-7">
+      <text class="cls-8" transform="translate(664.44 139.56)">S<tspan class="cls-11" x="11.46" y="0">T</tspan><tspan x="25.14" y="0">ORIA</tspan></text>
+    </g>
+    <g id="ANIMALI" class="cls-7">
+      <text class="cls-8" transform="translate(97.77 285.56)">ANIMALI</text>
+    </g>
+    <g id="ARTE" class="cls-7">
+      <text class="cls-8" transform="translate(397 285.56)">A<tspan class="cls-11" x="17.92" y="0">R</tspan><tspan x="33.48" y="0">TE</tspan></text>
+    </g>
+    <g id="ALTRO" class="cls-7">
+      <text class="cls-8" transform="translate(668.84 285.56)">A<tspan class="cls-12" x="17.92" y="0">L</tspan><tspan x="27.98" y="0">T</tspan><tspan class="cls-13" x="42.36" y="0">R</tspan><tspan class="cls-14" x="58.22" y="0">O</tspan></text>
+    </g>
+  </g>
+</svg>

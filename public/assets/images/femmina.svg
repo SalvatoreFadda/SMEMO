@@ -1,0 +1,89 @@
+<svg id="Livello_1" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 123 203">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #b47cdd;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #000;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-3 {
+        fill: #ffde00;
+      }
+
+      .cls-10, .cls-4 {
+        fill: #a63ad8;
+      }
+
+      .cls-5 {
+        fill: #f2bd00;
+      }
+
+      .cls-6 {
+        fill: #fff;
+      }
+
+      .cls-7 {
+        fill: #fa7921;
+      }
+
+      .cls-8 {
+        fill: #e56e1f;
+      }
+
+      .cls-10, .cls-9 {
+        isolation: isolate;
+      }
+
+      .cls-10 {
+        font-size: 18px;
+        font-family: GillSans-Bold, Gill Sans;
+        font-weight: 700;
+      }
+    </style>
+  </defs>
+  <title>femmina</title>
+  <g>
+    <g id="Group_17" data-name="Group 17">
+      <rect id="Rectangle_11" data-name="Rectangle 11" class="cls-1" x="26.35" y="12.81" width="70.31" height="53.33" rx="13.34"/>
+      <g id="Group_11" data-name="Group 11">
+        <path id="Path_22" data-name="Path 22" class="cls-2" d="M86.07,30s5.29-.69,4.57-2.84"/>
+        <path id="Path_23" data-name="Path 23" class="cls-2" d="M82.49,26.41s5.29-.69,4.57-2.84"/>
+        <path id="Path_24" data-name="Path 24" class="cls-2" d="M84.64,27.84s5.28-.69,4.57-2.84"/>
+      </g>
+      <g id="Group_12" data-name="Group 12">
+        <path id="Path_25" data-name="Path 25" class="cls-2" d="M37,30s-5.28-.69-4.57-2.84"/>
+        <path id="Path_26" data-name="Path 26" class="cls-2" d="M40.6,26.41s-5.29-.69-4.57-2.84"/>
+        <path id="Path_27" data-name="Path 27" class="cls-2" d="M38.46,27.84s-5.29-.69-4.58-2.84"/>
+      </g>
+      <path id="Path_28" data-name="Path 28" class="cls-1" d="M100.92,140.32H22.08a9.54,9.54,0,0,1-9.55-9.55V79.57A9.56,9.56,0,0,1,22.08,70h78.84a9.56,9.56,0,0,1,9.55,9.55h0v51.21A9.55,9.55,0,0,1,100.92,140.32Z"/>
+      <path id="Path_29" data-name="Path 29" class="cls-3" d="M73.36,13.06A14.3,14.3,0,0,0,53.5,9.2a14.16,14.16,0,0,0-3.89,3.9Z"/>
+      <path id="Path_30" data-name="Path 30" class="cls-4" d="M52.12,140.32C34.43,140.32,124.4,74.87,97.3,71a35.61,35.61,0,0,1,7.27-1c2.92,0,5.6,2.14,5.82,6.3V134s0,5.82-13.53,6.3Z"/>
+      <g id="Group_13" data-name="Group 13">
+        <circle id="Ellipse_10" data-name="Ellipse 10" class="cls-3" cx="42.63" cy="33.18" r="7.76"/>
+        <path id="Path_31" data-name="Path 31" class="cls-5" d="M35.78,36.81a7.76,7.76,0,0,1,12.16-9.29"/>
+        <path id="Path_32" data-name="Path 32" class="cls-5" d="M36.93,38.43a7.43,7.43,0,0,1-1.15-1.62"/>
+        <circle id="Ellipse_11" data-name="Ellipse 11" cx="42.63" cy="33.17" r="3.64"/>
+        <circle id="Ellipse_12" data-name="Ellipse 12" class="cls-6" cx="47.12" cy="29.05" r="3.15"/>
+      </g>
+      <g id="Group_14" data-name="Group 14">
+        <circle id="Ellipse_13" data-name="Ellipse 13" class="cls-3" cx="79.96" cy="33.18" r="7.76"/>
+        <path id="Path_33" data-name="Path 33" class="cls-5" d="M73.11,36.81a7.76,7.76,0,0,1,12.16-9.29"/>
+        <path id="Path_34" data-name="Path 34" class="cls-5" d="M74.26,38.43a7.43,7.43,0,0,1-1.15-1.62"/>
+        <circle id="Ellipse_14" data-name="Ellipse 14" cx="79.96" cy="33.17" r="3.64"/>
+        <circle id="Ellipse_15" data-name="Ellipse 15" class="cls-6" cx="84.45" cy="29.05" r="3.15"/>
+      </g>
+      <path id="Path_35" data-name="Path 35" class="cls-3" d="M69.81,45.84a1.91,1.91,0,0,0-2.7,0,1.93,1.93,0,0,0-.28.36A5.92,5.92,0,0,1,56.31,46a1.91,1.91,0,0,0-2.58-.71,2.18,2.18,0,0,0-.31.22,7.54,7.54,0,0,0-2.67,5.59c0,4.66,4.78,8.44,10.67,8.44s10.66-3.78,10.66-8.44A7.38,7.38,0,0,0,69.81,45.84Z"/>
+      <path id="Path_36" data-name="Path 36" class="cls-7" d="M55.89,58.31a1.36,1.36,0,0,1-.8-1.15V57.1c0-1.6,2.79-2.89,6.22-2.89s6.22,1.29,6.22,2.89a1.5,1.5,0,0,1-.28.86,1.34,1.34,0,0,1-.61.49A13.36,13.36,0,0,1,55.89,58.31Z"/>
+      <path id="Path_37" data-name="Path 37" class="cls-8" d="M61.42,59.49s6.08-1.4,3-4.88c0,0,4.65,1.11,2.5,3.66A12.34,12.34,0,0,1,61.42,59.49Z"/>
+    </g>
+    <g id="femmina" class="cls-9">
+      <text class="cls-10" transform="translate(21.8 188.85)">femmina</text>
+    </g>
+  </g>
+</svg>

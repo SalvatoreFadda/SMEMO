@@ -1,0 +1,343 @@
+<!--
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
+
+  //  update the version number as needed
+    <script defer src="/__/firebase/7.5.1/firebase-app.js"></script>
+   // include only the Firebase features as you need
+    <script defer src="/__/firebase/7.5.1/firebase-auth.js"></script>
+    <script defer src="/__/firebase/7.5.1/firebase-database.js"></script>
+    <script defer src="/__/firebase/7.5.1/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/7.5.1/firebase-storage.js"></script>
+   // initialize the SDK after all desired features are loaded
+    <script defer src="/__/firebase/init.js"></script>
+
+    <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="message">
+      <h2>Welcome</h2>
+      <h1>Firebase Hosting Setup Complete</h1>
+      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
+      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+    </div>
+    <p id="load">Firebase SDK Loading&hellip;</p>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+        try {
+          let app = firebase.app();
+          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
+          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+    </script>
+  </body>
+</html>
+
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SMEMO</title>
+    <link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;," />
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="https://www.gstatic.com/assistant/interactivecanvas/api/interactive_canvas.min.js"></script>
+<link rel="stylesheet" href="https://use.typekit.net/mib7gnh.css">
+
+  </head>
+
+  <body>
+
+
+
+    <div id="smemo" class="container">
+
+
+
+
+                                     <!-- PAGINA - HOME -->
+
+
+
+      <div id="welcome">
+        <img src="assets/images/smemoLogo.svg" id="smemoLogo">
+
+        <div class="column" id="testo">
+          <div> Ciao, che bello rivederti! </div>
+          <div> Giochiamo insieme? </div>
+      </div>
+
+<div class="row">
+
+	  <img src="assets/images/insegnami.svg" data-choice="insegnami" style="max-width:30%" id="ins">
+	  <img src="assets/images/chiedimi.svg" data-choice="chiedimi" style="max-width:30%" id="chied">
+</div>
+</div>
+
+                            <!-- ELEMENTI GLOBALI -->
+
+
+
+<div class="row">
+  <div class="column" id="impostazioni";>
+
+<img src="assets/images/impostazioni.svg" data-choice="impostazioni">
+
+ </div>
+
+<div class="column" id="tutorial";>
+
+<img src="assets/images/aiuto.svg" data-choice="tutorial">
+ </div>
+ <div class="column" id="backHome">
+  <img src="assets/images/homepage.svg" data-choice="home">
+ </div>
+   </div>
+
+
+<div class="row" id="robotCentro">
+         <img src="assets/images/robot.svg">
+</div>
+
+
+<div id="robotDx">
+      <img src="assets/images/robot.svg">
+</div>
+
+
+	<div id="intentVideo">
+	 <video id="tada">
+  	   <source src="assets/videos/tada2.mp4" type="video/mp4">
+	 </video>
+	</div>
+
+                               <!-- PAGINA - INSEGNAMI -->
+
+<!-- accendere robotCentro -->
+
+  <div id="insegnami">
+
+  <img src="assets/images/categorie.svg" id="categorie">
+
+</div>
+
+                           <!-- PAGINA - DOMANDA -->
+
+<div id="domanda">
+
+<div class="row" id="testoDomanda">
+   a quale domanda <p>
+devo rispondere?
+</div>
+
+</div>
+
+                            <!-- PAGINA - RISPOSTA -->
+<div id="risposta">
+
+<div class="row" id="testoRisposta">
+   che risposta <p>
+devo dare?
+</div>
+
+</div>
+
+                            <!-- PAGINA - CONTINUA -->
+<div id="continua">
+ <img src="assets/images/robotWow.svg" id="robotWow">
+  <div class="row" id="testoContinua">
+    WOW! <p> ho imparato qualcosa di nuovo, grazie! <p> 
+  </div>
+  <div id="testoContinua2"> puoi continuare ad insegnarmi qualcosa, <p>
+        altrimenti dimmi
+  </div>
+
+  <div id="testoContinua3">
+    'ho finito'
+  </div>
+
+</div>
+                    
+                <!-- PAGINA - CHIEDIMI
+                accendere robotCentro -->
+
+<div id="chiedimi">
+  
+    <div id="testoChiedimi"> chiedimi qualsiasi cosa! </div>
+</div>
+        
+        
+                            <!-- PAGINA - SINGLE CARD -->
+
+<div id="singleCard">
+  <div id="capitali"> CAPITALI </div>
+  <div id="tu"> TU </div>
+  <div id="smemoColore"> SMEMO </div>
+<div id="testo3"> xxx </div>
+
+</div>
+
+                            <!-- PAGINA - NEW CARD -->
+<div id="newCard">
+  <div id="testoNewCard"> NUOVA CARD CREATA!
+       </div>
+
+<div id="card1">  <img src="assets/images/jokes.svg">
+</div>
+<div id="colore"> <img src="assets/images/sfondoAzzurro.svg"> </div>
+</div>
+                          <!-- DEFAULT PAGE -->
+<div id="defaultPage">
+  <div class="row" id="robotDefault">
+           <img src="assets/images/robotDefault.svg">
+  </div>
+  <div class="row" id="testoDefault">
+     non ho capito... <p>
+ puoi ripetere?
+
+</div>
+</div>
+
+                       <!-- PAGINA VOCE -->
+<div class="container" id="voce">
+
+  <div id="Tvoce"> scegli con chi parlare!
+   </div>
+
+ <div class="row">
+
+  <div class="column" id="maschio">
+   <img src="assets/images/maschio.svg">
+ </div>
+   <div class="column" id="femmina">
+    <img src="assets/images/femmina.svg">
+  </div>
+ </div>
+
+
+ <div class="row">
+   <div class="column" id="bloccoVoce">
+     <img src="assets/images/voce.svg">
+   </div>
+   <div class="column" id="bloccoSfondo">
+     <img src="assets/images/sfondo.svg">
+   </div>
+<div id="bloccoNome">
+<img src="assets/images/nome.svg">
+</div>
+
+ </div>
+ <div id="T2">
+   per modificare, puoi premere il bottone <p> e ripetere la parola che trovi sotto ogni scelta <p>
+       esempio cambiare voce dimmi </div>
+<div id="T2F"> ‘femmina’
+ </div>
+</div>
+
+
+                         <!-- PAGINA SFONDI -->
+<div id="sfondi">
+
+  <div id="Tsfondi"> scegli il tuo sfondo!
+   </div>
+
+  <div class="row">
+    <div class="column" id="spazioSmall">
+      <img src="assets/images/spazioSmall.svg">
+  </div>
+  <div class="column" id="dinosauriSmall">
+    <img src="assets/images/dinosauriSmall.svg">
+</div>
+<div class="column" id="caramelleSmall">
+  <img src="assets/images/caramelleSmall.svg">
+</div>
+</div>
+
+<div class="row">
+  <div class="column" id="bloccoVoce2">
+    <img src="assets/images/voce.svg">
+  </div>
+
+  <div class="column" id="bloccoSfondo2">
+    <img src="assets/images/sfondo.svg">
+  </div>
+
+  <div id="bloccoNome2">
+  <img src="assets/images/nome.svg">
+  </div>
+
+</div>
+</div>
+
+                          <!-- PAGINA NOME -->
+ <div id="nome">
+   <div id="Tnome"> ti va di insegnarmi <p> il tuo nome? <p>
+   </div> <p> <p>
+   <div id="Tnome2"> premi </div>
+   <div id="Tnome3"> il mio bottone
+     <p> e dillo ad alta voce! </div>
+<div class="row">
+  <div class="column" id="bloccoVoce3">
+    <img src="assets/images/voce.svg">
+  </div>
+
+  <div class="column" id="bloccoSfondo3">
+    <img src="assets/images/sfondo.svg">
+  </div>
+
+  <div id="bloccoNome3">
+  <img src="assets/images/nome.svg">
+  </div>
+
+</div>
+</div>
+
+
+                          <!-- ELEMENTI GLOBALI -->
+  <div id="bottone">
+          <img src="assets/images/bottone.svg" data-choice="bottone">
+      </div>
+
+      <div id="cards">
+    	<img src="assets/images/card.svg" data-choice="cards">
+
+            </div>
+</div>
+    <script src="js/main.js"> </script>
+  </body>
+</html>
