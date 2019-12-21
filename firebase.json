@@ -5,25 +5,9 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ],
-    "headers": [
-      {
-        "source": "**",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "no-cache,no-store,must-revalidate"
-          },
-          {
-            "key": "Access-Control-Allow-Origin",
-            "value": "*"
-          },
-          {
-            "key": "Access-Control-Expose-Headers",
-            "value": "ETag"
-          }
-        ]
-      }
     ]
+  },
+  "database": {
+    "rules": "database.rules.json"
   }
 }

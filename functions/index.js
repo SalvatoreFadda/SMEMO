@@ -13,6 +13,10 @@ const {
   HtmlResponse,
   BasicCard,
   Image,
+  BrowseCarousel,
+  BrowseCarouselItem,
+  Suggestions,
+  LinkOutSuggestion,
   Button
 } = require('actions-on-google');
 const firebaseConfig = JSON.parse(process.env.FIREBASE_CONFIG);
@@ -117,12 +121,7 @@ app.intent('Insegnare(1)', conv => {
 
 app.intent('Contesto(2-new)', conv => {
   conv.ask(`A quale domanda devo rispondere ?`);
-  if (conv.parameters.categoria != null) {
-    var contestoDatoDaUser = conv.parameters.categoria;
-  }
-  else {
-    var contestoDatoDaUser = conv.contexts.input.contesto.parameters.contestoDaUser;
-  }
+  var contestoDatoDaUser = conv.input.raw;
   const parameters = {
     contestoDaUser: contestoDatoDaUser,
   };
@@ -134,14 +133,6 @@ app.intent('Contesto(2-new)', conv => {
   }));
 });
 
-app.intent('Contesto(2)Fallback', conv => {
-  conv.ask('Scusa ma non conosco questa categoria, scegline un altra tra quelle indicate');
-  conv.ask(new HtmlResponse({
-    data: {
-      scene: 'insegnami',
-    }
-  }));
-});
 
 app.intent('Domanda(3)', conv => {
   conv.ask('Che risposta devo dare ?');
@@ -174,7 +165,7 @@ app.intent('Risposta(4)', conv => {
   const ssml = '<speak>' +
     'Perfetto ! <break time="0.3s" />. ' +
     'Ho imparato qualcosa di nuovo. <break time="0.3s" />. ' +
-    `Se vuoi creare altro in questa categoria di: ${contestoDatoDaUser} <break time="0.4s" />.` +
+    `Se vuoi creare altro in questa categoria dimmi: ${contestoDatoDaUser} <break time="0.4s" />.` +
     'Altrimenti dimmi "Ho finito" <break time="0.1s" />.' +
 
     '</speak>';
@@ -184,7 +175,7 @@ app.intent('Risposta(4)', conv => {
 
 app.intent('Loop Creazione Intento', conv => {
   // TODO verifica che "conv.contexts.input.loopcreazioneintento.parameters.contestoDatoDaUser" contenga veramente il vecchio contesto
-  if(conv.parameters.categoria != conv.contexts.input.loopcreazioneintento.parameters.contestoDatoDaUser) {
+  if(conv.input.raw != conv.contexts.input.loopcreazioneintento.parameters.contestoDatoDaUser) {
     conv.ask(new HtmlResponse({
       data: {
         scene: 'newCard',
@@ -195,7 +186,7 @@ app.intent('Loop Creazione Intento', conv => {
   else {
     conv.ask(`a quale nuova domanda devo rispondere ?`);
     const parameters = {
-      contestoDaUser: conv.parameters.categoria,
+      contestoDaUser: conv.input.raw,
     };
     conv.contexts.set('Domanda', 1, parameters);
     conv.ask(new HtmlResponse({
@@ -204,14 +195,6 @@ app.intent('Loop Creazione Intento', conv => {
       }
     }));
   }
-});
-
-app.intent('Fallback Loop Creazione Intento', conv => {
-  conv.ask(new HtmlResponse({
-    data: {
-      scene: 'newCard',
-    }
-  }));
 });
 
 
@@ -268,9 +251,7 @@ app.intent('#barzelletta', conv => {
 app.intent('vai alla Home', conv => {
   conv.ask('ok, ti porto subito alla schermata iniziale');
   conv.ask(new HtmlResponse({
-    data: {
-      scene: 'home',
-    }
+    url: `https://${firebaseConfig.projectId}.firebaseapp.com/`
   }));
 });
 
@@ -296,6 +277,43 @@ app.intent('vai alle impostazioni', conv => {
   };
   conv.contexts.set('impostazioni', 5, parameters);
   conv.ask(`Ok, andiamo nelle impostazioni.`);
+});
+
+app.intent('Cards', (conv) => {
+  if (!conv.screen
+    || !conv.surface.capabilities.has('actions.capability.WEB_BROWSER')) {
+    conv.ask('Questo dispositivo non supporta il web browser ');
+      conv.ask('Prova sul telefono');
+    return;
+  }
+  conv.ask(`Ok, ti mostro le tue carte.`);
+  conv.ask(new BrowseCarousel({
+    items: [
+      new BrowseCarouselItem({
+        title: 'Title of item 1',
+        url: 'https://example.com',
+        description: 'Description of item 1',
+        image: new Image({
+          url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
+          alt: 'Image alternate text',
+        }),
+        footer: 'Item 1 footer',
+      }),
+      new BrowseCarouselItem({
+        title: 'Title of item 2',
+        url: 'https://example.com',
+        description: 'Description of item 2',
+        image: new Image({
+          url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
+          alt: 'Image alternate text',
+        }),
+        footer: 'Item 2 footer',
+      }),
+    ],
+  }));
+  conv.ask(new Suggestions('vai alla Home'));
+  conv.ask(new Suggestions('vai a Chiedimi'));
+
 });
 
 
@@ -355,6 +373,8 @@ const response = responses[0];
 console.error(err);
 });
 }
+
+
 
 
 exports.fulfillment = functions.https.onRequest(app);
