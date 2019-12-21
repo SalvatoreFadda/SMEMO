@@ -287,6 +287,9 @@ app.intent('Cards', (conv) => {
     return;
   }
   conv.ask(`Ok, ti mostro le tue carte.`);
+
+  cards();
+
   conv.ask(new BrowseCarousel({
     items: [
       new BrowseCarouselItem({
@@ -311,13 +314,42 @@ app.intent('Cards', (conv) => {
       }),
     ],
   }));
+
+  // SUGGESTION
   conv.ask(new Suggestions('vai alla Home'));
-  conv.ask(new Suggestions('vai a Chiedimi'));
 
 });
 
 
 //############## FUNZIONI ###################################################################
+
+async function cards() {
+  const projectAgentPath = client.projectAgentPath(projectId);
+  const req = {
+    parent: projectAgentPath
+  };
+  console.log(projectAgentPath);
+  // Send the request for listing intents.
+  const [response] = await client.listIntents(req);
+  response.forEach(intent => {
+    console.log('====================');
+    console.log(`Intent name: ${intent.name}`);
+    console.log(`Intent display name: ${intent.displayName}`);
+    console.log(`Action: ${intent.action}`);
+    console.log(`Root folowup intent: ${intent.rootFollowupIntentName}`);
+    console.log(`Parent followup intent: ${intent.parentFollowupIntentName}`);
+
+    console.log('Input contexts:');
+    intent.inputContextNames.forEach(inputContextName => {
+      console.log(`\tName: ${inputContextName}`);
+    });
+
+    console.log('Output contexts:');
+    intent.outputContexts.forEach(outputContext => {
+      console.log(`\tName: ${outputContext.name}`);
+    });
+  });
+}
 
 function CreateIntent(contestoDatoDaUser, domandaDatoDaUser, rispostaDatoDaUser){
 // per Create Intent --------
