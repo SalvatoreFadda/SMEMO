@@ -1,8 +1,8 @@
-<svg id="Livello_1" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 386.39 155.39">
+<svg id="Livello_1" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250.13 86.68">
   <defs>
     <style>
       .cls-1 {
-        fill: #fa7921;
+        fill: #ef7829;
       }
 
       .cls-2, .cls-3 {
@@ -10,23 +10,19 @@
       }
 
       .cls-3 {
-        font-size: 30px;
+        font-size: 22px;
         fill: #fff;
         font-family: GillSansStd-ExtraBold, Gill Sans Std;
         font-weight: 800;
       }
-
-      .cls-4 {
-        letter-spacing: -0.01em;
-      }
     </style>
   </defs>
   <title>Tavola disegno 1</title>
-  <g id="Group_34" data-name="Group 34">
-    <rect id="Rectangle_4" data-name="Rectangle 4" class="cls-1" x="16.81" y="24.85" width="341.79" height="79.61" rx="33"/>
-    <g id="insegnami" class="cls-2">
-      <text class="cls-3" transform="translate(107.32 74.69)">ins<tspan class="cls-4" x="45.3" y="0">e</tspan><tspan x="63.3" y="0">gnami</tspan></text>
+  <g id="Group_7" data-name="Group 7">
+    <path id="Rectangle_4" data-name="Rectangle 4" class="cls-1" d="M38.94,10H204.27a25.1,25.1,0,0,1,25.1,25.1h0a25.1,25.1,0,0,1-25.1,25.1H38.94a25.1,25.1,0,0,1-25.1-25.1h0A25.1,25.1,0,0,1,38.94,10Z"/>
+    <g id="impariamo" class="cls-2">
+      <text class="cls-3" transform="translate(57.51 41.05)">impariamo</text>
     </g>
-    <path id="Path_40" data-name="Path 40" class="cls-1" d="M314.68,97.6s19.21,27.45,54.9,32.94c0,0-27.45-20.59-22-48Z"/>
+    <path id="Path_40" data-name="Path 40" class="cls-1" d="M201.67,55.89s12.12,17.32,34.62,20.78c0,0-17.31-13-13.85-30.3Z"/>
   </g>
 </svg>

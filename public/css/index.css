@@ -31,7 +31,7 @@ body {
 
 #backHome {
   /* per visualizzare inserire display: inline-block */
- display: none;
+ display: inline-block;
  width: 8%;
  top: 3px;
  left: 20px;
@@ -52,7 +52,7 @@ body {
 width: 8%;
 top: 2px;
 position: absolute;
-right: 100px;
+right: 50px;
 }
 
 #robotCentro {
@@ -75,14 +75,6 @@ bottom: 30%;
 position: absolute;
 }
 
-#bottone {
-  /* per visualizzare inserire display: block */
-  display: block;
-      width: 20%;
-      margin-left: 40%;
-      bottom: 0;
-      position: absolute;
-}
 
 #cards {
   /* per visualizzare inserire display: inline-block */
@@ -101,7 +93,7 @@ div.container {
   text-align: center;
 }
 
-#welcome {
+#welcome { /*------------------------------------------------------------------------------------------------------------------*/
   /* per visualizzare inserire display: block */
   display: block;
 
@@ -111,8 +103,7 @@ div.container {
 #smemoLogo {
   width: 70%;
   top: 80px;
-  position: absolute;
-  left: 192px;
+
 
 }
 
@@ -135,7 +126,7 @@ div.container {
   color: var(--azzurro);
   font-family: gill-sans-nova, sans-serif;
 font-weight: 900;
-font-size: 30px;
+margin-bottom: 10px;
 font-style: normal;
 
 
@@ -152,22 +143,27 @@ font-style: normal;
 
 /* accendere robotCentro */
 /* per visualizzare inserire display: block */
-#insegnami {
+#insegnami { /*------------------------------------------------------------------------------------------------------------------*/
   display: none;
 }
 
 
-#categorie {
-    width: 60%;
-    position: absolute;
-    top: 32%;
-    left: 20%;
+
+#testoIns  {
+display: block;
+  color: var(--azzurro);
+  font-family: gill-sans-nova, sans-serif;
+font-weight: 900;
+font-style: normal;
+margin: auto;
+line-height: 9px;
+margin-top: 15%;
 }
 
                            /* PAGINA - DOMANDA */
 
 /* accendere robotCentro */
-#domanda {
+#domanda { /*------------------------------------------------------------------------------------------------------------------*/
   /* per visualizzare inserire display: block */
   display: none;
 }
@@ -177,32 +173,34 @@ display: block;
   color: var(--azzurro);
   font-family: gill-sans-nova, sans-serif;
 font-weight: 900;
-font-size: 30px;
 font-style: normal;
 margin: auto;
+line-height: 9px;
+margin-top: 15%;
 }
 
                              /* PAGINA - RISPOSTA */
 
 /* accendere robotCentro */
-#risposta {
+#risposta { /*------------------------------------------------------------------------------------------------------------------*/
   /* per visualizzare inserire display: block */
   display: none;
 }
 
 #testoRisposta  {
-display: inline;
+display: block;
   color: var(--azzurro);
   font-family: gill-sans-nova, sans-serif;
 font-weight: 900;
-font-size: 30px;
 font-style: normal;
 margin: auto;
+line-height: 9px;
+margin-top: 15%;
 }
                             /* PAGINA - CONTINUA */
 
-/* accendere robotCentro */
- #continua {
+
+ #continua { /*------------------------------------------------------------------------------------------------------------------*/
    /* per visualizzare inserire display: block */
    display: none;
  }
@@ -213,76 +211,62 @@ margin: auto;
   margin: auto;
   position: absolute;
     left: 40%;
-    bottom: 60%;
+    bottom: 55%;
 }
-
 #testoContinua {
-  display: inline;
+  display: block;
     color: var(--azzurro);
     font-family: gill-sans-nova, sans-serif;
   font-weight: 900;
-  font-size: 35px;
   font-style: normal;
   margin: auto;
-  line-height: 7px;
-  position: absolute;
-    bottom: 46%;
-    right: 23%;
+  line-height: 9px;
+  margin-top: 15%;
 
 }
 
 #testoContinua2 {
-  display: inline;
+  display: block;
     color: var(--azzurro);
     font-family: gill-sans-nova, sans-serif;
   font-weight: 900;
-  font-size: 25px;
-  font-style: normal;
-  margin: auto;
-  line-height: 7px;
-  position: absolute;
-left: 28%;
-bottom: 35%;
-}
-
-#testoContinua3 {
-  display: inline;
-    color: var(--rosso);
-    font-family: gill-sans-nova, sans-serif;
-  font-weight: 900;
-  font-size: 30px;
-  font-style: normal;
-  margin: auto;
-  line-height: 7px;
-  position: absolute;
-    left: 44%;
-    bottom: 30%;
-}
-
-/* PAGINA CHIEDIMI */
-
-#chiedimi {
-  display: none;
-    
-}
-                  
-#testoChiedimi {
-    display: inline;
-    color: var(--azzurro);
-    font-family: gill-sans-nova, sans-serif;
-  font-weight: 900;
-  font-size: 35px;
   font-style: normal;
   margin: auto;
   line-height: 9px;
-  position: absolute;
-    bottom: 46%;
-    right: 33%;
+
 }
 
-/* PAGINA - SINGLE CARD */
+#testoContinua3 {
+  display: block;
+    color: var(--rosso);
+    font-family: gill-sans-nova, sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  margin: auto;
+  line-height: 9px;
 
-#singleCard {
+}
+
+                              /* PAGINA CHIEDIMI */
+
+#chiedimi { /*------------------------------------------------------------------------------------------------------------------*/
+  display: none;
+}
+
+#testoChiedimi {
+  display: block;
+    color: var(--azzurro);
+    font-family: gill-sans-nova, sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  margin: auto;
+  line-height: 9px;
+  margin-top: 15%;
+}
+
+                              /* PAGINA - SINGLE CARD */
+
+#singleCard { /*------------------------------------------------------------------------------------------------------------------*/
 
   display: none;
 }
@@ -290,7 +274,7 @@ bottom: 35%;
 
                              /* PAGINA - NEW CARD */
 /* accendere robotDx */
-#newCard {
+#newCard { /*------------------------------------------------------------------------------------------------------------------*/
   /* per visualizzare inserire display: block */
   display: none;
 
@@ -322,7 +306,7 @@ width: 120%;
 }
                             /* PAGINA - DEFAULT */
 
-#defaultPage {
+#defaultPage { /*------------------------------------------------------------------------------------------------------------------*/
   /* per visualizzare inserire display: block */
   display: none;
 }
@@ -336,19 +320,20 @@ width: 120%;
 }
 
 #testoDefault {
-  display: inline;
+  display: block;
     color: var(--azzurro);
     font-family: gill-sans-nova, sans-serif;
   font-weight: 900;
-  font-size: 30px;
   font-style: normal;
   margin: auto;
+  line-height: 9px;
+  margin-top: 15%;
 }
 
                           /* PAGINA - VOCE */
 
 /* accendere robotDx */
-#voce {
+#voce { /*------------------------------------------------------------------------------------------------------------------*/
   /* per visualizzare inserire display: block */
   display: none;
   margin-bottom: 40%;
@@ -370,66 +355,65 @@ width: 120%;
 
 #Tvoce {
   display: inline-block;
-    color: var(--azzurro);
-    font-family: gill-sans-nova, sans-serif;
+  color: var(--azzurro);
+  font-family: gill-sans-nova, sans-serif;
   font-weight: 900;
-  font-size: 20px;
   margin: auto;
   margin-bottom: 2%;
+  margin-top: 18%;
 
 }
 
 #bloccoVoce {
   display: block;
-  width: 15%;
-  margin-left: -45px;
+  width: 16%;
   position: absolute;
   bottom: 57%;
+  right: 88%;
 }
 
 #bloccoSfondo {
   display: block;
   width: 15%;
-  margin-left: -65px;
+  right: 90%;
   position: absolute;
-  bottom: 45%;
+  bottom: 43%;
 }
 
 #bloccoNome {
   display: block;
   width: 15%;
-  margin-left: -65px;
   position: absolute;
-  bottom: 33%;
+  bottom: 29%;
+  right: 90%;
 }
 
 #T2 {
   display: inline-block;
     color: var(--azzurro);
     font-family: gill-sans-nova, sans-serif;
-  font-weight: 900;
-  font-size: 15px;
-  margin-left: 17%;
-  line-height: 5px;
-  bottom: 20%;
-  position: absolute;
+    font-size: 10px;
+    bottom: 20%;
+    position: absolute;
+    line-height: 10%;
+    right: 6%;
 }
 #T2F {
   display: inline-block;
     color: var(--rosso);
     font-family: gill-sans-nova, sans-serif;
-  font-weight: 900;
-  font-size: 15px;
-  margin-left: 28%;
-    bottom: 18.5%;
-  position: absolute;
+    font-size: 10px;
+    bottom: 19%;
+    position: absolute;
+    line-height: 15%;
+    right: 14%;
 }
 
 
                         /* PAGINA - SFONDO */
 
 /* accendere robotDx */
-#sfondi {
+#sfondi { /*------------------------------------------------------------------------------------------------------------------*/
   /* per visualizzare inserire display: block */
   display: none;
   margin-bottom: 40%;
@@ -437,12 +421,12 @@ width: 120%;
 
 #Tsfondi {
   display: inline-block;
-    color: var(--azzurro);
-    font-family: gill-sans-nova, sans-serif;
+  color: var(--azzurro);
+  font-family: gill-sans-nova, sans-serif;
   font-weight: 900;
-  font-size: 20px;
   margin: auto;
   margin-bottom: 2%;
+  margin-top: 18%;
 }
 
 
@@ -466,30 +450,42 @@ width: 120%;
 #bloccoVoce2 {
   display: block;
   width: 15%;
-  margin-left: -65px;
   position: absolute;
-  bottom: 57%;
+  bottom: 58%;
+  right: 90%;
 }
 
 #bloccoSfondo2 {
   display: block;
-  width: 15%;
-  margin-left: -45px;
+  width: 16%;
   position: absolute;
-  bottom: 45%;
+  bottom: 43%;
+  right: 88%;
 }
 
 #bloccoNome2 {
   display: block;
   width: 15%;
-  margin-left: -65px;
   position: absolute;
-  bottom: 33%;
+  bottom: 29%;
+  right: 90%;
 }
+
+#T4 {
+  display: inline-block;
+    color: var(--azzurro);
+    font-family: gill-sans-nova, sans-serif;
+    font-size: 10px;
+    bottom: 20%;
+    position: absolute;
+    line-height: 10%;
+    right: 9%;
+}
+
                           /* PAGINA - NOME */
 
 /* accendere robotDx */
-#nome {
+#nome { /*------------------------------------------------------------------------------------------------------------------*/
   /* per visualizzare inserire display: block */
   display: none;
 }
@@ -499,9 +495,8 @@ width: 120%;
       color: var(--azzurro);
       font-family: gill-sans-nova, sans-serif;
     font-weight: 900;
-    font-size: 20px;
     margin: auto;
-    margin-bottom: 7%;
+    margin-bottom: 5%;
     line-height: 5.5px;
 }
 
@@ -510,9 +505,8 @@ width: 120%;
       color: var(--rosso);
       font-family: gill-sans-nova, sans-serif;
     font-weight: 900;
-    font-size: 20px;
     margin: auto;
-    margin-bottom: 2%;
+    margin-bottom: 3%;
     line-height: 5.5px;
 }
 
@@ -521,33 +515,31 @@ width: 120%;
       color: var(--azzurro);
       font-family: gill-sans-nova, sans-serif;
     font-weight: 900;
-    font-size: 20px;
     margin: auto;
-    margin-bottom: 2%;
     line-height: 5.5px;
 }
 
 #bloccoVoce3 {
   display: block;
   width: 15%;
-  margin-left: -65px;
   position: absolute;
   bottom: 57%;
+  right: 90%;
 }
 
 #bloccoSfondo3 {
   display: block;
   width: 15%;
-  margin-left: -65px;
   position: absolute;
-  bottom: 45%;
+  bottom: 43%;
+  right: 90%;
 
 }
 
 #bloccoNome3 {
   display: block;
-  width: 15%;
-  margin-left: -45px;
+  width: 16%;
   position: absolute;
-  bottom: 33%;
+  bottom: 28%;
+  right: 88%;
 }
