@@ -24,7 +24,7 @@ const app = dialogflow({
   debug: true
 });
 const projectId = 'smemo-devi-funzionare';
-const sessionId = '981dbc33-7c54-5419-2cce-edf90efd2170';
+const sessionId = 'eb79896704bac522258e09db8e61139f45d3b3f6';
 const query = 'ciao';
 const languageCode = 'it';
 const dialog = require('dialogflow');
@@ -287,9 +287,10 @@ app.intent('Cards', (conv) => {
     return;
   }
   conv.ask(`Ok, ti mostro le tue carte.`);
-
+  const parameters = {
+  };
+  conv.contexts.set('cards', 1, parameters);
   cards();
-
   conv.ask(new BrowseCarousel({
     items: [
       new BrowseCarouselItem({
