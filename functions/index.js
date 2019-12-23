@@ -17,6 +17,7 @@ const {
   BrowseCarouselItem,
   Suggestions,
   LinkOutSuggestion,
+  List,
   Button
 } = require('actions-on-google');
 const firebaseConfig = JSON.parse(process.env.FIREBASE_CONFIG);
@@ -251,7 +252,9 @@ app.intent('#barzelletta', conv => {
 app.intent('vai alla Home', conv => {
   conv.ask('ok, ti porto subito alla schermata iniziale');
   conv.ask(new HtmlResponse({
-    url: `https://${firebaseConfig.projectId}.firebaseapp.com/`
+    data: {
+      scene: 'home',
+    }
   }));
 });
 
@@ -280,45 +283,74 @@ app.intent('vai alle impostazioni', conv => {
 });
 
 app.intent('Cards', (conv) => {
-  if (!conv.screen
-    || !conv.surface.capabilities.has('actions.capability.WEB_BROWSER')) {
-    conv.ask('Questo dispositivo non supporta il web browser ');
-      conv.ask('Prova sul telefono');
-    return;
-  }
+  if (!conv.screen) {
+      conv.ask('Sorry, try this on a screen device or select the ' +
+        'phone surface in the simulator.');
+      return;
+    }
   conv.ask(`Ok, ti mostro le tue carte.`);
   const parameters = {
   };
   conv.contexts.set('cards', 1, parameters);
-  cards();
-  conv.ask(new BrowseCarousel({
-    items: [
-      new BrowseCarouselItem({
-        title: 'Title of item 1',
-        url: 'https://example.com',
-        description: 'Description of item 1',
-        image: new Image({
-          url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
-          alt: 'Image alternate text',
-        }),
-        footer: 'Item 1 footer',
-      }),
-      new BrowseCarouselItem({
-        title: 'Title of item 2',
-        url: 'https://example.com',
-        description: 'Description of item 2',
-        image: new Image({
-          url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
-          alt: 'Image alternate text',
-        }),
-        footer: 'Item 2 footer',
-      }),
-    ],
-  }));
+
+  conv.ask(new List({
+    title: 'List Title',
+    items: {
+      // Add the first item to the list
+      'SELECTION_KEY_ONE': {
+        synonyms: [
+          'synonym 1',
+          'synonym 2',
+          'synonym 3',
+        ],
+        title: 'Title of First List Item',
+        description: 'This is a description of a list item.',
+        image: new Image({
+          url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
+          alt: 'Image alternate text',
+        }),
+      },
+      // Add the second item to the list
+      'SELECTION_KEY_GOOGLE_HOME': {
+        synonyms: [
+          'Google Home Assistant',
+          'Assistant on the Google Home',
+      ],
+        title: 'Google Home',
+        description: 'Google Home is a voice-activated speaker powered by ' +
+          'the Google Assistant.',
+        image: new Image({
+          url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
+          alt: 'Google Home',
+        }),
+      },
+      // Add the third item to the list
+      'SELECTION_KEY_GOOGLE_PIXEL': {
+        synonyms: [
+          'Google Pixel XL',
+          'Pixel',
+          'Pixel XL',
+        ],
+        title: 'Google Pixel',
+        description: 'Pixel. Phone by Google.',
+        image: new Image({
+          url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
+          alt: 'Google Pixel',
+        }),
+      },
+    },
+  }));
 
   // SUGGESTION
-  conv.ask(new Suggestions('vai alla Home'));
+  conv.ask(new Suggestions('esci dalla lista'));
 
+});
+
+app.intent('esci dalla lista', conv => {
+  conv.ask('ok, ti porto subito alla schermata iniziale');
+  conv.ask(new HtmlResponse({
+    url: `https://${firebaseConfig.projectId}.firebaseapp.com/`
+  }));
 });
 
 
@@ -326,13 +358,10 @@ app.intent('Cards', (conv) => {
 
 async function cards() {
   const projectAgentPath = client.projectAgentPath(projectId);
-  const req = {
-    parent: projectAgentPath
-  };
-  console.log(projectAgentPath);
-  // Send the request for listing intents.
-  const [response] = await client.listIntents(req);
-  response.forEach(intent => {
+  const [response] = await client.listIntents({parent: projectAgentPath}, {autoPaginate: false});
+    var i = 0;
+    intents = [];
+    response.forEach(intent => {
     console.log('====================');
     console.log(`Intent name: ${intent.name}`);
     console.log(`Intent display name: ${intent.displayName}`);
@@ -349,7 +378,39 @@ async function cards() {
     intent.outputContexts.forEach(outputContext => {
       console.log(`\tName: ${outputContext.name}`);
     });
+
   });
+}
+
+function cards2() {
+  const formattedParent = client.projectAgentPath('smemo-devi-funzionare');
+    // Iterate over all elements.
+  client.listIntents({parent: formattedParent}, {autoPaginate: false})
+    .then(responses => {
+      const resources = responses[0];
+      for (const resource of resources) {
+        // doThingsWith(resource)
+        console.log('====================');
+        console.log(`Intent name: ${resource.name}`);
+        console.log(`Intent display name: ${resource.displayName}`);
+        console.log(`Action: ${resource.action}`);
+        console.log(`Root folowup intent: ${resource.rootFollowupIntentName}`);
+        console.log(`Parent followup intent: ${resource.parentFollowupIntentName}`);
+
+        console.log('Input contexts:');
+        resource.inputContextNames.forEach(inputContextName => {
+          console.log(`\tName: ${inputContextName}`);
+        });
+
+        console.log('Output contexts:');
+        resource.outputContexts.forEach(outputContext => {
+          console.log(`\tName: ${outputContext.name}`);
+        });
+      }
+    })
+    .catch(err => {
+      console.error(err);
+    });
 }
 
 function CreateIntent(contestoDatoDaUser, domandaDatoDaUser, rispostaDatoDaUser){
