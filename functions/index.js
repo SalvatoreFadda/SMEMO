@@ -293,52 +293,39 @@ app.intent('Cards', (conv) => {
   };
   conv.contexts.set('cards', 1, parameters);
 
+  console.log('********************');
+  var items = [];
+  var i = 0;
+  const formattedParent = client.projectAgentPath('smemo-devi-funzionare');
+    client.listIntentsStream({parent: formattedParent})
+      .on('data', element => {
+        // doThingsWith(element)
+        console.log(`${element.displayName}`);
+        items.push({
+          'Boh': {
+            synonyms: [
+              'synonym 1',
+              'synonym 2',
+              'synonym 3',
+            ],
+            title: ${element.displayName},
+            description: 'This is a description of a list item.',
+            image: new Image({
+              url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
+              alt: 'Image alternate text',
+            }),
+          }
+        });
+        console.log(`items[i].title: ${items[i].title}`);
+        i = i + 1;
+      }).on('error', err => {
+        console.log(err);
+      });
+  setTimeout(cards3AfterWait, 7000);
+  console.log(`items length: ${items.length}`);
   conv.ask(new List({
-    title: 'List Title',
-    items: {
-      // Add the first item to the list
-      'SELECTION_KEY_ONE': {
-        synonyms: [
-          'synonym 1',
-          'synonym 2',
-          'synonym 3',
-        ],
-        title: 'Title of First List Item',
-        description: 'This is a description of a list item.',
-        image: new Image({
-          url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
-          alt: 'Image alternate text',
-        }),
-      },
-      // Add the second item to the list
-      'SELECTION_KEY_GOOGLE_HOME': {
-        synonyms: [
-          'Google Home Assistant',
-          'Assistant on the Google Home',
-      ],
-        title: 'Google Home',
-        description: 'Google Home is a voice-activated speaker powered by ' +
-          'the Google Assistant.',
-        image: new Image({
-          url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
-          alt: 'Google Home',
-        }),
-      },
-      // Add the third item to the list
-      'SELECTION_KEY_GOOGLE_PIXEL': {
-        synonyms: [
-          'Google Pixel XL',
-          'Pixel',
-          'Pixel XL',
-        ],
-        title: 'Google Pixel',
-        description: 'Pixel. Phone by Google.',
-        image: new Image({
-          url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
-          alt: 'Google Pixel',
-        }),
-      },
-    },
+    title: 'Le tue Csrds',
+    items: items,
   }));
 
   // SUGGESTION
@@ -411,6 +398,24 @@ function cards2() {
     .catch(err => {
       console.error(err);
     });
+}
+
+function cards3() {
+const formattedParent = client.projectAgentPath('smemo-devi-funzionare');
+  client.listIntentsStream({parent: formattedParent})
+    .on('data', element => {
+      // doThingsWith(element)
+      console.log('====================');
+      console.log(`Intent name: ${element.name}`);
+      console.log(`Intent display name: ${element.displayName}`);
+    }).on('error', err => {
+      console.log(err);
+    });
+}
+
+function cards3AfterWait() {
+  console.log('********************');
+  console.log('********************');
 }
 
 function CreateIntent(contestoDatoDaUser, domandaDatoDaUser, rispostaDatoDaUser){
