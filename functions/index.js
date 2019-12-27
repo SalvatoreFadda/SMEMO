@@ -72,6 +72,8 @@ admin.initializeApp({
   databaseURL: 'ws://smemo-devi-funzionare.firebaseio.com/'
 });
 
+const db = admin.firestore();
+
 
 // ################## INIZIO INTENTI ################################################################
 
@@ -162,7 +164,11 @@ app.intent('Risposta(4)', conv => {
     }
   }));
   CreateIntent(contestoDatoDaUser, domandaDatoDaUser, conv.input.raw);
-  //conv.ask(`Perfetto ! Ho imparato qualcosa di nuovo. Se vuoi creare altro in questa categoria di: ${contestoDatoDaUser}`);
+  db.collection('intents').add({
+    contesto: `${contestoDatoDaUser}`,
+    domanda: `${domandaDatoDaUser}`,
+    risposta: `${conv.input.raw}`
+  });
   const ssml = '<speak>' +
     'Perfetto ! <break time="0.3s" />. ' +
     'Ho imparato qualcosa di nuovo. <break time="0.3s" />. ' +
@@ -294,37 +300,80 @@ app.intent('Cards', (conv) => {
   conv.contexts.set('cards', 1, parameters);
 
   console.log('********************');
-  var items = [];
+  var items = {};
   var i = 0;
-  const formattedParent = client.projectAgentPath('smemo-devi-funzionare');
-    client.listIntentsStream({parent: formattedParent})
-      .on('data', element => {
-        // doThingsWith(element)
-        console.log(`${element.displayName}`);
-        items.push({
-          'Boh': {
-            synonyms: [
-              'synonym 1',
-              'synonym 2',
-              'synonym 3',
-            ],
-            title: ${element.displayName},
-            description: 'This is a description of a list item.',
-            image: new Image({
-              url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
-              alt: 'Image alternate text',
-            }),
-          }
-        });
-        console.log(`items[i].title: ${items[i].title}`);
-        i = i + 1;
-      }).on('error', err => {
-        console.log(err);
+  //+++++++++++++++++++++++++++++++
+  items = {
+    // Add the first item to the list
+    'SELECTION_KEY_ONE': {
+      synonyms: [
+        'synonym 1',
+        'synonym 2',
+        'synonym 3',
+      ],
+      title: 'Title of First List Item',
+      description: 'This is a description of a list item.',
+      image: new Image({
+        url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
+        alt: 'Image alternate text',
+      }),
+    },
+    // Add the second item to the list
+    'SELECTION_KEY_GOOGLE_HOME': {
+      synonyms: [
+        'Google Home Assistant',
+        'Assistant on the Google Home',
+    ],
+      title: 'Google Home',
+      description: 'Google Home is a voice-activated speaker powered by ' +
+        'the Google Assistant.',
+      image: new Image({
+        url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
+        alt: 'Google Home',
+      }),
+    },
+    // Add the third item to the list
+    'SELECTION_KEY_GOOGLE_PIXEL': {
+      synonyms: [
+        'Google Pixel XL',
+        'Pixel',
+        'Pixel XL',
+      ],
+      title: 'Google Pixel',
+      description: 'Pixel. Phone by Google.',
+      image: new Image({
+        url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
+        alt: 'Google Pixel',
+      }),
+    },
+  };
+  //+++++++++++++++++++++++++++++++
+  db.collection('intents').get().then(intents => {
+      intents.forEach(intent => {
+      console.log('====================');
+      console.log(`Intent name: ${intent.get('domanda')}`);
+      items[`${intent.get('domanda')}`] = {
+              synonyms: [
+                `${intent.get('domanda')}`,
+              ],
+              title: `${intent.get('domanda')}`,
+              description: `${intent.get('risposta')}`,
+              image: new Image({
+                url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
+                alt: 'Image alternate text',
+              }),
+            };
+      console.log(`${i}`);
+      i = i + 1;
       });
-  setTimeout(cards3AfterWait, 7000);
-  console.log(`items length: ${items.length}`);
+    }).catch(err => {
+      console.error(err);
+    });
+    for (var key in items) {
+      console.log(`${key}`);
+    };
   conv.ask(new List({
-    title: 'Le tue Csrds',
+    title: 'Le tue Cards',
     items: items,
   }));
 
