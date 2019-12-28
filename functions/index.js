@@ -299,17 +299,55 @@ const createList = conv => {
   conv.ask(new Suggestions('esci dalla lista'));
 }
 
-
-app.intent('Cards(2)', (conv) => {
-  // CARD specifiche per il contesto
+app.intent('Cards', (conv) => {
+  // CARD che mostrano i contesti
   if (!conv.screen) {
-      conv.ask('Sorry, try this on a screen device or select the ' +
-        'phone surface in the simulator.');
+      conv.ask('Mi dispiace ma questo dispositivo non supporta un interfaccia grafica.');
       return;
     }
   const parameters = {
   };
-  conv.contexts.set('cards', 5, parameters);
+  conv.contexts.set('cards', 1, parameters);
+  var items = {};
+  return db.collection('intents').get()
+  .then(intents => {
+    let mySet = new Set();
+    intents.forEach(intent => {
+      mySet.add(`${intent.get('contesto')}`)
+      console.log(`${mySet.size}`);
+    });
+    for (let x of mySet) {
+      var k = `${x}`;
+      items[k] = {
+              synonyms: [
+                `${x}`,
+              ],
+              title: `${x}`,
+              description: ` `,
+              image: new Image({
+                url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
+                alt: 'Image alternate text',
+              }),
+            };
+    }
+    conv.user.storage.items = items;
+    createList(conv);
+    conv.ask('Ok, ti mostro le tue categorie');
+    }).catch(err => {
+      console.error(err);
+    });
+});
+
+
+app.intent('Cards(2)', (conv) => {
+  // CARD specifiche per il contesto
+  if (!conv.screen) {
+      conv.ask('Mi dispiace ma questo dispositivo non supporta un interfaccia grafica.');
+      return;
+    }
+  const parameters = {
+  };
+
   var items = {};
   return db.collection('intents').get()
   .then(intents => {
@@ -334,15 +372,58 @@ app.intent('Cards(2)', (conv) => {
     if ( i >= 2){
     conv.user.storage.items = items;
     createList(conv);
+    conv.contexts.set('cards2', 1, parameters);
     conv.ask('Ecco qui le cards per questa categoria');
     }
     else {
-      conv.ask(`La categoria :${conv.input.raw} ha troppi poche card per essere visualizzata, insegnami ancora qualcosa in ${conv.input.raw}`);
+      conv.ask(`La categoria: "${conv.input.raw}" ha troppi poche card per essere visualizzata, insegnami ancora qualcosa in "${conv.input.raw}"`);
+      conv.contexts.set('cards', 1, parameters);
       conv.ask(new Suggestions('esci dalla lista'));
     }
     }).catch(err => {
       console.error(err);
     });
+});
+
+app.intent('Cards(3)', conv => {
+  conv.ask('Vuoi eliminare la card selezionata ? rispondi "si" oppure "no" ');
+  conv.user.storage.intento = `${conv.input.raw}`;
+  const parameters = {
+  };
+  conv.contexts.set('eliminazioneIntento', 1, parameters);
+});
+
+
+app.intent('eliminazione intento si', conv => {
+  conv.ask('Perfetto, elimino subito la card ');
+  var intento = conv.user.storage.intento;
+  myDeleteIntent(intento);
+  conv.ask(new HtmlResponse({
+    url: `https://${firebaseConfig.projectId}.firebaseapp.com/`
+  }));
+  return db.collection('intents').get()
+  .then(intents => {
+    strr = JSON.stringify(intents);
+    console.log(`intents: ${strr}`);
+    intents.forEach(intent => {
+      str = JSON.stringify(intent);
+      console.log(`intent: ${str}`);
+      if (intent.get('domanda').valueOf() == intento.valueOf()) {
+        k = intent.get('key');
+        console.log(`key: ${k}`);
+        //db.collection('intents').equalTo(k).remove();
+      }
+    });
+    }).catch(err => {
+      console.error(err);
+    });
+});
+
+app.intent('eliminazione intento no', conv => {
+  conv.ask('Ok, non elimino la card ');
+  conv.ask(new HtmlResponse({
+    url: `https://${firebaseConfig.projectId}.firebaseapp.com/`
+  }));
 });
 
 app.intent('esci dalla lista', conv => {
@@ -352,49 +433,6 @@ app.intent('esci dalla lista', conv => {
   }));
 });
 
-
-app.intent('Cards', (conv) => {
-  // CARD che mostrano i contesti
-  if (!conv.screen) {
-      conv.ask('Sorry, try this on a screen device or select the ' +
-        'phone surface in the simulator.');
-      return;
-    }
-  //conv.ask(`Ok, ti mostro le tue carte.`);
-  const parameters = {
-  };
-  conv.contexts.set('cards', 5, parameters);
-  console.log('********************');
-  var items = {};
-  return db.collection('intents').get()
-  .then(intents => {
-    let mySet = new Set();
-    intents.forEach(intent => {
-      mySet.add(`${intent.get('contesto')}`)
-      console.log(`${mySet.size}`);
-    });
-    for (let x of mySet) {
-      console.log(`key of the item: ${x}`);
-      var k = `${x}`;
-      items[k] = {
-              synonyms: [
-                `${x}`,
-              ],
-              title: `${x}`,
-              description: ` `,
-              image: new Image({
-                url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
-                alt: 'Image alternate text',
-              }),
-            };
-    }
-    conv.user.storage.items = items;
-    createList(conv);
-    conv.ask('Ok, ti mostro le tue categorie');
-    }).catch(err => {
-      console.error(err);
-    });
-});
 
 //############## FUNZIONI ###################################################################
 
@@ -424,30 +462,19 @@ async function cards() {
   });
 }
 
-function cards2() {
+function myDeleteIntent(intento) {
   const formattedParent = client.projectAgentPath('smemo-devi-funzionare');
-    // Iterate over all elements.
   client.listIntents({parent: formattedParent}, {autoPaginate: false})
     .then(responses => {
       const resources = responses[0];
       for (const resource of resources) {
-        // doThingsWith(resource)
-        console.log('====================');
-        console.log(`Intent name: ${resource.name}`);
-        console.log(`Intent display name: ${resource.displayName}`);
-        console.log(`Action: ${resource.action}`);
-        console.log(`Root folowup intent: ${resource.rootFollowupIntentName}`);
-        console.log(`Parent followup intent: ${resource.parentFollowupIntentName}`);
-
-        console.log('Input contexts:');
-        resource.inputContextNames.forEach(inputContextName => {
-          console.log(`\tName: ${inputContextName}`);
+        if (resource.displayName == intento) {
+          const formattedName = resource.name;
+          console.log(`formatted name: ${formattedName}`);
+          client.deleteIntent({name: formattedName}).catch(err => {
+          console.error(err);
         });
-
-        console.log('Output contexts:');
-        resource.outputContexts.forEach(outputContext => {
-          console.log(`\tName: ${outputContext.name}`);
-        });
+        }
       }
     })
     .catch(err => {
