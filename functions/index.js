@@ -290,7 +290,6 @@ app.intent('vai alle impostazioni', conv => {
 
 
 const createList = conv => {
-  conv.ask('Ok, ti mostro le tue carte');
   items = conv.user.storage.items;
   conv.ask(new List({
     title: 'Le tue Cards',
@@ -335,6 +334,7 @@ app.intent('Cards(2)', (conv) => {
     if ( i >= 2){
     conv.user.storage.items = items;
     createList(conv);
+    conv.ask('Ecco qui le cards per questa categoria');
     }
     else {
       conv.ask(`La categoria :${conv.input.raw} ha troppi poche card per essere visualizzata, insegnami ancora qualcosa in ${conv.input.raw}`);
@@ -390,6 +390,7 @@ app.intent('Cards', (conv) => {
     }
     conv.user.storage.items = items;
     createList(conv);
+    conv.ask('Ok, ti mostro le tue categorie');
     }).catch(err => {
       console.error(err);
     });
