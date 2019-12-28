@@ -288,6 +288,19 @@ app.intent('vai alle impostazioni', conv => {
   conv.ask(`Ok, andiamo nelle impostazioni.`);
 });
 
+
+const createList = conv => {
+  conv.ask('Ok, ti mostro le tue carte');
+  items = conv.user.storage.items;
+  conv.ask(new List({
+    title: 'Le tue Cards',
+    items: items,
+  }));
+  // SUGGESTION
+  conv.ask(new Suggestions('esci dalla lista'));
+}
+
+
 app.intent('Cards', (conv) => {
   if (!conv.screen) {
       conv.ask('Sorry, try this on a screen device or select the ' +
@@ -302,53 +315,8 @@ app.intent('Cards', (conv) => {
   console.log('********************');
   var items = {};
   var i = 0;
-  //+++++++++++++++++++++++++++++++
-  items = {
-    // Add the first item to the list
-    'SELECTION_KEY_ONE': {
-      synonyms: [
-        'synonym 1',
-        'synonym 2',
-        'synonym 3',
-      ],
-      title: 'Title of First List Item',
-      description: 'This is a description of a list item.',
-      image: new Image({
-        url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
-        alt: 'Image alternate text',
-      }),
-    },
-    // Add the second item to the list
-    'SELECTION_KEY_GOOGLE_HOME': {
-      synonyms: [
-        'Google Home Assistant',
-        'Assistant on the Google Home',
-    ],
-      title: 'Google Home',
-      description: 'Google Home is a voice-activated speaker powered by ' +
-        'the Google Assistant.',
-      image: new Image({
-        url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
-        alt: 'Google Home',
-      }),
-    },
-    // Add the third item to the list
-    'SELECTION_KEY_GOOGLE_PIXEL': {
-      synonyms: [
-        'Google Pixel XL',
-        'Pixel',
-        'Pixel XL',
-      ],
-      title: 'Google Pixel',
-      description: 'Pixel. Phone by Google.',
-      image: new Image({
-        url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
-        alt: 'Google Pixel',
-      }),
-    },
-  };
-  //+++++++++++++++++++++++++++++++
-  db.collection('intents').get().then(intents => {
+  return db.collection('intents').get()
+  .then(intents => {
       intents.forEach(intent => {
       console.log('====================');
       console.log(`Intent name: ${intent.get('domanda')}`);
@@ -368,15 +336,8 @@ app.intent('Cards', (conv) => {
       console.log(`${i}`);
       i = i + 1;
     });
-    for (var x in items){
-      console.log(`out of forEach: ${x}`);
-    }
-    conv.ask(new List({
-      title: 'Le tue Cards',
-      items: items,
-    }));
-    // SUGGESTION
-    conv.ask(new Suggestions('esci dalla lista'));
+    conv.user.storage.items = items;
+    createList(conv);
     }).catch(err => {
       console.error(err);
     });
