@@ -294,7 +294,7 @@ app.intent('Cards', (conv) => {
         'phone surface in the simulator.');
       return;
     }
-  conv.ask(`Ok, ti mostro le tue carte.`);
+  //conv.ask(`Ok, ti mostro le tue carte.`);
   const parameters = {
   };
   conv.contexts.set('cards', 1, parameters);
@@ -352,7 +352,9 @@ app.intent('Cards', (conv) => {
       intents.forEach(intent => {
       console.log('====================');
       console.log(`Intent name: ${intent.get('domanda')}`);
-      items[`${intent.get('domanda')}`] = {
+      console.log(`intents: ${intent}`);
+      var k = `${intent.get('domanda')}`;
+      items[k] = {
               synonyms: [
                 `${intent.get('domanda')}`,
               ],
@@ -365,20 +367,19 @@ app.intent('Cards', (conv) => {
             };
       console.log(`${i}`);
       i = i + 1;
-      });
+    });
+    for (var x in items){
+      console.log(`out of forEach: ${x}`);
+    }
+    conv.ask(new List({
+      title: 'Le tue Cards',
+      items: items,
+    }));
+    // SUGGESTION
+    conv.ask(new Suggestions('esci dalla lista'));
     }).catch(err => {
       console.error(err);
     });
-    for (var key in items) {
-      console.log(`${key}`);
-    };
-  conv.ask(new List({
-    title: 'Le tue Cards',
-    items: items,
-  }));
-
-  // SUGGESTION
-  conv.ask(new Suggestions('esci dalla lista'));
 
 });
 
