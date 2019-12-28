@@ -301,47 +301,48 @@ const createList = conv => {
 }
 
 
-app.intent('Cards', (conv) => {
+app.intent('Cards(2)', (conv) => {
+  // CARD specifiche per il contesto
   if (!conv.screen) {
       conv.ask('Sorry, try this on a screen device or select the ' +
         'phone surface in the simulator.');
       return;
     }
-  //conv.ask(`Ok, ti mostro le tue carte.`);
   const parameters = {
   };
-  conv.contexts.set('cards', 1, parameters);
-
-  console.log('********************');
+  conv.contexts.set('cards', 5, parameters);
   var items = {};
-  var i = 0;
   return db.collection('intents').get()
   .then(intents => {
+      var i = 0;
       intents.forEach(intent => {
-      console.log('====================');
-      console.log(`Intent name: ${intent.get('domanda')}`);
-      console.log(`intents: ${intent}`);
-      var k = `${intent.get('domanda')}`;
-      items[k] = {
-              synonyms: [
-                `${intent.get('domanda')}`,
-              ],
-              title: `${intent.get('domanda')}`,
-              description: `${intent.get('risposta')}`,
-              image: new Image({
-                url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
-                alt: 'Image alternate text',
-              }),
-            };
-      console.log(`${i}`);
-      i = i + 1;
+        if (conv.input.raw == intent.get('contesto')){
+          i = i + 1;
+          var k = `${intent.get('domanda')}`;
+          items[k] = {
+                  synonyms: [
+                    `${intent.get('domanda')}`,
+                  ],
+                  title: `${intent.get('domanda')}`,
+                  description: `${intent.get('risposta')}`,
+                  image: new Image({
+                    url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
+                    alt: 'Image alternate text',
+                  }),
+                };
+          }
     });
+    if ( i >= 2){
     conv.user.storage.items = items;
     createList(conv);
+    }
+    else {
+      conv.ask(`La categoria :${conv.input.raw} ha troppi poche card per essere visualizzata, insegnami ancora qualcosa in ${conv.input.raw}`);
+      conv.ask(new Suggestions('esci dalla lista'));
+    }
     }).catch(err => {
       console.error(err);
     });
-
 });
 
 app.intent('esci dalla lista', conv => {
@@ -351,6 +352,48 @@ app.intent('esci dalla lista', conv => {
   }));
 });
 
+
+app.intent('Cards', (conv) => {
+  // CARD che mostrano i contesti
+  if (!conv.screen) {
+      conv.ask('Sorry, try this on a screen device or select the ' +
+        'phone surface in the simulator.');
+      return;
+    }
+  //conv.ask(`Ok, ti mostro le tue carte.`);
+  const parameters = {
+  };
+  conv.contexts.set('cards', 5, parameters);
+  console.log('********************');
+  var items = {};
+  return db.collection('intents').get()
+  .then(intents => {
+    let mySet = new Set();
+    intents.forEach(intent => {
+      mySet.add(`${intent.get('contesto')}`)
+      console.log(`${mySet.size}`);
+    });
+    for (let x of mySet) {
+      console.log(`key of the item: ${x}`);
+      var k = `${x}`;
+      items[k] = {
+              synonyms: [
+                `${x}`,
+              ],
+              title: `${x}`,
+              description: ` `,
+              image: new Image({
+                url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
+                alt: 'Image alternate text',
+              }),
+            };
+    }
+    conv.user.storage.items = items;
+    createList(conv);
+    }).catch(err => {
+      console.error(err);
+    });
+});
 
 //############## FUNZIONI ###################################################################
 
