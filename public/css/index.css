@@ -139,11 +139,11 @@ font-style: normal;
 }
 
 
-                               /* PAGINA - INSEGNAMI */
+       /* PAGINA - INSEGNAMI */
 
 /* accendere robotCentro */
 /* per visualizzare inserire display: block */
-#insegnami { /*------------------------------------------------------------------------------------------------------------------*/
+#insegnami {
   display: none;
 }
 
@@ -159,7 +159,6 @@ margin: auto;
 line-height: 9px;
 margin-top: 15%;
 }
-
                            /* PAGINA - DOMANDA */
 
 /* accendere robotCentro */

@@ -60,19 +60,18 @@ interactiveCanvas.ready({
     //visualizzazione della card appena creata
     if (data.scene === 'newCard'){
       noneSelector('newCard');
-      document.querySelector('#bottone').style.display = 'none';
-      document.querySelector('#intentVideo').style.display = 'block';
-      document.getElementById("tada").autoplay = true;
-      document.getElementById("tada").load();
-      setTimeout(() => {
-        document.getElementById("tada").autoplay = false;
-        document.querySelector('#intentVideo').style.display = 'none';
-        document.querySelector('#impostazioni').style.display = 'inline-block';
-        document.querySelector('#tutorial').style.display = 'inline-block';
+      //document.querySelector('#intentVideo').style.display = 'block';
+      //document.getElementById("tada").autoplay = true;
+      //document.getElementById("tada").load();
+      //setTimeout(() => {
+        //document.getElementById("tada").autoplay = false;
+        //document.querySelector('#intentVideo').style.display = 'none';
+        //document.querySelector('#impostazioni').style.display = 'inline-block';
+        //document.querySelector('#tutorial').style.display = 'inline-block';
+        document.querySelector('#newCard').style.display = 'block';
         document.querySelector('#cards').style.display = 'inline-block';
-        document.querySelector('#bottone').style.display = 'block';
-        document.querySelector('#welcome').style.display = 'block';
-      }, 7000);
+        //document.querySelector('#welcome').style.display = 'block';
+      //}, 7000);
     }
     //visualizzazione impostazioni, di default parte l'impostazione della voce(che si occupa di cambiare anche il colore del robot)
     if (data.scene === 'impostazioni'){
@@ -138,7 +137,7 @@ function noneSelector(scene){
     document.querySelector('#domanda').style.display = 'none';
     document.querySelector('#risposta').style.display = 'none';
     document.querySelector('#continua').style.display = 'none';
-    //document.querySelector('#newCard').style.display = 'none';
+    document.querySelector('#newCard').style.display = 'none';
     document.querySelector('#voce').style.display = 'none';
     document.querySelector('#sfondi').style.display = 'none';
     document.querySelector('#nome').style.display = 'none';
