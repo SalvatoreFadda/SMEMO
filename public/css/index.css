@@ -32,7 +32,7 @@ body {
 #backHome {
   /* per visualizzare inserire display: inline-block */
  display: inline-block;
- width: 8%;
+ width: 13%;
  top: 60px;
  left: 20px;
  position: absolute;
@@ -49,8 +49,8 @@ body {
 
 #impostazioni {
  display: inline-block;
-width: 8%;
-top: 60px;
+width: 13%;
+top: 100px;
 position: absolute;
 right: 30px;
 }
