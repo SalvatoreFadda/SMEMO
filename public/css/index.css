@@ -33,7 +33,7 @@ body {
   /* per visualizzare inserire display: inline-block */
  display: inline-block;
  width: 8%;
- top: 3px;
+ top: 60px;
  left: 20px;
  position: absolute;
 }
@@ -50,9 +50,9 @@ body {
 #impostazioni {
  display: inline-block;
 width: 8%;
-top: 2px;
+top: 60px;
 position: absolute;
-right: 50px;
+right: 30px;
 }
 
 #robotCentro {
@@ -79,7 +79,7 @@ position: absolute;
 #cards {
   /* per visualizzare inserire display: inline-block */
   display: inline-block;
-  width: 10%;
+  width: 20%;
   left: 15px;
   bottom: 10px;
   position: absolute;
