@@ -68,10 +68,10 @@ right: 30px;
 
 #robotDx {
   /* per visualizzare inserire display: block */
-  display: block;
+  display: none;
   width: 15%;
 margin-left: 75%;
-bottom: 20%;
+bottom: 10%;
 position: absolute;
 }
 
@@ -95,7 +95,7 @@ div.container {
 
 #welcome { /*------------------------------------------------------------------------------------------------------------------*/
   /* per visualizzare inserire display: block */
-  display: none;
+  display: block;
 
 }
 
@@ -483,7 +483,7 @@ width: 120%;
 /* accendere robotDx */
 #nome { /*------------------------------------------------------------------------------------------------------------------*/
   /* per visualizzare inserire display: block */
-  display: block;
+  display: none;
 }
 
 #Tnome {
@@ -492,6 +492,7 @@ width: 120%;
       font-family: gill-sans-nova, sans-serif;
     font-weight: 900;
     margin: auto;
+    margin-top: 20%;
     margin-bottom: 5%;
     line-height: 5.5px;
 }
