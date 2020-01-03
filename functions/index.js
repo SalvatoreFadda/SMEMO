@@ -12,6 +12,7 @@ const {
   dialogflow,
   HtmlResponse,
   BasicCard,
+  SimpleResponse,
   Image,
   BrowseCarousel,
   BrowseCarouselItem,
@@ -299,6 +300,32 @@ const createList = conv => {
   conv.ask(new Suggestions('esci dalla lista'));
 }
 
+const createSingleList = conv => {
+  itemTitle = conv.user.storage.domanda;
+  itemText = conv.user.storage.risposta;
+  conv.ask(new SimpleResponse({
+        speech: "Ecco qui la card per questa categoria",
+        text: "Ecco qui la card per questa categoria",
+    }))
+  conv.ask(new BasicCard({
+   text: `${itemText}  \n`, // Note the two spaces before '\n' required for
+                                // a line break to be rendered in the card.
+   subtitle: ' ',
+   title: `${itemTitle}`,
+   /*buttons: new Button({
+     title: 'This is a button',
+     url: 'https://assistant.google.com/',
+   }),*/
+   image: new Image({
+     url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
+     alt: 'Image alternate text',
+   }),
+   display: 'CROPPED',
+ }));
+  // SUGGESTION
+  conv.ask(new Suggestions('esci dalla lista'));
+}
+
 app.intent('Cards', (conv) => {
   // CARD che mostrano i contesti
   if (!conv.screen) {
@@ -367,6 +394,12 @@ app.intent('Cards(2)', (conv) => {
                     alt: 'Image alternate text',
                   }),
                 };
+
+          // useful only for single card
+          console.log(`${intent.get('risposta')}`);
+          console.log(`${intent.get('domanda')}`);
+          conv.user.storage.risposta = intent.get('risposta');
+          conv.user.storage.domanda = intent.get('domanda');
           }
     });
     if ( i >= 2){
@@ -376,9 +409,9 @@ app.intent('Cards(2)', (conv) => {
     conv.ask('Ecco qui le cards per questa categoria');
     }
     else {
-      conv.ask(`La categoria: "${conv.input.raw}" ha troppi poche card per essere visualizzata, insegnami ancora qualcosa in "${conv.input.raw}"`);
-      conv.contexts.set('cards', 1, parameters);
-      conv.ask(new Suggestions('esci dalla lista'));
+      createSingleList(conv);
+      conv.contexts.set('cards2', 1, parameters);
+      //conv.ask('Ecco qui la card per questa categoria');
     }
     }).catch(err => {
       console.error(err);
@@ -427,6 +460,13 @@ app.intent('eliminazione intento no', conv => {
 });
 
 app.intent('esci dalla lista', conv => {
+  conv.ask('ok, ti porto subito alla schermata iniziale');
+  conv.ask(new HtmlResponse({
+    url: `https://${firebaseConfig.projectId}.firebaseapp.com/`
+  }));
+});
+
+app.intent('esci dalla lista 2', conv => {
   conv.ask('ok, ti porto subito alla schermata iniziale');
   conv.ask(new HtmlResponse({
     url: `https://${firebaseConfig.projectId}.firebaseapp.com/`
