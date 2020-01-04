@@ -259,9 +259,7 @@ app.intent('#barzelletta', conv => {
 app.intent('vai alla Home', conv => {
   conv.ask('ok, ti porto subito alla schermata iniziale');
   conv.ask(new HtmlResponse({
-    data: {
-      scene: 'home',
-    }
+    url: `https://${firebaseConfig.projectId}.firebaseapp.com/`
   }));
 });
 
