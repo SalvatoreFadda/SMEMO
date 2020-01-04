@@ -436,15 +436,16 @@ app.intent('eliminazione intento si', conv => {
   }));
   return db.collection('intents').get()
   .then(intents => {
-    strr = JSON.stringify(intents);
-    console.log(`intents: ${strr}`);
     intents.forEach(intent => {
       str = JSON.stringify(intent);
       console.log(`intent: ${str}`);
       if (intent.get('domanda').valueOf() == intento.valueOf()) {
-        k = intent.get('key');
-        console.log(`key: ${k}`);
-        //db.collection('intents').equalTo(k).remove();
+        var id2 = str.ref.firestore.path.segments[1];
+        console.log(`id2: ${id2}`);
+        var id = intent._ref._firestore._path.segments;
+        var temp = intent._ref._firestore._settings.projectId;
+        console.log(`temp: ${temp}`);
+        //db.collection('intents').doc(id[1]).delete();
       }
     });
     }).catch(err => {
