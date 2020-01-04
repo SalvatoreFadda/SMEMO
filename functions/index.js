@@ -342,7 +342,6 @@ app.intent('Cards', (conv) => {
     let mySet = new Set();
     intents.forEach(intent => {
       mySet.add(`${intent.get('contesto')}`)
-      console.log(`${mySet.size}`);
     });
     for (let x of mySet) {
       var k = `${x}`;
@@ -381,7 +380,7 @@ app.intent('Cards(2)', (conv) => {
   .then(intents => {
       var i = 0;
       intents.forEach(intent => {
-        if (conv.input.raw == intent.get('contesto')){
+        if (conv.input.raw == intent.get('contesto') && i <= 28){
           i = i + 1;
           var k = `${intent.get('domanda')}`;
           items[k] = {
@@ -440,14 +439,8 @@ app.intent('eliminazione intento si', conv => {
     var strs = JSON.stringify(intents);
     console.log(`intents: ${strs}`);
     intents.forEach(intent => {
-      /*var str = JSON.stringify(intent);
-      console.log(`intent key: ${str._ref._firestore._path.segments}`);
-      console.log(`intent key: ${str._ref._firestore._path.segments[1]}`);
-      console.log(`intent key: ${intent._ref._firestore._path.segments}`);
-      console.log(`intent key: ${intent._ref._firestore._path.segments[1]}`);*/
       if (intent.get('domanda').valueOf() == intento.valueOf()) {
         var id = intent.id ;
-        console.log(`id delete: ${id}`);
         db.collection('intents').doc(id).delete();
       }
     });
