@@ -324,6 +324,7 @@ const createSingleList = conv => {
  }));
   // SUGGESTION
   conv.ask(new Suggestions('esci dalla lista'));
+  conv.ask(new Suggestions('elimina questa card'));
 }
 
 app.intent('Cards', (conv) => {
@@ -436,15 +437,15 @@ app.intent('eliminazione intento si', conv => {
   }));
   return db.collection('intents').get()
   .then(intents => {
+    var strs = JSON.stringify(intents);
+    console.log(`intents: ${strs}`);
     intents.forEach(intent => {
-      str = JSON.stringify(intent);
-      console.log(`intent: ${str}`);
+      var str = JSON.stringify(intent);
+      console.log(`intent key: ${str._ref._firestore._path.segments}`);
+      console.log(`intent key: ${str._ref._firestore._path.segments[1]}`);
+      console.log(`intent key: ${intent._ref._firestore._path.segments}`);
+      console.log(`intent key: ${intent._ref._firestore._path.segments[1]}`);
       if (intent.get('domanda').valueOf() == intento.valueOf()) {
-        var id2 = str.ref.firestore.path.segments[1];
-        console.log(`id2: ${id2}`);
-        var id = intent._ref._firestore._path.segments;
-        var temp = intent._ref._firestore._settings.projectId;
-        console.log(`temp: ${temp}`);
         //db.collection('intents').doc(id[1]).delete();
       }
     });
@@ -472,6 +473,14 @@ app.intent('esci dalla lista 2', conv => {
   conv.ask(new HtmlResponse({
     url: `https://${firebaseConfig.projectId}.firebaseapp.com/`
   }));
+});
+
+app.intent('elimina singola card', conv => {
+  conv.ask('Vuoi eliminare la card selezionata ? rispondi "si" oppure "no"');
+  conv.user.storage.intento = conv.user.storage.domanda;
+  const parameters = {
+  };
+  conv.contexts.set('eliminazioneIntento', 1, parameters);
 });
 
 
