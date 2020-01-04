@@ -440,13 +440,15 @@ app.intent('eliminazione intento si', conv => {
     var strs = JSON.stringify(intents);
     console.log(`intents: ${strs}`);
     intents.forEach(intent => {
-      var str = JSON.stringify(intent);
+      /*var str = JSON.stringify(intent);
       console.log(`intent key: ${str._ref._firestore._path.segments}`);
       console.log(`intent key: ${str._ref._firestore._path.segments[1]}`);
       console.log(`intent key: ${intent._ref._firestore._path.segments}`);
-      console.log(`intent key: ${intent._ref._firestore._path.segments[1]}`);
+      console.log(`intent key: ${intent._ref._firestore._path.segments[1]}`);*/
       if (intent.get('domanda').valueOf() == intento.valueOf()) {
-        //db.collection('intents').doc(id[1]).delete();
+        var id = intent.id ;
+        console.log(`id delete: ${id}`);
+        db.collection('intents').doc(id).delete();
       }
     });
     }).catch(err => {
