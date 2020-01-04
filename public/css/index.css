@@ -326,217 +326,217 @@ width: 120%;
   margin-top: 15%;
 }
 
-                          /* PAGINA - VOCE */
+                                      /* PAGINA - VOCE */
 
 /* accendere robotDx */
 #voce { /*------------------------------------------------------------------------------------------------------------------*/
-  /* per visualizzare inserire display: block */
-  display: none;
-  margin-bottom: 40%;
+/* per visualizzare inserire display: block */
+display: none;
+margin-bottom: 40%;
 }
 
 #maschio {
-  display: inline-block;
-  width: 7%;
+display: inline-block;
+width: 7%;
 
 
 }
 
 #femmina {
-  display: inline-block;
-  width: 7%;
+display: inline-block;
+width: 7%;
 
 
 }
 
 #Tvoce {
-  display: inline-block;
-  color: var(--azzurro);
-  font-family: gill-sans-nova, sans-serif;
-  font-weight: 900;
-  margin: auto;
-  margin-bottom: 2%;
-  margin-top: 18%;
+display: inline-block;
+color: var(--azzurro);
+font-family: gill-sans-nova, sans-serif;
+font-weight: 900;
+margin: auto;
+margin-bottom: 2%;
+margin-top: 48%;
 
 }
 
 #bloccoVoce {
-  display: block;
-  width: 16%;
-  position: absolute;
-  bottom: 57%;
-  right: 88%;
+display: block;
+width: 16%;
+position: absolute;
+bottom: 31%;
+right: 88%;
 }
 
 #bloccoSfondo {
-  display: block;
-  width: 15%;
-  right: 90%;
-  position: absolute;
-  bottom: 43%;
+display: block;
+width: 15%;
+right: 90%;
+position: absolute;
+bottom: 17%;
 }
 
 #bloccoNome {
-  display: block;
-  width: 15%;
-  position: absolute;
-  bottom: 29%;
-  right: 90%;
+display: block;
+width: 15%;
+position: absolute;
+bottom: 2%;
+right: 90%;
 }
 
 #T2 {
-  display: inline-block;
-    color: var(--azzurro);
-    font-family: gill-sans-nova, sans-serif;
-    font-size: 10px;
-    bottom: 20%;
-    position: absolute;
-    line-height: 10%;
-    right: 6%;
+display: inline-block;
+color: var(--azzurro);
+font-family: gill-sans-nova, sans-serif;
+font-size: 8px;
+bottom: 40%;
+position: absolute;
+line-height: 10%;
+right: 8%;
 }
 #T2F {
-  display: inline-block;
-    color: var(--rosso);
-    font-family: gill-sans-nova, sans-serif;
-    font-size: 10px;
-    bottom: 19%;
-    position: absolute;
-    line-height: 15%;
-    right: 14%;
+display: inline-block;
+color: var(--rosso);
+font-family: gill-sans-nova, sans-serif;
+font-size: 10px;
+bottom: 39%;
+position: absolute;
+line-height: 15%;
+right: 14%;
 }
 
 
-                        /* PAGINA - SFONDO */
+                                     /* PAGINA - SFONDO */
 
 /* accendere robotDx */
 #sfondi { /*------------------------------------------------------------------------------------------------------------------*/
-  /* per visualizzare inserire display: block */
-  display: none;
-  margin-bottom: 40%;
+/* per visualizzare inserire display: block */
+display: none;
+margin-bottom: 40%;
 }
 
 #Tsfondi {
-  display: inline-block;
-  color: var(--azzurro);
-  font-family: gill-sans-nova, sans-serif;
-  font-weight: 900;
-  margin: auto;
-  margin-bottom: 2%;
-  margin-top: 18%;
+display: inline-block;
+color: var(--azzurro);
+font-family: gill-sans-nova, sans-serif;
+font-weight: 900;
+margin: auto;
+margin-bottom: 2%;
+margin-top: 48%;
 }
 
 
 #spazioSmall {
-  display: inline-block;
-  width: 10%;
+display: inline-block;
+width: 10%;
 
 }
 
 #dinosauriSmall {
-  display: inline-block;
-  width: 10%;
+display: inline-block;
+width: 10%;
 
 }
 
 #caramelleSmall {
-  display: inline-block;
-  width: 10%;
+display: inline-block;
+width: 10%;
 }
 
 #bloccoVoce2 {
-  display: block;
-  width: 15%;
-  position: absolute;
-  bottom: 58%;
-  right: 90%;
+display: block;
+width: 15%;
+position: absolute;
+bottom: 31%;
+right: 90%;
 }
 
 #bloccoSfondo2 {
-  display: block;
-  width: 16%;
-  position: absolute;
-  bottom: 43%;
-  right: 88%;
+display: block;
+width: 16%;
+position: absolute;
+bottom: 16%;
+right: 88%;
 }
 
 #bloccoNome2 {
-  display: block;
-  width: 15%;
-  position: absolute;
-  bottom: 29%;
-  right: 90%;
+display: block;
+width: 15%;
+position: absolute;
+bottom: 2%;
+right: 90%;
 }
 
 #T4 {
-  display: inline-block;
-    color: var(--azzurro);
-    font-family: gill-sans-nova, sans-serif;
-    font-size: 10px;
-    bottom: 20%;
-    position: absolute;
-    line-height: 10%;
-    right: 9%;
+display: inline-block;
+color: var(--azzurro);
+font-family: gill-sans-nova, sans-serif;
+font-size: 8px;
+bottom: 39%;
+position: absolute;
+line-height: 10%;
+right: 10%;
 }
 
-                          /* PAGINA - NOME */
+                                  /* PAGINA - NOME */
 
 /* accendere robotDx */
 #nome { /*------------------------------------------------------------------------------------------------------------------*/
-  /* per visualizzare inserire display: block */
-  display: none;
+/* per visualizzare inserire display: block */
+display: none;
 }
 
 #Tnome {
-    display: block;
-      color: var(--azzurro);
-      font-family: gill-sans-nova, sans-serif;
-    font-weight: 900;
-    margin: auto;
-    margin-top: 20%;
-    margin-bottom: 5%;
-    line-height: 5.5px;
+display: block;
+color: var(--azzurro);
+font-family: gill-sans-nova, sans-serif;
+font-weight: 900;
+margin: auto;
+margin-top: 20%;
+margin-bottom: 5%;
+line-height: 5.5px;
 }
 
 #Tnome2 {
-    display: inline-block;
-      color: var(--rosso);
-      font-family: gill-sans-nova, sans-serif;
-    font-weight: 900;
-    margin: auto;
-    margin-bottom: 3%;
-    line-height: 5.5px;
+display: inline-block;
+color: var(--rosso);
+font-family: gill-sans-nova, sans-serif;
+font-weight: 900;
+margin: auto;
+margin-bottom: 3%;
+line-height: 5.5px;
 }
 
 #Tnome3 {
-    display: block;
-      color: var(--azzurro);
-      font-family: gill-sans-nova, sans-serif;
-    font-weight: 900;
-    margin: auto;
-    line-height: 5.5px;
+display: block;
+color: var(--azzurro);
+font-family: gill-sans-nova, sans-serif;
+font-weight: 900;
+margin: auto;
+line-height: 5.5px;
 }
 
 #bloccoVoce3 {
-  display: none;
-  width: 15%;
-  position: absolute;
-  bottom: 57%;
-  right: 90%;
+display: block;
+width: 15%;
+position: absolute;
+bottom: 31%;
+right: 90%;
 }
 
 #bloccoSfondo3 {
-  display: none;
-  width: 15%;
-  position: absolute;
-  bottom: 43%;
-  right: 90%;
+display: block;
+width: 15%;
+position: absolute;
+bottom: 17%;
+right: 90%;
 
 }
 
 #bloccoNome3 {
-  display: none;
-  width: 16%;
-  position: absolute;
-  bottom: 28%;
-  right: 88%;
+display: block;
+width: 16%;
+position: absolute;
+bottom: 2%;
+right: 88%;
 }
