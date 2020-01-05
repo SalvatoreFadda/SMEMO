@@ -173,7 +173,7 @@ app.intent('Risposta(4)', conv => {
   const ssml = '<speak>' +
     'Perfetto ! <break time="0.3s" />. ' +
     'Ho imparato qualcosa di nuovo. <break time="0.3s" />. ' +
-    `Se vuoi creare altro in questa categoria dimmi: ${contestoDatoDaUser} <break time="0.4s" />.` +
+    `Se vuoi creare altro in questa categoria dimmi: ${contestoDatoDaUser}. <break time="0.4s" />.` +
     'Altrimenti dimmi "Ho finito" <break time="0.1s" />.' +
 
     '</speak>';
@@ -230,22 +230,6 @@ app.intent('CambioSesso', conv => {
 });
 
 
-app.intent('#barzelletta', conv => {
-  conv.ask(new HtmlResponse({
-    data: {
-      scene: 'chiedimi',
-    }
-  }));
-  const ssml = '<speak>' +
-    'Un bambino chiede al papà: <break time="0.5s" />. ' +
-    'È vero che le carote fanno bene alla vista? <break time="0.5s" />. ' +
-    'Il papà risponde: <break time="0.5s" />.' +
-    'Certo!. Hai mai visto un coniglio con gli occhiali? <break time="0.7s" />.' +
-
-    '</speak>';
-  conv.ask(ssml);
-});
-
 app.intent('vai alla Home', conv => {
   conv.ask('ok, ti porto subito alla schermata iniziale');
   conv.ask(new HtmlResponse({
@@ -291,6 +275,7 @@ const createList = conv => {
 const createSingleList = conv => {
   itemTitle = conv.user.storage.domanda;
   itemText = conv.user.storage.risposta;
+  itemContext = conv.user.storage.contesto;
   conv.ask(new SimpleResponse({
         speech: "Ecco qui la card per questa categoria",
         text: "Ecco qui la card per questa categoria",
@@ -301,7 +286,7 @@ const createSingleList = conv => {
    subtitle: ' ',
    title: `${itemTitle}`,
    image: new Image({
-     url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
+     url: `${cardImage(itemContext)}`,
      alt: 'Image alternate text',
    }),
    display: 'CROPPED',
@@ -329,69 +314,18 @@ app.intent('Cards', (conv) => {
     });
     for (let x of mySet) {
       var k = `${x}`;
-      //++++++++++++++++++++++
-      switch (k) {
-        case "mate":
-        case "matematica":
-          items[k] = {
-                  synonyms: [
-                    `${x}`,
-                  ],
-                  title: `${x}`,
-                  description: ` `,
-                  image: new Image({
-                    url: 'https://firebasestorage.googleapis.com/v0/b/smemo-devi-funzionare.appspot.com/o/matematica.svg?alt=media&token=4bb6fc3b-3264-418c-bbe0-55142f4acd22',
-                    alt: 'Image alternate text',
-                  }),
-                };
-          break;
-        case 'Mucca':
-        case 'Giraffa':
-        case 'Cane':
-        case 'Maiale':
-        case "animali":
-          items[k] = {
-                  synonyms: [
-                    `${x}`,
-                  ],
-                  title: `${x}`,
-                  description: ` `,
-                  image: new Image({
-                    url: 'https://firebasestorage.googleapis.com/v0/b/smemo-devi-funzionare.appspot.com/o/animali.svg?alt=media&token=86ca9ff7-5b29-4389-818f-8fb12841f7d8',
-                    alt: 'Image alternate text',
-                  }),
-                };
-          break;
-        case "barzellette":
-        case "barzelletta":
-          items[k] = {
-                  synonyms: [
-                    `${x}`,
-                  ],
-                  title: `${x}`,
-                  description: ` `,
-                  image: new Image({
-                    url: 'https://firebasestorage.googleapis.com/v0/b/smemo-devi-funzionare.appspot.com/o/jokes.svg?alt=media&token=e7cd1ffe-4845-4674-a9d0-807b7499eea8',
-                    alt: 'Image alternate text',
-                  }),
-                };
-          break;
-        default:
-          items[k] = {
-                  synonyms: [
-                    `${x}`,
-                  ],
-                  title: `${x}`,
-                  description: ` `,
-                  image: new Image({
-                  url: 'https://firebasestorage.googleapis.com/v0/b/smemo-devi-funzionare.appspot.com/o/robotDefault.svg?alt=media&token=a352ef1d-6b16-4aaa-8d5d-2739bd9ff53b',
-                    //url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
-                    alt: 'Image alternate text',
-                  }),
-                };
-          break;
-      }
-      //+++++++++++++++++++++
+      //items[k] = createContextCards(k);
+      items[k] = {
+              synonyms: [
+                `${k}`,
+              ],
+              title: `${k}`,
+              description: ` `,
+              image: new Image({
+                url: `${cardImage(k)}`,
+                alt: 'Image alternate text',
+              }),
+            };
     }
     conv.user.storage.items = items;
     createList(conv);
@@ -419,23 +353,21 @@ app.intent('Cards(2)', (conv) => {
         if (conv.input.raw == intent.get('contesto') && i <= 28){
           i = i + 1;
           var k = `${intent.get('domanda')}`;
-          items[k] = {
+          //items[k] = createCards(intent.get('contesto'),intent.get('domanda'),intent.get('risposta'))
+            items[k] = {
                   synonyms: [
-                    `${intent.get('domanda')}`,
                   ],
                   title: `${intent.get('domanda')}`,
                   description: `${intent.get('risposta')}`,
                   image: new Image({
-                    url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
+                    url: `${cardImage(intent.get('contesto'))}`,
                     alt: 'Image alternate text',
                   }),
                 };
-
           // useful only for single card
-          console.log(`${intent.get('risposta')}`);
-          console.log(`${intent.get('domanda')}`);
           conv.user.storage.risposta = intent.get('risposta');
           conv.user.storage.domanda = intent.get('domanda');
+          conv.user.storage.contesto = intent.get('contesto');
           }
     });
     if ( i >= 2){
@@ -636,7 +568,94 @@ console.error(err);
 });
 }
 
+function cardImage(contesto){
+  var urlImage;
+  switch (contesto) {
+    case "mate":
+    case "matematica":
+      urlImage = 'https://firebasestorage.googleapis.com/v0/b/smemo-devi-funzionare.appspot.com/o/matematica.svg?alt=media&token=4bb6fc3b-3264-418c-bbe0-55142f4acd22';
+      break;
+    case 'Mucca':
+    case 'Giraffa':
+    case 'Cane':
+    case 'Maiale':
+    case "animali":
+      urlImage = 'https://firebasestorage.googleapis.com/v0/b/smemo-devi-funzionare.appspot.com/o/animali.svg?alt=media&token=86ca9ff7-5b29-4389-818f-8fb12841f7d8';
+      break;
+    case "barzellette":
+    case "barzelletta":
+      urlImage = 'https://firebasestorage.googleapis.com/v0/b/smemo-devi-funzionare.appspot.com/o/jokes.svg?alt=media&token=e7cd1ffe-4845-4674-a9d0-807b7499eea8';
+      break;
+    default:
+      urlImage = 'https://firebasestorage.googleapis.com/v0/b/smemo-devi-funzionare.appspot.com/o/robotDefault.svg?alt=media&token=a352ef1d-6b16-4aaa-8d5d-2739bd9ff53b';
+      break;
+  }
+  return urlImage
+}
 
+function createCards(contesto,domanda,risposta){
+  var item;
+  //++++++++++++++++++++++
+  switch (contesto) {
+    case "mate":
+    case "matematica":
+      item = {
+              synonyms: [
+              ],
+              title: `${domanda}`,
+              description: `${risposta} `,
+              image: new Image({
+                url: 'https://firebasestorage.googleapis.com/v0/b/smemo-devi-funzionare.appspot.com/o/matematica.svg?alt=media&token=4bb6fc3b-3264-418c-bbe0-55142f4acd22',
+                alt: 'Image alternate text',
+              }),
+            };
+      break;
+    case 'Mucca':
+    case 'Giraffa':
+    case 'Cane':
+    case 'Maiale':
+    case "animali":
+      item = {
+              synonyms: [
+              ],
+              title: `${domanda}`,
+              description: `${risposta}`,
+              image: new Image({
+                url: 'https://firebasestorage.googleapis.com/v0/b/smemo-devi-funzionare.appspot.com/o/animali.svg?alt=media&token=86ca9ff7-5b29-4389-818f-8fb12841f7d8',
+                alt: 'Image alternate text',
+              }),
+            };
+      break;
+    case "barzellette":
+    case "barzelletta":
+      item = {
+              synonyms: [
+              ],
+              title: `${domanda}`,
+              description: `${risposta}`,
+              image: new Image({
+                url: 'https://firebasestorage.googleapis.com/v0/b/smemo-devi-funzionare.appspot.com/o/jokes.svg?alt=media&token=e7cd1ffe-4845-4674-a9d0-807b7499eea8',
+                alt: 'Image alternate text',
+              }),
+            };
+      break;
+    default:
+      item = {
+              synonyms: [
+              ],
+              title: `${domanda}`,
+              description: `${risposta}`,
+              image: new Image({
+              url: 'https://firebasestorage.googleapis.com/v0/b/smemo-devi-funzionare.appspot.com/o/robotDefault.svg?alt=media&token=a352ef1d-6b16-4aaa-8d5d-2739bd9ff53b',
+                //url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
+                alt: 'Image alternate text',
+              }),
+            };
+      break;
+  }
+  //+++++++++++++++++++++
+  return item
+}
 
 
 exports.fulfillment = functions.https.onRequest(app);
