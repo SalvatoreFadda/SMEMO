@@ -296,6 +296,29 @@ const createSingleList = conv => {
   conv.ask(new Suggestions('elimina questa card'));
 }
 
+const createSingleListForContext = conv => {
+  itemContext = conv.user.storage.contesto;
+  conv.ask(new SimpleResponse({
+        speech: "Ecco qui la categoria che hai creato",
+        text: "Ecco qui la categoria che hai creato",
+    }))
+  conv.ask(new BasicCard({
+   text: `${itemContext}  \n`, // Note the two spaces before '\n' required for
+                                // a line break to be rendered in the card.
+   subtitle: ' ',
+   title: 'La tua categoria',
+   image: new Image({
+     url: `${cardImage(itemContext)}`,
+     alt: 'Image alternate text',
+   }),
+   display: 'CROPPED',
+ }));
+  // SUGGESTION
+  conv.ask(new Suggestions('esci dalla lista'));
+  conv.ask(new Suggestions('visualizza categoria'));
+}
+
+
 app.intent('Cards', (conv) => {
   // CARD che mostrano i contesti
   if (!conv.screen) {
@@ -310,7 +333,11 @@ app.intent('Cards', (conv) => {
   .then(intents => {
     let mySet = new Set();
     intents.forEach(intent => {
-      mySet.add(`${intent.get('contesto')}`)
+      mySet.add(`${intent.get('contesto')}`);
+      // useful only for single card
+      conv.user.storage.contesto = intent.get('contesto');
+      conv.user.storage.risposta = intent.get('risposta');
+      conv.user.storage.domanda = intent.get('domanda');
     });
     for (let x of mySet) {
       var k = `${x}`;
@@ -327,14 +354,23 @@ app.intent('Cards', (conv) => {
               }),
             };
     }
-    conv.user.storage.items = items;
-    createList(conv);
-    conv.ask('Ok, ti mostro le tue categorie');
+    if (mySet.size >= 2) {
+      conv.user.storage.items = items;
+      createList(conv);
+      conv.ask('Ok, ti mostro le tue categorie');
+    }
+    else {
+      if (mySet.size = 1) {
+        createSingleListForContext(conv);
+      }
+      else {
+        conv.ask('Mi spiace ma non hai ancora delle Cards, vai alla sezione impariamo e insegnami qualcosa');
+      }
+    }
     }).catch(err => {
       console.error(err);
     });
 });
-
 
 app.intent('Cards(2)', (conv) => {
   // CARD specifiche per il contesto
@@ -350,7 +386,7 @@ app.intent('Cards(2)', (conv) => {
   .then(intents => {
       var i = 0;
       intents.forEach(intent => {
-        if (conv.input.raw == intent.get('contesto') && i <= 28){
+        if (( conv.input.raw == intent.get('contesto')&&conv.input.raw!='visualizza categoria' || conv.user.storage.contesto == intent.get('contesto')&&conv.input.raw=='visualizza categoria')&& (i <= 28)){
           i = i + 1;
           var k = `${intent.get('domanda')}`;
           //items[k] = createCards(intent.get('contesto'),intent.get('domanda'),intent.get('risposta'))
@@ -508,10 +544,6 @@ const formattedParent = client.projectAgentPath('smemo-devi-funzionare');
     });
 }
 
-function cards3AfterWait() {
-  console.log('********************');
-  console.log('********************');
-}
 
 function CreateIntent(contestoDatoDaUser, domandaDatoDaUser, rispostaDatoDaUser){
 // per Create Intent --------
@@ -592,70 +624,5 @@ function cardImage(contesto){
   }
   return urlImage
 }
-
-function createCards(contesto,domanda,risposta){
-  var item;
-  //++++++++++++++++++++++
-  switch (contesto) {
-    case "mate":
-    case "matematica":
-      item = {
-              synonyms: [
-              ],
-              title: `${domanda}`,
-              description: `${risposta} `,
-              image: new Image({
-                url: 'https://firebasestorage.googleapis.com/v0/b/smemo-devi-funzionare.appspot.com/o/matematica.svg?alt=media&token=4bb6fc3b-3264-418c-bbe0-55142f4acd22',
-                alt: 'Image alternate text',
-              }),
-            };
-      break;
-    case 'Mucca':
-    case 'Giraffa':
-    case 'Cane':
-    case 'Maiale':
-    case "animali":
-      item = {
-              synonyms: [
-              ],
-              title: `${domanda}`,
-              description: `${risposta}`,
-              image: new Image({
-                url: 'https://firebasestorage.googleapis.com/v0/b/smemo-devi-funzionare.appspot.com/o/animali.svg?alt=media&token=86ca9ff7-5b29-4389-818f-8fb12841f7d8',
-                alt: 'Image alternate text',
-              }),
-            };
-      break;
-    case "barzellette":
-    case "barzelletta":
-      item = {
-              synonyms: [
-              ],
-              title: `${domanda}`,
-              description: `${risposta}`,
-              image: new Image({
-                url: 'https://firebasestorage.googleapis.com/v0/b/smemo-devi-funzionare.appspot.com/o/jokes.svg?alt=media&token=e7cd1ffe-4845-4674-a9d0-807b7499eea8',
-                alt: 'Image alternate text',
-              }),
-            };
-      break;
-    default:
-      item = {
-              synonyms: [
-              ],
-              title: `${domanda}`,
-              description: `${risposta}`,
-              image: new Image({
-              url: 'https://firebasestorage.googleapis.com/v0/b/smemo-devi-funzionare.appspot.com/o/robotDefault.svg?alt=media&token=a352ef1d-6b16-4aaa-8d5d-2739bd9ff53b',
-                //url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
-                alt: 'Image alternate text',
-              }),
-            };
-      break;
-  }
-  //+++++++++++++++++++++
-  return item
-}
-
 
 exports.fulfillment = functions.https.onRequest(app);
