@@ -237,16 +237,6 @@ app.intent('#barzelletta', conv => {
     }
   }));
   const ssml = '<speak>' +
-    /*'Here are <say-as interpret-as="characters">SSML</say-as> samples. ' +
-    'I can pause <break time="3" />. ' +
-    'I can play a sound <audio src="https://www.example.com/MY_WAVE_FILE.wav">your wave file</audio>. ' +
-    'I can speak in cardinals. Your position is <say-as interpret-as="cardinal">10</say-as> in line. ' +
-    'Or I can speak in ordinals. You are <say-as interpret-as="ordinal">10</say-as> in line. ' +
-    'Or I can even speak in digits. Your position in line is <say-as interpret-as="digits">10</say-as>. ' +
-    'I can also substitute phrases, like the <sub alias="World Wide Web Consortium">W3C</sub>. ' +
-    'Finally, I can speak a paragraph with two sentences. ' +
-    '<p><s>This is sentence one.</s><s>This is sentence two.</s></p>' +
-    */
     'Un bambino chiede al papà: <break time="0.5s" />. ' +
     'È vero che le carote fanno bene alla vista? <break time="0.5s" />. ' +
     'Il papà risponde: <break time="0.5s" />.' +
@@ -310,10 +300,6 @@ const createSingleList = conv => {
                                 // a line break to be rendered in the card.
    subtitle: ' ',
    title: `${itemTitle}`,
-   /*buttons: new Button({
-     title: 'This is a button',
-     url: 'https://assistant.google.com/',
-   }),*/
    image: new Image({
      url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
      alt: 'Image alternate text',
@@ -343,17 +329,69 @@ app.intent('Cards', (conv) => {
     });
     for (let x of mySet) {
       var k = `${x}`;
-      items[k] = {
-              synonyms: [
-                `${x}`,
-              ],
-              title: `${x}`,
-              description: ` `,
-              image: new Image({
-                url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
-                alt: 'Image alternate text',
-              }),
-            };
+      //++++++++++++++++++++++
+      switch (k) {
+        case "mate":
+        case "matematica":
+          items[k] = {
+                  synonyms: [
+                    `${x}`,
+                  ],
+                  title: `${x}`,
+                  description: ` `,
+                  image: new Image({
+                    url: 'https://firebasestorage.googleapis.com/v0/b/smemo-devi-funzionare.appspot.com/o/matematica.svg?alt=media&token=4bb6fc3b-3264-418c-bbe0-55142f4acd22',
+                    alt: 'Image alternate text',
+                  }),
+                };
+          break;
+        case 'Mucca':
+        case 'Giraffa':
+        case 'Cane':
+        case 'Maiale':
+        case "animali":
+          items[k] = {
+                  synonyms: [
+                    `${x}`,
+                  ],
+                  title: `${x}`,
+                  description: ` `,
+                  image: new Image({
+                    url: 'https://firebasestorage.googleapis.com/v0/b/smemo-devi-funzionare.appspot.com/o/animali.svg?alt=media&token=86ca9ff7-5b29-4389-818f-8fb12841f7d8',
+                    alt: 'Image alternate text',
+                  }),
+                };
+          break;
+        case "barzellette":
+        case "barzelletta":
+          items[k] = {
+                  synonyms: [
+                    `${x}`,
+                  ],
+                  title: `${x}`,
+                  description: ` `,
+                  image: new Image({
+                    url: 'https://firebasestorage.googleapis.com/v0/b/smemo-devi-funzionare.appspot.com/o/jokes.svg?alt=media&token=e7cd1ffe-4845-4674-a9d0-807b7499eea8',
+                    alt: 'Image alternate text',
+                  }),
+                };
+          break;
+        default:
+          items[k] = {
+                  synonyms: [
+                    `${x}`,
+                  ],
+                  title: `${x}`,
+                  description: ` `,
+                  image: new Image({
+                  url: 'https://firebasestorage.googleapis.com/v0/b/smemo-devi-funzionare.appspot.com/o/robotDefault.svg?alt=media&token=a352ef1d-6b16-4aaa-8d5d-2739bd9ff53b',
+                    //url: 'https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png',
+                    alt: 'Image alternate text',
+                  }),
+                };
+          break;
+      }
+      //+++++++++++++++++++++
     }
     conv.user.storage.items = items;
     createList(conv);
