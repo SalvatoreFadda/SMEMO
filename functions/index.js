@@ -49,6 +49,7 @@ const request = {
     },
   },
 };
+/*
 sessionClient
   .detectIntent(request)
   .then(responses => {
@@ -65,6 +66,7 @@ sessionClient
   .catch(err => {
     console.error('ERROR:', err);
   });
+*/
 
 const client = new dialog.IntentsClient();
 
@@ -175,7 +177,6 @@ app.intent('Risposta(4)', conv => {
     'Ho imparato qualcosa di nuovo. <break time="0.3s" />. ' +
     `Se vuoi creare altro in questa categoria dimmi: ${contestoDatoDaUser}. <break time="0.4s" />.` +
     'Altrimenti dimmi "Ho finito" <break time="0.1s" />.' +
-
     '</speak>';
   conv.ask(ssml);
   conv.contexts.set('LoopCreazioneIntento', 1, parameters);
@@ -233,8 +234,13 @@ app.intent('CambioSesso', conv => {
 app.intent('vai alla Home', conv => {
   conv.ask('ok, ti porto subito alla schermata iniziale');
   conv.ask(new HtmlResponse({
-    url: `https://${firebaseConfig.projectId}.firebaseapp.com/`
+    data: {
+      scene: 'home',
+    }
   }));
+  /*conv.ask(new HtmlResponse({
+    url: `https://${firebaseConfig.projectId}.firebaseapp.com/`
+  }));*/
 });
 
 app.intent('Chiedimi', conv => {
@@ -298,10 +304,12 @@ const createSingleList = conv => {
 
 const createSingleListForContext = conv => {
   itemContext = conv.user.storage.contesto;
+  console.log(itemContext);
+  console.log(cardImage(itemContext));
   conv.ask(new SimpleResponse({
         speech: "Ecco qui la categoria che hai creato",
         text: "Ecco qui la categoria che hai creato",
-    }))
+    }));
   conv.ask(new BasicCard({
    text: `${itemContext}  \n`, // Note the two spaces before '\n' required for
                                 // a line break to be rendered in the card.
