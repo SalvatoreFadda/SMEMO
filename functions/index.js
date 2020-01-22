@@ -80,6 +80,20 @@ const db = admin.firestore();
 
 // ################## INIZIO INTENTI ################################################################
 
+app.fallback((conv) => {
+    const intent = conv.intent;
+    console.log("sono in: " + intent);
+    conv.ask("sono in fallback");
+/*
+conv.ask(".......", new HtmlResponse({
+    data: {
+      scene: 'chiedimi',
+    }
+  }));
+*/
+});
+
+
 app.intent('Default Welcome Intent', conv => {
     return  admin.database().ref('data').once('value').then((snapshot) => {
       const name = snapshot.child('userName').val();
@@ -243,7 +257,9 @@ app.intent('vai alla Home', conv => {
   }));*/
 });
 
+
 app.intent('Chiedimi', conv => {
+    console.log("sono in chiedimi");
   conv.ask(new HtmlResponse({
     data: {
       scene: 'chiedimi',
@@ -254,6 +270,7 @@ app.intent('Chiedimi', conv => {
   conv.contexts.set('chiedimi', 5, parameters);
   conv.ask(`Perfetto, ora chiedimi quello che mi hai insegnato.`);
 });
+
 
 app.intent('vai alle impostazioni', conv => {
   conv.ask(new HtmlResponse({
@@ -491,6 +508,7 @@ app.intent('elimina singola card', conv => {
 });
 
 
+
 //############## FUNZIONI ###################################################################
 
 async function cards() {
@@ -558,6 +576,7 @@ function CreateIntent(contestoDatoDaUser, domandaDatoDaUser, rispostaDatoDaUser)
 const formattedParent = client.projectAgentPath('smemo-devi-funzionare');
 const intent = {
   "displayName": String(domandaDatoDaUser),
+  "webhookState": "WEBHOOK_STATE_ENABLED",
   "inputContextNames": [
     "projects/smemo-devi-funzionare/agent/sessions/-/contexts/chiedimi"
   ],
@@ -575,7 +594,7 @@ const intent = {
   "outputContexts": [
     {
       "name": "projects/smemo-devi-funzionare/agent/sessions/-/contexts/chiedimi",
-      "lifespanCount": 5,
+      "lifespanCount": 1,
     }
   ],
   "parameters": [
