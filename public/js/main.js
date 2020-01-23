@@ -115,6 +115,18 @@ interactiveCanvas.ready({
       document.querySelector('#robotDx').style.display = 'block';
     //capire come far uscire tutte le card del bambino...?
     }
+    //cambio sfondo generale dell'applicazione
+    if(data.scene === 'sfondo'){
+    document.body.style.background = "#ffffff url('${data.userChoice}.svg') no-repeat";    
+    }
+      //cambio sfondo generale in dinosauri
+    if(data.scene === 'caramelle'){
+    document.body.style.background = "#ffffff url('${data.userChoice}.svg') no-repeat";    
+    }
+    //cambio sfondo generale in caramelle
+    if(data.scene === 'dinosauri'){
+    document.querySelector('#user-choice').src = `images/${data.userChoice}.png`;    
+    }
     //default page
     if(data.scene === 'default') {
       noneSelector('default');
