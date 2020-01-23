@@ -80,20 +80,6 @@ const db = admin.firestore();
 
 // ################## INIZIO INTENTI ################################################################
 
-app.fallback((conv) => {
-    const intent = conv.intent;
-    console.log("sono in: " + intent);
-    conv.ask("sono in fallback");
-/*
-conv.ask(".......", new HtmlResponse({
-    data: {
-      scene: 'chiedimi',
-    }
-  }));
-*/
-});
-
-
 app.intent('Default Welcome Intent', conv => {
     return  admin.database().ref('data').once('value').then((snapshot) => {
       const name = snapshot.child('userName').val();
@@ -247,24 +233,24 @@ app.intent('CambioSesso', conv => {
 
 app.intent('vai alla Home', conv => {
   conv.ask('ok, ti porto subito alla schermata iniziale');
-  conv.ask(new HtmlResponse({
+  /*conv.ask(new HtmlResponse({
     data: {
       scene: 'home',
     }
-  }));
-  /*conv.ask(new HtmlResponse({
-    url: `https://${firebaseConfig.projectId}.firebaseapp.com/`
   }));*/
+  conv.ask(new HtmlResponse({
+    url: `https://${firebaseConfig.projectId}.firebaseapp.com/`
+  }));
 });
 
 
 app.intent('Chiedimi', conv => {
     console.log("sono in chiedimi");
-  conv.ask(new HtmlResponse({
+  /*conv.ask(new HtmlResponse({
     data: {
       scene: 'chiedimi',
     }
-  }));
+  }));*/
   const parameters = {
   };
   conv.contexts.set('chiedimi', 5, parameters);
@@ -304,8 +290,7 @@ const createSingleList = conv => {
         text: "Ecco qui la card per questa categoria",
     }))
   conv.ask(new BasicCard({
-   text: `${itemText}  \n`, // Note the two spaces before '\n' required for
-                                // a line break to be rendered in the card.
+   text: `${itemText}  \n`,
    subtitle: ' ',
    title: `${itemTitle}`,
    image: new Image({
@@ -328,8 +313,7 @@ const createSingleListForContext = conv => {
         text: "Ecco qui la categoria che hai creato",
     }));
   conv.ask(new BasicCard({
-   text: `${itemContext}  \n`, // Note the two spaces before '\n' required for
-                                // a line break to be rendered in the card.
+   text: `${itemContext}  \n`,
    subtitle: ' ',
    title: 'La tua categoria',
    image: new Image({
@@ -414,7 +398,6 @@ app.intent('Cards(2)', (conv) => {
         if (( conv.input.raw == intent.get('contesto')&&conv.input.raw!='visualizza categoria' || conv.user.storage.contesto == intent.get('contesto')&&conv.input.raw=='visualizza categoria')&& (i <= 28)){
           i = i + 1;
           var k = `${intent.get('domanda')}`;
-          //items[k] = createCards(intent.get('contesto'),intent.get('domanda'),intent.get('risposta'))
             items[k] = {
                   synonyms: [
                   ],
@@ -440,7 +423,6 @@ app.intent('Cards(2)', (conv) => {
     else {
       createSingleList(conv);
       conv.contexts.set('cards2', 1, parameters);
-      //conv.ask('Ecco qui la card per questa categoria');
     }
     }).catch(err => {
       console.error(err);
@@ -576,7 +558,6 @@ function CreateIntent(contestoDatoDaUser, domandaDatoDaUser, rispostaDatoDaUser)
 const formattedParent = client.projectAgentPath('smemo-devi-funzionare');
 const intent = {
   "displayName": String(domandaDatoDaUser),
-  "webhookState": "WEBHOOK_STATE_ENABLED",
   "inputContextNames": [
     "projects/smemo-devi-funzionare/agent/sessions/-/contexts/chiedimi"
   ],
