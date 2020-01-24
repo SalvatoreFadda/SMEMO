@@ -1,0 +1,71 @@
+<svg id="Livello_1" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 399.78 381.64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #b47cdd;
+      }
+
+      .cls-2 {
+        fill: #a63ad8;
+      }
+
+      .cls-3 {
+        fill: #ffd500;
+      }
+
+      .cls-4 {
+        fill: #f5ad00;
+      }
+
+      .cls-5 {
+        fill: #fff;
+      }
+
+      .cls-6 {
+        fill: #040405;
+      }
+
+      .cls-7 {
+        fill: none;
+        stroke: #b47cdd;
+        stroke-miterlimit: 10;
+        stroke-width: 10px;
+      }
+
+      .cls-8 {
+        fill: #ffdf00;
+      }
+
+      .cls-9 {
+        fill: #fa7921;
+      }
+
+      .cls-10 {
+        fill: #e56e1f;
+      }
+    </style>
+  </defs>
+  <path id="Path_8" data-name="Path 8" class="cls-1" d="M305.16,364.79H83.75a16.86,16.86,0,0,1-16.86-16.85h0V198.52a16.85,16.85,0,0,1,16.86-16.85H305.16A16.85,16.85,0,0,1,322,198.52V347.93a16.84,16.84,0,0,1-16.85,16.85h0Z"/>
+  <path id="Path_10" data-name="Path 10" class="cls-2" d="M170,364.79c-46.08,0,188.27-170.49,117.68-180.6a92.37,92.37,0,0,1,18.94-2.52c7.59,0,14.58,5.57,15.16,16.41V348.36s0,15.15-35.24,16.42Z"/>
+  <rect id="Rectangle_3" data-name="Rectangle 3" class="cls-1" x="102.89" y="32.64" width="183.12" height="138.92" rx="9.74"/>
+  <circle id="Ellipse_4" data-name="Ellipse 4" class="cls-3" cx="145.31" cy="85.68" r="20.21"/>
+  <path id="Path_11" data-name="Path 11" class="cls-4" d="M127.46,95.16A20.21,20.21,0,0,1,159.13,71"/>
+  <path id="Path_12" data-name="Path 12" class="cls-4" d="M130.45,99.37a19.8,19.8,0,0,1-3-4.22"/>
+  <circle id="Ellipse_6" data-name="Ellipse 6" class="cls-5" cx="156.99" cy="74.95" r="8.21"/>
+  <circle id="Ellipse_7" data-name="Ellipse 7" class="cls-3" cx="242.55" cy="85.68" r="20.21"/>
+  <path id="Path_13" data-name="Path 13" class="cls-4" d="M224.7,95.16A20.21,20.21,0,0,1,256.37,71"/>
+  <path id="Path_14" data-name="Path 14" class="cls-4" d="M227.69,99.37a20.16,20.16,0,0,1-3-4.22"/>
+  <circle id="Ellipse_9" data-name="Ellipse 9" class="cls-5" cx="254.23" cy="74.95" r="8.21"/>
+  <circle id="Ellipse_5" data-name="Ellipse 5" class="cls-6" cx="145.3" cy="85.68" r="9.47"/>
+  <circle id="Ellipse_8" data-name="Ellipse 8" class="cls-6" cx="242.55" cy="85.68" r="9.47"/>
+  <path id="Path_9" data-name="Path 9" class="cls-3" d="M225.35,33.28a37.26,37.26,0,0,0-61.86.12Z"/>
+  <path class="cls-7" d="M113,108s33.62-14.1,64.46,0"/>
+  <path class="cls-7" d="M211.44,107.63s33.61-14.1,64.45,0"/>
+  <g>
+    <ellipse class="cls-8" cx="204.57" cy="141.86" rx="23.16" ry="18.13" transform="translate(-12.4 19.81) rotate(-5.38)"/>
+    <g>
+      <path id="Path_16" data-name="Path 16" class="cls-9" d="M196.64,157a4.18,4.18,0,0,1-2-3.17v-.18c-.61-4.69,4.51-9.22,11.4-10.07s12.95,2.26,13.53,7a6,6,0,0,1-.24,2.62,3.12,3.12,0,0,1-1,1.61A19.25,19.25,0,0,1,196.64,157Z"/>
+      <path id="Path_17" data-name="Path 17" class="cls-10" d="M208.16,159.05s11.69-5.64,4.29-15.15c0,0,9.73,2,6.37,10.08A18.63,18.63,0,0,1,208.16,159.05Z"/>
+    </g>
+  </g>
+</svg>
