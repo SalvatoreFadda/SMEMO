@@ -1,11 +1,4 @@
 
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-// exports.helloWorld = functions.https.onRequest((request, response) => {
-//  response.send("Hello from Firebase!");
-// });
-
 const admin = require('firebase-admin');
 const functions = require('firebase-functions');
 const {
@@ -49,24 +42,6 @@ const request = {
     },
   },
 };
-/*
-sessionClient
-  .detectIntent(request)
-  .then(responses => {
-    console.log('Detected intent');
-    const result = responses[0].queryResult;
-    console.log(`  Query: ${result.queryText}`);
-    console.log(`  Response: ${result.fulfillmentText}`);
-    if (result.intent) {
-      console.log(`  Intent: ${result.intent.displayName}`);
-    } else {
-      console.log(`  No intent matched.`);
-    }
-  })
-  .catch(err => {
-    console.error('ERROR:', err);
-  });
-*/
 
 const client = new dialog.IntentsClient();
 
@@ -90,7 +65,7 @@ app.intent('Default Welcome Intent', conv => {
         }
         else conv.ask(`Bentornata ${name}!`);
       }
-      else conv.ask(`Ciao, è bello rivederti!`);
+      else conv.ask(`Ciao, molto piacere, io sono Smemo`);
       conv.ask(new HtmlResponse({
         url: `https://${firebaseConfig.projectId}.firebaseapp.com/`
       }));
@@ -142,8 +117,7 @@ app.intent('Contesto(2-new)', conv => {
 
 app.intent('Domanda(3)', conv => {
   conv.ask('Che risposta devo dare ?');
-  var contestoDatoDaUser = conv.contexts.input.domanda.parameters.contestoDaUser
-  // contestoDatoDaUser = conv.parameters.contestoDaUser;
+  var contestoDatoDaUser = conv.contexts.input.domanda.parameters.contestoDaUser;
   const parameters = {
      contestoDatoDaUser: contestoDatoDaUser, domandaDatoDaUser: conv.input.raw
   };
@@ -154,6 +128,7 @@ app.intent('Domanda(3)', conv => {
     }
   }));
 });
+
 
 app.intent('Risposta(4)', conv => {
   var contestoDatoDaUser = conv.contexts.input.risposta.parameters.contestoDatoDaUser;
@@ -183,14 +158,12 @@ app.intent('Risposta(4)', conv => {
 });
 
 app.intent('Loop Creazione Intento', conv => {
-  // TODO verifica che "conv.contexts.input.loopcreazioneintento.parameters.contestoDatoDaUser" contenga veramente il vecchio contesto
   if(conv.input.raw != conv.contexts.input.loopcreazioneintento.parameters.contestoDatoDaUser) {
     conv.ask(new HtmlResponse({
       data: {
         scene: 'newCard',
       }
     }));
-    // TODO far partire stelline e poi home
   }
   else {
     conv.ask(`a quale nuova domanda devo rispondere ?`);
@@ -200,64 +173,13 @@ app.intent('Loop Creazione Intento', conv => {
     conv.contexts.set('Domanda', 1, parameters);
     conv.ask(new HtmlResponse({
       data: {
-        scene: 'domanda', // TODO far vedere schermata con gli intenti creati
+        scene: 'domanda',
       }
     }));
   }
 });
 
-
-app.intent('CambioNome', conv => {
-  conv.ask(new HtmlResponse({
-    data: {
-      scene: 'nome',
-    }
-  }));
-  const name = conv.parameters.name;
-  conv.ask(`Che bello, da ora ti chiamerò ${name}`);
-  return admin.database().ref('data/userName').set(name);
-
-});
-
-app.intent('CambioSesso', conv => {
-  conv.ask(new HtmlResponse({
-    data: {
-      scene: 'impostazioni',
-    }
-  }));
-  const sesso = conv.parameters.sesso;
-  conv.ask(`Perfetto`);
-  return admin.database().ref('data/sesso').set(sesso);
-});
-
-
-app.intent('vai alla Home', conv => {
-  conv.ask('ok, ti porto subito alla schermata iniziale');
-  /*conv.ask(new HtmlResponse({
-    data: {
-      scene: 'home',
-    }
-  }));*/
-  conv.ask(new HtmlResponse({
-    url: `https://${firebaseConfig.projectId}.firebaseapp.com/`
-  }));
-});
-
-
-app.intent('Chiedimi', conv => {
-    console.log("sono in chiedimi");
-  /*conv.ask(new HtmlResponse({
-    data: {
-      scene: 'chiedimi',
-    }
-  }));*/
-  const parameters = {
-  };
-  conv.contexts.set('chiedimi', 5, parameters);
-  conv.ask(`Perfetto, ora chiedimi quello che mi hai insegnato.`);
-});
-
-
+//################# INTENTI DELLE IMPOSTAZIONI
 app.intent('vai alle impostazioni', conv => {
   conv.ask(new HtmlResponse({
     data: {
@@ -271,7 +193,70 @@ app.intent('vai alle impostazioni', conv => {
 });
 
 
+app.intent('CambioNome', conv => {
+  conv.ask(new HtmlResponse({
+    data: {
+      scene: 'nome',
+    }
+  }));
+  const name = conv.parameters.name;
+  conv.ask(`Che bello, da ora ti chiamerò ${name}`);
+  return admin.database().ref('data/userName').set(name);
+});
+
+
+app.intent('CambioSesso', conv => {
+  conv.ask(new HtmlResponse({
+    data: {
+      scene: 'impostazioni',
+    }
+  }));
+  const sesso = conv.parameters.sesso;
+  conv.ask(`Perfetto`);
+  return admin.database().ref('data/sesso').set(sesso);
+});
+
+//################# INTENTI PER TORNARE ALLA HOME
+app.intent('vai alla Home', conv => {
+  conv.ask('ok, ti porto subito alla schermata iniziale');
+  conv.ask(new HtmlResponse({
+    data: {
+      scene: 'home',
+    }
+  }));
+});
+
+
+app.intent('vai alla Home 2', conv => {
+  conv.ask('ok, ti porto subito alla schermata iniziale');
+  conv.ask(new HtmlResponse({
+    url: `https://${firebaseConfig.projectId}.firebaseapp.com/`
+  }));
+});
+
+
+//################# INTENTI PER LA SEZIONE 'CHIEDIMI'
+app.intent('Chiedimi', conv => {
+  const parameters = {
+  };
+  conv.contexts.set('chiedimi', 5, parameters);
+  conv.ask(`Perfetto, ora chiedimi quello che mi hai insegnato.`);
+});
+
+app.intent('Fallback Chiedimi', conv => {
+  return admin.database().ref('data').once('value').then((snapshot) => {
+    const value = snapshot.child('userName').val();
+    if (value != null){
+      conv.ask(`Non ho capito ${value}, puoi ripetere?`);
+    }
+    else conv.ask(`Non ho capito, puoi ripetere?`);
+  });
+});
+
+//################# INTENTI DELLA SEZIONE CARDS
+
 const createList = conv => {
+  // per la creazione di una lista di items
   items = conv.user.storage.items;
   conv.ask(new List({
     title: 'Le tue Cards',
@@ -282,6 +267,7 @@ const createList = conv => {
 }
 
 const createSingleList = conv => {
+  // per la creazione di una lista che contiene un solo item
   itemTitle = conv.user.storage.domanda;
   itemText = conv.user.storage.risposta;
   itemContext = conv.user.storage.contesto;
@@ -305,6 +291,7 @@ const createSingleList = conv => {
 }
 
 const createSingleListForContext = conv => {
+  // per la creazione di una lista che contiene un solo item di tipo categoria
   itemContext = conv.user.storage.contesto;
   console.log(itemContext);
   console.log(cardImage(itemContext));
@@ -329,7 +316,7 @@ const createSingleListForContext = conv => {
 
 
 app.intent('Cards', (conv) => {
-  // CARD che mostrano i contesti
+  // intento che mostra la lista di contesti creati dall'utente
   if (!conv.screen) {
       conv.ask('Mi dispiace ma questo dispositivo non supporta un interfaccia grafica.');
       return;
@@ -338,19 +325,21 @@ app.intent('Cards', (conv) => {
   };
   conv.contexts.set('cards', 1, parameters);
   var items = {};
+  // la lista degli intenti viene presa dal cloud storage di Firebase (lista di intenti da mostrare all'utente creata ad hoc, i.e senza
+  // tutti gli intenti per far funzionare l'agente che non interessano l'utente)
   return db.collection('intents').get()
   .then(intents => {
     let mySet = new Set();
     intents.forEach(intent => {
+      // aggiungo al set tutti i nomi dei contesti (senza duplicati)
       mySet.add(`${intent.get('contesto')}`);
-      // useful only for single card
+      // salvo i parametri dell'intento
       conv.user.storage.contesto = intent.get('contesto');
       conv.user.storage.risposta = intent.get('risposta');
       conv.user.storage.domanda = intent.get('domanda');
     });
     for (let x of mySet) {
       var k = `${x}`;
-      //items[k] = createContextCards(k);
       items[k] = {
               synonyms: [
                 `${k}`,
@@ -364,11 +353,13 @@ app.intent('Cards', (conv) => {
             };
     }
     if (mySet.size >= 2) {
+      // se la lista è formata da un numero maggiore di 2 elementi creo una lista normale di items
       conv.user.storage.items = items;
       createList(conv);
       conv.ask('Ok, ti mostro le tue categorie');
     }
     else {
+      // se la lista da creare ha meno di due elementi non posso creare una lista normale di items (limitazione di Google)
       if (mySet.size = 1) {
         createSingleListForContext(conv);
       }
@@ -382,7 +373,7 @@ app.intent('Cards', (conv) => {
 });
 
 app.intent('Cards(2)', (conv) => {
-  // CARD specifiche per il contesto
+  // intento che mostra gli intenti creati per il contesto selezionato dall'utente
   if (!conv.screen) {
       conv.ask('Mi dispiace ma questo dispositivo non supporta un interfaccia grafica.');
       return;
@@ -391,10 +382,13 @@ app.intent('Cards(2)', (conv) => {
   };
 
   var items = {};
+  // la lista degli intenti viene presa dal cloud storage di Firebase (lista di intenti da mostrare all'utente creata ad hoc, i.e senza
+  // tutti gli intenti per far funzionare l'agente che non interessano l'utente)
   return db.collection('intents').get()
   .then(intents => {
       var i = 0;
       intents.forEach(intent => {
+        // tengo solo gli intenti che hanno come contesto quello selezionato dall'utente
         if (( conv.input.raw == intent.get('contesto')&&conv.input.raw!='visualizza categoria' || conv.user.storage.contesto == intent.get('contesto')&&conv.input.raw=='visualizza categoria')&& (i <= 28)){
           i = i + 1;
           var k = `${intent.get('domanda')}`;
@@ -408,19 +402,21 @@ app.intent('Cards(2)', (conv) => {
                     alt: 'Image alternate text',
                   }),
                 };
-          // useful only for single card
+          // salvo i parametri dell'intento
           conv.user.storage.risposta = intent.get('risposta');
           conv.user.storage.domanda = intent.get('domanda');
           conv.user.storage.contesto = intent.get('contesto');
           }
     });
     if ( i >= 2){
-    conv.user.storage.items = items;
-    createList(conv);
-    conv.contexts.set('cards2', 1, parameters);
-    conv.ask('Ecco qui le cards per questa categoria');
+      // se la lista è formata da un numero maggiore di 2 elementi creo una lista normale di items
+      conv.user.storage.items = items;
+      createList(conv);
+      conv.contexts.set('cards2', 1, parameters);
+      conv.ask('Ecco qui le cards per questa categoria');
     }
     else {
+      // se la lista da creare ha meno di due elementi non posso creare una lista normale di items (limitazione di Google)
       createSingleList(conv);
       conv.contexts.set('cards2', 1, parameters);
     }
@@ -430,6 +426,7 @@ app.intent('Cards(2)', (conv) => {
 });
 
 app.intent('Cards(3)', conv => {
+  // intento per l'eliminazione dell'intento selezionato
   conv.ask('Vuoi eliminare la card selezionata ? rispondi "si" oppure "no" ');
   conv.user.storage.intento = `${conv.input.raw}`;
   const parameters = {
@@ -467,19 +464,6 @@ app.intent('eliminazione intento no', conv => {
   }));
 });
 
-app.intent('esci dalla lista', conv => {
-  conv.ask('ok, ti porto subito alla schermata iniziale');
-  conv.ask(new HtmlResponse({
-    url: `https://${firebaseConfig.projectId}.firebaseapp.com/`
-  }));
-});
-
-app.intent('esci dalla lista 2', conv => {
-  conv.ask('ok, ti porto subito alla schermata iniziale');
-  conv.ask(new HtmlResponse({
-    url: `https://${firebaseConfig.projectId}.firebaseapp.com/`
-  }));
-});
 
 app.intent('elimina singola card', conv => {
   conv.ask('Vuoi eliminare la card selezionata ? rispondi "si" oppure "no"');
@@ -490,35 +474,26 @@ app.intent('elimina singola card', conv => {
 });
 
 
+app.intent('esci dalla lista', conv => {
+  conv.ask('ok, ti porto subito alla schermata iniziale');
+  conv.ask(new HtmlResponse({
+    url: `https://${firebaseConfig.projectId}.firebaseapp.com/`
+  }));
+});
+
+
+app.intent('esci dalla lista 2', conv => {
+  conv.ask('ok, ti porto subito alla schermata iniziale');
+  conv.ask(new HtmlResponse({
+    url: `https://${firebaseConfig.projectId}.firebaseapp.com/`
+  }));
+});
+
+
 
 //############## FUNZIONI ###################################################################
 
-async function cards() {
-  const projectAgentPath = client.projectAgentPath(projectId);
-  const [response] = await client.listIntents({parent: projectAgentPath}, {autoPaginate: false});
-    var i = 0;
-    intents = [];
-    response.forEach(intent => {
-    console.log('====================');
-    console.log(`Intent name: ${intent.name}`);
-    console.log(`Intent display name: ${intent.displayName}`);
-    console.log(`Action: ${intent.action}`);
-    console.log(`Root folowup intent: ${intent.rootFollowupIntentName}`);
-    console.log(`Parent followup intent: ${intent.parentFollowupIntentName}`);
-
-    console.log('Input contexts:');
-    intent.inputContextNames.forEach(inputContextName => {
-      console.log(`\tName: ${inputContextName}`);
-    });
-
-    console.log('Output contexts:');
-    intent.outputContexts.forEach(outputContext => {
-      console.log(`\tName: ${outputContext.name}`);
-    });
-
-  });
-}
-
+// funzione per eliminare un intento (cioè una Card)
 function myDeleteIntent(intento) {
   const formattedParent = client.projectAgentPath('smemo-devi-funzionare');
   client.listIntents({parent: formattedParent}, {autoPaginate: false})
@@ -539,23 +514,11 @@ function myDeleteIntent(intento) {
     });
 }
 
-function cards3() {
-const formattedParent = client.projectAgentPath('smemo-devi-funzionare');
-  client.listIntentsStream({parent: formattedParent})
-    .on('data', element => {
-      // doThingsWith(element)
-      console.log('====================');
-      console.log(`Intent name: ${element.name}`);
-      console.log(`Intent display name: ${element.displayName}`);
-    }).on('error', err => {
-      console.log(err);
-    });
-}
 
-
+// funzione per creare nuovi Intents
 function CreateIntent(contestoDatoDaUser, domandaDatoDaUser, rispostaDatoDaUser){
-// per Create Intent --------
 const formattedParent = client.projectAgentPath('smemo-devi-funzionare');
+// oggetto intento
 const intent = {
   "displayName": String(domandaDatoDaUser),
   "inputContextNames": [
@@ -597,17 +560,18 @@ const req = {
   parent: formattedParent,
   intent: intent,
 };
-// create intent
+// metodo createIntent() di Google
 client.createIntent(req)
 .then(responses => {
 const response = responses[0];
-// doThingsWith(response)
 })
 .catch(err => {
 console.error(err);
 });
 }
 
+
+// funzione per la classificazione delle immagini
 function cardImage(contesto){
   var urlImage;
   switch (contesto) {
