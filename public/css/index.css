@@ -84,7 +84,7 @@ position: absolute;
   display: inline-block;
   width: 12%;
   left: 15px;
-  bottom: 10px;
+  bottom: -30px;
   position: absolute;
 }
 
@@ -98,7 +98,7 @@ div.container {
 
 #welcome { /*------------------------------------------------------------------------------------------------------------------*/
   /* per visualizzare inserire display: block */
-  display: block;
+  display: none;
 
 }
 
@@ -367,7 +367,7 @@ margin-top: 48%;
 display: block;
 width: 16%;
 position: absolute;
-bottom: 31%;
+bottom: 39%;
 right: 88%;
 }
 
@@ -376,14 +376,14 @@ display: block;
 width: 15%;
 right: 90%;
 position: absolute;
-bottom: 17%;
+bottom: 24%;
 }
 
 #bloccoNome {
 display: block;
 width: 15%;
 position: absolute;
-bottom: 2%;
+bottom: 10%;
 right: 90%;
 }
 
@@ -414,7 +414,7 @@ right: 14%;
 /* accendere robotDx */
 #sfondi { /*------------------------------------------------------------------------------------------------------------------*/
 /* per visualizzare inserire display: block */
-display: none;
+display: block;
 margin-bottom: 40%;
 }
 
@@ -446,11 +446,16 @@ display: inline-block;
 width: 10%;
 }
 
+#biancoSmall {
+display: inline-block;
+width: 10%;
+}
+
 #bloccoVoce2 {
 display: block;
 width: 15%;
 position: absolute;
-bottom: 31%;
+bottom: 39%;
 right: 90%;
 }
 
@@ -458,7 +463,7 @@ right: 90%;
 display: block;
 width: 16%;
 position: absolute;
-bottom: 16%;
+bottom: 24%;
 right: 88%;
 }
 
@@ -466,7 +471,7 @@ right: 88%;
 display: block;
 width: 15%;
 position: absolute;
-bottom: 2%;
+bottom: 10%;
 right: 90%;
 }
 
@@ -475,7 +480,7 @@ display: inline-block;
 color: var(--azzurro);
 font-family: gill-sans-nova, sans-serif;
 font-size: 8px;
-bottom: 39%;
+bottom: 23%;
 position: absolute;
 line-height: 10%;
 right: 10%;
@@ -523,7 +528,7 @@ line-height: 5.5px;
 display: block;
 width: 15%;
 position: absolute;
-bottom: 31%;
+bottom: 39%;
 right: 90%;
 }
 
@@ -531,7 +536,7 @@ right: 90%;
 display: block;
 width: 15%;
 position: absolute;
-bottom: 17%;
+bottom: 24%;
 right: 90%;
 
 }
@@ -540,6 +545,6 @@ right: 90%;
 display: block;
 width: 16%;
 position: absolute;
-bottom: 2%;
+bottom: 10%;
 right: 88%;
 }
