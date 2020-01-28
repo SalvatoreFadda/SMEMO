@@ -36,7 +36,7 @@ body {
   /* per visualizzare inserire display: inline-block */
  display: inline-block;
  width: 13%;
- top: 80px;
+ top: 75px;
  left: 20px;
  position: absolute;
 }
@@ -44,16 +44,16 @@ body {
 #tutorial {
 
  display: inline-block;
- width: 8%;
- top: 2px;
- right: 10px;
+ width: 13%;
+ top: 73px;
+ right: -15px;
  position: absolute;
 }
 
 #impostazioni {
  display: inline-block;
 width: 13%;
-top: 80px;
+top: 75px;
 position: absolute;
 right: 30px;
 }
@@ -84,7 +84,7 @@ position: absolute;
   display: inline-block;
   width: 12%;
   left: 15px;
-  bottom: -30px;
+  bottom: -10px;
   position: absolute;
 }
 
@@ -98,7 +98,7 @@ div.container {
 
 #welcome { /*------------------------------------------------------------------------------------------------------------------*/
   /* per visualizzare inserire display: block */
-  display: none;
+  display: block;
 
 }
 
@@ -329,46 +329,51 @@ width: 120%;
   margin-top: 15%;
 }
 
-                                      /* PAGINA - VOCE */
+                                      /* PAGINA - COLORE */
 
 /* accendere robotDx */
-#voce { /*------------------------------------------------------------------------------------------------------------------*/
+#colore { /*------------------------------------------------------------------------------------------------------------------*/
 /* per visualizzare inserire display: block */
 display: none;
 margin-bottom: 40%;
 }
 
-#maschio {
+#blu {
 display: inline-block;
 width: 7%;
 
-
 }
 
-#femmina {
+#viola {
 display: inline-block;
 width: 7%;
 
+}
+
+#verde {
+display: inline-block;
+width: 7%;
+margin-right: 15%;
 
 }
 
-#Tvoce {
+#Tcolore {
 display: inline-block;
 color: var(--azzurro);
 font-family: gill-sans-nova, sans-serif;
 font-weight: 900;
-margin: auto;
 margin-bottom: 2%;
-margin-top: 48%;
+margin-top: 38%;
+margin-right: 15%;
 
 }
 
-#bloccoVoce {
+#bloccoColore {
 display: block;
-width: 16%;
+width: 13%;
 position: absolute;
-bottom: 39%;
-right: 88%;
+bottom: 44%;
+right: 89%;
 }
 
 #bloccoSfondo {
@@ -376,14 +381,14 @@ display: block;
 width: 15%;
 right: 90%;
 position: absolute;
-bottom: 24%;
+bottom: 29%;
 }
 
 #bloccoNome {
 display: block;
 width: 15%;
 position: absolute;
-bottom: 10%;
+bottom: 15%;
 right: 90%;
 }
 
@@ -392,7 +397,7 @@ display: inline-block;
 color: var(--azzurro);
 font-family: gill-sans-nova, sans-serif;
 font-size: 8px;
-bottom: 40%;
+bottom: 25%;
 position: absolute;
 line-height: 10%;
 right: 8%;
@@ -414,7 +419,7 @@ right: 14%;
 /* accendere robotDx */
 #sfondi { /*------------------------------------------------------------------------------------------------------------------*/
 /* per visualizzare inserire display: block */
-display: block;
+display: none;
 margin-bottom: 40%;
 }
 
@@ -451,11 +456,11 @@ display: inline-block;
 width: 10%;
 }
 
-#bloccoVoce2 {
+#bloccoColore2 {
 display: block;
-width: 15%;
+width: 13%;
 position: absolute;
-bottom: 39%;
+bottom: 44%;
 right: 90%;
 }
 
@@ -463,7 +468,7 @@ right: 90%;
 display: block;
 width: 16%;
 position: absolute;
-bottom: 24%;
+bottom: 29%;
 right: 88%;
 }
 
@@ -471,7 +476,7 @@ right: 88%;
 display: block;
 width: 15%;
 position: absolute;
-bottom: 10%;
+bottom: 15%;
 right: 90%;
 }
 
@@ -524,11 +529,11 @@ margin: auto;
 line-height: 5.5px;
 }
 
-#bloccoVoce3 {
+#bloccoColore3 {
 display: block;
-width: 15%;
+width: 13%;
 position: absolute;
-bottom: 39%;
+bottom: 44%;
 right: 90%;
 }
 
@@ -536,7 +541,7 @@ right: 90%;
 display: block;
 width: 15%;
 position: absolute;
-bottom: 24%;
+bottom: 29%;
 right: 90%;
 
 }
@@ -545,6 +550,6 @@ right: 90%;
 display: block;
 width: 16%;
 position: absolute;
-bottom: 10%;
+bottom: 15%;
 right: 88%;
 }

@@ -1,0 +1,41 @@
+<svg id="Livello_1" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240.31 134.64">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        isolation: isolate;
+      }
+
+      .cls-2 {
+        font-size: 25px;
+        font-family: GillSans-Bold, Gill Sans;
+        font-weight: 700;
+      }
+
+      .cls-2, .cls-6 {
+        fill: #e55934;
+      }
+
+      .cls-3 {
+        letter-spacing: -0.01em;
+      }
+
+      .cls-4 {
+        letter-spacing: -0.06em;
+      }
+
+      .cls-5 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <title>colore</title>
+  <g id="Group_28" data-name="Group 28">
+    <g id="COLORE" class="cls-1">
+      <text class="cls-2" transform="translate(89.58 79)"><tspan class="cls-3">C</tspan><tspan x="18.23" y="0">O</tspan><tspan class="cls-4" x="39.5" y="0">L</tspan><tspan x="53.89" y="0">ORE</tspan></text>
+    </g>
+    <g id="Path_44" data-name="Path 44">
+      <path class="cls-5" d="M45.64,10.94H210a38,38,0,0,1,38,38v58.64a38,38,0,0,1-38,38H45.64a38,38,0,0,1-38-38V48.94A38,38,0,0,1,45.64,10.94Z" transform="translate(-7.64 -10.94)"/>
+      <path class="cls-6" d="M45.64,13.94a35,35,0,0,0-35,35v58.64a35,35,0,0,0,35,35H210a35,35,0,0,0,35-35V48.94a35,35,0,0,0-35-35H45.64m0-3H210a38,38,0,0,1,38,38v58.64a38,38,0,0,1-38,38H45.64a38,38,0,0,1-38-38V48.94A38,38,0,0,1,45.64,10.94Z" transform="translate(-7.64 -10.94)"/>
+    </g>
+  </g>
+</svg>
