@@ -73,14 +73,13 @@ interactiveCanvas.ready({
         document.querySelector('#welcome').style.display = 'block';
       }, 7000);
     }
-    //visualizzazione impostazioni, di default parte l'impostazione della voce(che si occupa di cambiare anche il colore del robot)
+    //visualizzazione impostazioni, di default parte l'impostazione del nome e del sesso(M/F)
     if (data.scene === 'impostazioni'){
       noneSelector('impostazioni');
       document.querySelector('#backHome').style.display = 'inline-block';
       //document.querySelector('#tutorial').style.display = 'inline-block';
       document.querySelector('#robotDx').style.display = 'block';
-      document.querySelector('#voce').style.display = 'block';
-      //immagine voce più grnade, altre 2 pù piccole
+      document.querySelector('#nome').style.display = 'block';
     }
     //visualizzazione impostazioni per cambio sfondo
     if (data.scene === 'sfondi'){
@@ -89,16 +88,14 @@ interactiveCanvas.ready({
       //document.querySelector('#tutorial').style.display = 'inline-block';
       document.querySelector('#robotDx').style.display = 'block';
       document.querySelector('#sfondi').style.display = 'block';
-      //immagine sfondo più grnade, altre 2 pù piccole
     }
-    //visualizzazione impostazioni per cambio nome
-    if (data.scene === 'nome'){
-      noneSelector('nome');
+    //visualizzazione impostazioni per cambio colore del robot
+    if (data.scene === 'robotColor'){
+      noneSelector('colore');
       document.querySelector('#backHome').style.display = 'inline-block';
       //document.querySelector('#tutorial').style.display = 'inline-block';
       document.querySelector('#robotDx').style.display = 'block';
-      document.querySelector('#nome').style.display = 'block';
-      //immagine nome più grnade, altre 2 pù piccole
+      document.querySelector('#colore').style.display = 'block';
     }
     //ritorno alla home page(welcome)
     if (data.scene === 'home'){
@@ -115,17 +112,18 @@ interactiveCanvas.ready({
       document.querySelector('#robotDx').style.display = 'block';
     //capire come far uscire tutte le card del bambino...?
     }
-    //cambio sfondo generale dell'applicazione
-    if(data.scene === 'sfondo'){
-    document.body.style.background = "#ffffff url('${data.userChoice}.svg') no-repeat";    
+    //cambio sfondo generale dell'applicazione in spazio
+    if(data.scene === 'spazio'){
+    document.body.style.background = "#ffffff url('spazio.svg')";    
     }
       //cambio sfondo generale in dinosauri
     if(data.scene === 'caramelle'){
-    document.body.style.background = "#ffffff url('${data.userChoice}.svg') no-repeat";    
+    document.body.style.background = "#ffffff url('dinosauri.svg')";    
     }
     //cambio sfondo generale in caramelle
     if(data.scene === 'dinosauri'){
-    document.querySelector('#user-choice').src = `images/${data.userChoice}.png`;    
+    document.body.style.background = "#ffffff url('spazio.svg')";
+    //document.querySelector('#user-choice').src = `images/${data.userChoice}.png`;    
     }
     //default page
     if(data.scene === 'default') {
@@ -150,9 +148,9 @@ function noneSelector(scene){
     document.querySelector('#risposta').style.display = 'none';
     document.querySelector('#continua').style.display = 'none';
     //document.querySelector('#newCard').style.display = 'none';
-    document.querySelector('#voce').style.display = 'none';
-    document.querySelector('#sfondi').style.display = 'none';
     document.querySelector('#nome').style.display = 'none';
+    document.querySelector('#sfondi').style.display = 'none';
+    document.querySelector('#colore').style.display = 'none';
     document.querySelector('#defaultPage').style.display = 'none';
     }
  
