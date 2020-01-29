@@ -112,6 +112,10 @@ interactiveCanvas.ready({
       document.querySelector('#robotDx').style.display = 'block';
     //capire come far uscire tutte le card del bambino...?
     }
+    //setta lo sfondo dell'applicazione in bianco  
+    if(data.scene === 'bianco'){
+    document.body.style.backgroundImage = "url('')";    
+    }
     //cambio sfondo generale dell'applicazione in spazio
     if(data.scene === 'spazio'){
     document.body.style.backgroundImage = "url('assets/images/spazio.svg')";    
@@ -122,7 +126,25 @@ interactiveCanvas.ready({
     }
     //cambio sfondo generale in caramelle
     if(data.scene === 'caramelle'){
-    document.body.style.backgroundImage = "url('assets/images/caramelle.svg')"; 
+    document.body.style.backgroundImage = "url('assets/images/caramelleS.svg')"; 
+    //document.querySelector('#user-choice').src = `images/${data.userChoice}.png`;    
+    }
+    //cambia il colore del robot in blu
+    if(data.scene === 'robotBlu'){
+    document.getElementById("robotCentro").src = "assets/images/robot.svg"; 
+    document.getElementById("robotDx").src = "assets/images/robot.gif"; 
+    //document.querySelector('#user-choice').src = `images/${data.userChoice}.png`;    
+    }
+    //cambia il colore del robot in viola
+    if(data.scene === 'robotViola'){
+    document.getElementById("robotCentro").src = "assets/images/robottina.svg"; 
+    document.getElementById("robotDx").src = "assets/images/robottina.svg"; 
+    //document.querySelector('#user-choice').src = `images/${data.userChoice}.png`;    
+    }
+    //cambia il colore del robot in verde
+    if(data.scene === 'robotVerde'){
+    document.getElementById("robotCentro").src = "assets/images/robotVerde.svg"; 
+    document.getElementById("robotDx").src = "assets/images/robotVerde.svg"; 
     //document.querySelector('#user-choice').src = `images/${data.userChoice}.png`;    
     }
     //default page
