@@ -95,7 +95,7 @@ interactiveCanvas.ready({
       document.querySelector('#backHome').style.display = 'inline-block';
       //document.querySelector('#tutorial').style.display = 'inline-block';
       document.querySelector('#robotDx').style.display = 'block';
-      document.querySelector('#colore').style.display = 'block';
+      document.querySelector('#coloreRobot').style.display = 'block';
     }
     //ritorno alla home page(welcome)
     if (data.scene === 'home'){
@@ -114,15 +114,15 @@ interactiveCanvas.ready({
     }
     //cambio sfondo generale dell'applicazione in spazio
     if(data.scene === 'spazio'){
-    document.body.style.background = "#ffffff url('spazio.svg')";    
+    document.body.style.backgroundImage = "url('assets/images/spazio.svg')";    
     }
       //cambio sfondo generale in dinosauri
     if(data.scene === 'dinosauri'){
-    document.body.style.background = "#ffffff url('dinosauri.svg')";    
+    document.body.style.backgroundImage = "url('assets/images/dinosauri.svg')";     
     }
     //cambio sfondo generale in caramelle
     if(data.scene === 'caramelle'){
-    document.body.style.background = "#ffffff url('caramelle.svg')";
+    document.body.style.backgroundImage = "url('assets/images/caramelle.svg')"; 
     //document.querySelector('#user-choice').src = `images/${data.userChoice}.png`;    
     }
     //default page
