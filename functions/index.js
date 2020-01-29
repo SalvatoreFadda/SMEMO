@@ -223,7 +223,7 @@ app.intent('CambioSfondo', conv => {
       scene: 'sfondi',
     }
   }));
-  conv.ask(`ok, ti mostro gli sfondi`);
+  conv.ask(`Ti mostro gli sfondi che puoi impostare`);
 });
 
 
@@ -233,7 +233,45 @@ app.intent('CambioColoreRobot', conv => {
       scene: 'robotColor',
     }
   }));
-  conv.ask(`ok, ti mostro i colori`);
+  conv.ask(`Ti mostro i colori che puoi scegliere per il robot`);
+});
+
+
+
+app.intent('CambioSfondo-dinosauri', conv => {
+  conv.ask(new HtmlResponse({
+    data: {
+      scene: 'dinosauri',
+    }
+  }));
+  conv.ask(`Perfetto, imposto subito lo sfondo dei dinosauri`);
+});
+
+app.intent('CambioSfondo-caramelle', conv => {
+  conv.ask(new HtmlResponse({
+    data: {
+      scene: 'caramelle',
+    }
+  }));
+  conv.ask(`Perfetto, imposto subito lo sfondo delle caramelle`);
+});
+
+app.intent('CambioSfondo-spazio', conv => {
+  conv.ask(new HtmlResponse({
+    data: {
+      scene: 'spazio',
+    }
+  }));
+  conv.ask(`Perfetto, imposto subito lo sfondo dello spazio`);
+});
+
+app.intent('CambioSfondo-bianco', conv => {
+  conv.ask(new HtmlResponse({
+    data: {
+      scene: 'bianco',
+    }
+  }));
+  conv.ask(`Perfetto, imposto subito lo sfondo bianco`);
 });
 
 //################# INTENTI PER TORNARE ALLA HOME
