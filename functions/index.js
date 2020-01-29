@@ -674,6 +674,26 @@ function cardImage(contesto){
     case "barzelletta":
       urlImage = 'https://firebasestorage.googleapis.com/v0/b/smemo-devi-funzionare.appspot.com/o/jokes.svg?alt=media&token=e7cd1ffe-4845-4674-a9d0-807b7499eea8';
       break;
+    case "caramelle":
+    case "caramella":
+      urlImage = 'https://firebasestorage.googleapis.com/v0/b/smemo-devi-funzionare.appspot.com/o/caramelle.svg?alt=media&token=da34095a-3f5a-4ab5-a3e5-5798908d61c3';
+      break;
+    case "stelle":
+    case "stella":
+      urlImage = 'https://firebasestorage.googleapis.com/v0/b/smemo-devi-funzionare.appspot.com/o/stelle.svg?alt=media&token=32d42472-1733-49c3-9db6-343178947605';
+      break;
+    case "storia":
+    case "dinosauri":
+      urlImage = 'https://firebasestorage.googleapis.com/v0/b/smemo-devi-funzionare.appspot.com/o/storia.svg?alt=media&token=2d518861-def8-40e7-9f1c-38a7b72a2fe0';
+      break;
+    case "terra":
+      urlImage = 'https://firebasestorage.googleapis.com/v0/b/smemo-devi-funzionare.appspot.com/o/terra.svg?alt=media&token=c41ac194-db5e-4b07-ae57-956e3a49c928';
+      break;
+    case "viaggi":
+    case "aereo":
+    case "aerei":
+      urlImage = 'https://firebasestorage.googleapis.com/v0/b/smemo-devi-funzionare.appspot.com/o/viaggi.svg?alt=media&token=2edfbb76-f29c-42bc-a3f5-ff307fc661b8';
+      break;
     default:
       urlImage = 'https://firebasestorage.googleapis.com/v0/b/smemo-devi-funzionare.appspot.com/o/robotDefault.svg?alt=media&token=a352ef1d-6b16-4aaa-8d5d-2739bd9ff53b';
       break;
