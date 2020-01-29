@@ -137,7 +137,7 @@ interactiveCanvas.ready({
 //funzione che si occupa di nascondere gli elementi non necessari ---> elemento di default sempre on --> #backHome
 function noneSelector(scene){
     document.querySelector('#impostazioni').style.display = 'none';
-    document.querySelector('#tutorial').style.display = 'none';
+    document.querySelector('#tutorial').style.display = 'none';jkòàù12ì
     document.querySelector('#cards').style.display = 'none';
     document.querySelector('#robotDx').style.display = 'none';
     document.querySelector('#robotCentro').style.display = 'none';
