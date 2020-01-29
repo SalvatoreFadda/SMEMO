@@ -5,7 +5,7 @@
 interactiveCanvas.ready({
   onUpdate(data) {
     //visualizzazione pagina dove il bambino insegna a SMEMO
-    if (data.scene === 'insegnam') {
+    if (data.scene === 'insegnami') {
       noneSelector('insegnami');
       document.querySelector('#backHome').style.display = 'inline-block';
       document.querySelector('#impostazioni').style.display = 'inline-block';
