@@ -236,7 +236,32 @@ app.intent('CambioColoreRobot', conv => {
   conv.ask(`Ti mostro i colori che puoi scegliere per il robot`);
 });
 
+app.intent('CambioColoreRobot-blue', conv => {
+  conv.ask(new HtmlResponse({
+    data: {
+      scene: 'robotBlu',
+    }
+  }));
+  conv.ask(`Ok, cambio il colore di smemo in blue`);
+});
 
+app.intent('CambioColoreRobot-verde', conv => {
+  conv.ask(new HtmlResponse({
+    data: {
+      scene: 'robotVerde',
+    }
+  }));
+  conv.ask(`Ok, cambio il colore di smemo in verde`);
+});
+
+app.intent('CambioColoreRobot-viola', conv => {
+  conv.ask(new HtmlResponse({
+    data: {
+      scene: 'robotViola',
+    }
+  }));
+  conv.ask(`Ok, cambio il colore di smemo in viola`);
+});
 
 app.intent('CambioSfondo-dinosauri', conv => {
   conv.ask(new HtmlResponse({
