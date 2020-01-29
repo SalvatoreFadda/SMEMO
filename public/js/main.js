@@ -150,7 +150,7 @@ function noneSelector(scene){
     //document.querySelector('#newCard').style.display = 'none';
     document.querySelector('#nome').style.display = 'none';
     document.querySelector('#sfondi').style.display = 'none';
-    document.querySelector('#colore').style.display = 'none';
+    document.querySelector('#coloreRobot').style.display = 'none';
     document.querySelector('#defaultPage').style.display = 'none';
     }
  
