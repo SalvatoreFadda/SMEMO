@@ -117,12 +117,12 @@ interactiveCanvas.ready({
     document.body.style.background = "#ffffff url('spazio.svg')";    
     }
       //cambio sfondo generale in dinosauri
-    if(data.scene === 'caramelle'){
+    if(data.scene === 'dinosauri'){
     document.body.style.background = "#ffffff url('dinosauri.svg')";    
     }
     //cambio sfondo generale in caramelle
-    if(data.scene === 'dinosauri'){
-    document.body.style.background = "#ffffff url('spazio.svg')";
+    if(data.scene === 'caramelle'){
+    document.body.style.background = "#ffffff url('caramelle.svg')";
     //document.querySelector('#user-choice').src = `images/${data.userChoice}.png`;    
     }
     //default page
