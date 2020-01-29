@@ -216,6 +216,26 @@ app.intent('CambioSesso', conv => {
   return admin.database().ref('data/sesso').set(sesso);
 });
 
+
+app.intent('CambioSfondo', conv => {
+  conv.ask(new HtmlResponse({
+    data: {
+      scene: 'sfondi',
+    }
+  }));
+  conv.ask(`ok, ti mostro gli sfondi`);
+});
+
+
+app.intent('CambioColoreRobot', conv => {
+  conv.ask(new HtmlResponse({
+    data: {
+      scene: 'robotColor',
+    }
+  }));
+  conv.ask(`ok, ti mostro i colori`);
+});
+
 //################# INTENTI PER TORNARE ALLA HOME
 app.intent('vai alla Home', conv => {
   conv.ask('ok, ti porto subito alla schermata iniziale');
