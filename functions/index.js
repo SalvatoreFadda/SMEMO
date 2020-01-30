@@ -192,8 +192,16 @@ app.intent('vai alle impostazioni', conv => {
   conv.ask(`Ok, andiamo nelle impostazioni.`);
 });
 
+app.intent('CambioNome(1)', conv => {
+  conv.ask(new HtmlResponse({
+    data: {
+      scene: 'nome',
+    }
+  }));
+  conv.ask(`Perfetto ora dimmi il tuo nome`);
+});
 
-app.intent('CambioNome', conv => {
+app.intent('CambioNome(2)', conv => {
   conv.ask(new HtmlResponse({
     data: {
       scene: 'nome',
