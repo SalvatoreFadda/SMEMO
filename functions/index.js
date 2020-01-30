@@ -87,6 +87,23 @@ app.intent('Default Fallback Intent', conv => {
   });
 });
 
+app.intent('Tutorial-home', conv => {
+  conv.ask(new HtmlResponse({
+    data: {
+      scene: 'tutorial-home',
+    }
+  }));
+  conv.ask(`Hei, hai bisogno una mano ? Guarda questo aiuto.`);
+});
+
+app.intent('Tutorial-insegnare', conv => {
+  conv.ask(new HtmlResponse({
+    data: {
+      scene: 'tutorial-insegnare',
+    }
+  }));
+  conv.ask(`Hei, hai bisogno una mano per insegnarmi qualcosa ? Guarda questo aiuto.`);
+});
 
 app.intent('Insegnare(1)', conv => {
   conv.ask('Ok! In quale categoria vuoi insegnarmi ?');
@@ -306,6 +323,15 @@ app.intent('CambioSfondo-bianco', conv => {
     }
   }));
   conv.ask(`Perfetto, imposto subito lo sfondo bianco`);
+});
+
+app.intent('Tutorial-impostazioni', conv => {
+  conv.ask(new HtmlResponse({
+    data: {
+      scene: 'tutorial-impostazioni',
+    }
+  }));
+  conv.ask(`Hei, hai bisogno una mano per le impostazioni ? Guarda questo aiuto.`);
 });
 
 //################# INTENTI PER TORNARE ALLA HOME
