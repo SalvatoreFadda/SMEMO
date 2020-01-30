@@ -17,8 +17,8 @@ interactiveCanvas.ready({
     if (data.scene === 'domanda') {
       noneSelector('domanda');
       document.querySelector('#backHome').style.display = 'inline-block';
-      document.querySelector('#impostazioni').style.display = 'inline-block';
-      document.querySelector('#tutorial').style.display = 'inline-block';
+      //document.querySelector('#impostazioni').style.display = 'inline-block';
+      //document.querySelector('#tutorial').style.display = 'inline-block';
       document.querySelector('#cards').style.display = 'inline-block';
       document.querySelector('#robotCentro').style.display = 'block';
       document.querySelector('#domanda').style.display = 'block';
@@ -26,8 +26,8 @@ interactiveCanvas.ready({
     if (data.scene === 'risposta') {
       noneSelector('risposta');
       document.querySelector('#backHome').style.display = 'inline-block';
-      document.querySelector('#impostazioni').style.display = 'inline-block';
-      document.querySelector('#tutorial').style.display = 'inline-block';
+      //document.querySelector('#impostazioni').style.display = 'inline-block';
+      //document.querySelector('#tutorial').style.display = 'inline-block';
       document.querySelector('#cards').style.display = 'inline-block';
       document.querySelector('#robotCentro').style.display = 'block';
       document.querySelector('#risposta').style.display = 'block';
@@ -35,8 +35,8 @@ interactiveCanvas.ready({
     if (data.scene === 'continua') {
       noneSelector('continua');
       document.querySelector('#backHome').style.display = 'inline-block';
-      document.querySelector('#impostazioni').style.display = 'inline-block';
-      document.querySelector('#tutorial').style.display = 'inline-block';
+      //document.querySelector('#impostazioni').style.display = 'inline-block';
+      //document.querySelector('#tutorial').style.display = 'inline-block';
       document.querySelector('#cards').style.display = 'inline-block';
       document.querySelector('#continua').style.display = 'block';
     }  
