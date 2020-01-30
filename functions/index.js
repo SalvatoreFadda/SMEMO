@@ -192,10 +192,11 @@ app.intent('vai alle impostazioni', conv => {
   conv.ask(`Ok, andiamo nelle impostazioni.`);
 });
 
+
 app.intent('CambioNome(1)', conv => {
   conv.ask(new HtmlResponse({
     data: {
-      scene: 'nome',
+      scene: 'impostazioni',
     }
   }));
   conv.ask(`Perfetto ora dimmi il tuo nome`);
@@ -204,7 +205,7 @@ app.intent('CambioNome(1)', conv => {
 app.intent('CambioNome(2)', conv => {
   conv.ask(new HtmlResponse({
     data: {
-      scene: 'nome',
+      scene: 'impostazioni',
     }
   }));
   const name = conv.parameters.name;
