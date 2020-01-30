@@ -660,6 +660,8 @@ function cardImage(contesto){
   switch (contesto) {
     case "mate":
     case "matematica":
+    case "tabelline":
+    case "tabellina":
       urlImage = 'https://firebasestorage.googleapis.com/v0/b/smemo-devi-funzionare.appspot.com/o/matematica.svg?alt=media&token=4bb6fc3b-3264-418c-bbe0-55142f4acd22';
       break;
     case 'Mucca':
@@ -687,6 +689,8 @@ function cardImage(contesto){
       break;
     case "terra":
     case "pianeta":
+    case "geografia":
+    case "capitali":
       urlImage = 'https://firebasestorage.googleapis.com/v0/b/smemo-devi-funzionare.appspot.com/o/terra.svg?alt=media&token=c41ac194-db5e-4b07-ae57-956e3a49c928';
       break;
     case "viaggi":
