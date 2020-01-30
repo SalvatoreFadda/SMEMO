@@ -131,20 +131,20 @@ interactiveCanvas.ready({
     }
     //cambia il colore del robot in blu
     if(data.scene === 'robotBlu'){
-    document.getElementById("robotCentro").src = "assets/images/robot.svg"; 
-    document.getElementById("robotDx").src = "assets/images/robot.gif"; 
+    document.getElementById("robotCentroImg").src = "assets/images/robot.svg"; 
+    document.getElementById("robotDxImg").src = "assets/images/robot.gif"; 
     //document.querySelector('#user-choice').src = `images/${data.userChoice}.png`;    
     }
     //cambia il colore del robot in viola
     if(data.scene === 'robotViola'){
-    document.getElementById("robotCentro").src = "assets/images/robottina.svg"; 
-    document.getElementById("robotDx").src = "assets/images/robottina.svg"; 
+    document.getElementById("robotCentroImg").src = "assets/images/robottina.svg"; 
+    document.getElementById("robotDxImg").src = "assets/images/robottina.svg"; 
     //document.querySelector('#user-choice').src = `images/${data.userChoice}.png`;    
     }
     //cambia il colore del robot in verde
     if(data.scene === 'robotVerde'){
-    document.getElementById("robotCentro").src = "assets/images/robotVerde.svg"; 
-    document.getElementById("robotDx").src = "assets/images/robotVerde.svg"; 
+    document.getElementById("robotCentroImg").src = "assets/images/robotVerde.svg"; 
+    document.getElementById("robotDxImg").src = "assets/images/robotVerde.svg"; 
     //document.querySelector('#user-choice').src = `images/${data.userChoice}.png`;    
     }
     //default page
