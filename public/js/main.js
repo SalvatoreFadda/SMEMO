@@ -73,13 +73,13 @@ interactiveCanvas.ready({
         document.querySelector('#welcome').style.display = 'block';
       }, 7000);
     }
-    //visualizzazione impostazioni, di default parte l'impostazione del colore del robot
+    //visualizzazione impostazioni, di default parte l'impostazione del nome e del sesso(M/F)
     if (data.scene === 'impostazioni'){
       noneSelector('impostazioni');
       document.querySelector('#backHome').style.display = 'inline-block';
       //document.querySelector('#tutorial').style.display = 'inline-block';
       document.querySelector('#robotDx').style.display = 'block';
-      document.querySelector('#coloreRobot').style.display = 'block';
+      document.querySelector('#nome').style.display = 'block';
     }
     //visualizzazione impostazioni per cambio sfondo
     if (data.scene === 'sfondi'){
@@ -89,13 +89,13 @@ interactiveCanvas.ready({
       document.querySelector('#robotDx').style.display = 'block';
       document.querySelector('#sfondi').style.display = 'block';
     }
-    //visualizzazione impostazioni per cambio nome e del sesso(M/F)
-    if (data.scene === 'nome'){
+    //visualizzazione impostazioni per cambio colore del robot
+    if (data.scene === 'robotColor'){
       noneSelector('colore');
       document.querySelector('#backHome').style.display = 'inline-block';
       //document.querySelector('#tutorial').style.display = 'inline-block';
       document.querySelector('#robotDx').style.display = 'block';
-      document.querySelector('#nome').style.display = 'block';
+      document.querySelector('#coloreRobot').style.display = 'block';
     }
     //ritorno alla home page(welcome)
     if (data.scene === 'home'){
