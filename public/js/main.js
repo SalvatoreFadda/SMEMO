@@ -137,8 +137,8 @@ interactiveCanvas.ready({
     }
     //cambia il colore del robot in viola
     if(data.scene === 'robotViola'){
-    document.getElementById("robotCentroImg").src = "assets/images/robottina.svg"; 
-    document.getElementById("robotDxImg").src = "assets/images/robottina.svg"; 
+    document.getElementById("robotCentroImg").src = "assets/images/robotViola.svg"; 
+    document.getElementById("robotDxImg").src = "assets/images/robotViola.svg"; 
     //document.querySelector('#user-choice').src = `images/${data.userChoice}.png`;    
     }
     //cambia il colore del robot in verde
