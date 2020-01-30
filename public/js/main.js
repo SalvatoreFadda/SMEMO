@@ -9,7 +9,7 @@ interactiveCanvas.ready({
       noneSelector('insegnami');
       document.querySelector('#backHome').style.display = 'inline-block';
       document.querySelector('#impostazioni').style.display = 'inline-block';
-      //document.querySelector('#tutorial').style.display = 'inline-block';
+      document.querySelector('#tutorial').style.display = 'inline-block';
       document.querySelector('#cards').style.display = 'inline-block';
       document.querySelector('#robotCentro').style.display = 'block';
       document.querySelector('#insegnami').style.display = 'block';
@@ -18,7 +18,7 @@ interactiveCanvas.ready({
       noneSelector('domanda');
       document.querySelector('#backHome').style.display = 'inline-block';
       document.querySelector('#impostazioni').style.display = 'inline-block';
-      //document.querySelector('#tutorial').style.display = 'inline-block';
+      document.querySelector('#tutorial').style.display = 'inline-block';
       document.querySelector('#cards').style.display = 'inline-block';
       document.querySelector('#robotCentro').style.display = 'block';
       document.querySelector('#domanda').style.display = 'block';
@@ -27,7 +27,7 @@ interactiveCanvas.ready({
       noneSelector('risposta');
       document.querySelector('#backHome').style.display = 'inline-block';
       document.querySelector('#impostazioni').style.display = 'inline-block';
-      //document.querySelector('#tutorial').style.display = 'inline-block';
+      document.querySelector('#tutorial').style.display = 'inline-block';
       document.querySelector('#cards').style.display = 'inline-block';
       document.querySelector('#robotCentro').style.display = 'block';
       document.querySelector('#risposta').style.display = 'block';
@@ -36,7 +36,7 @@ interactiveCanvas.ready({
       noneSelector('continua');
       document.querySelector('#backHome').style.display = 'inline-block';
       document.querySelector('#impostazioni').style.display = 'inline-block';
-      //document.querySelector('#tutorial').style.display = 'inline-block';
+      document.querySelector('#tutorial').style.display = 'inline-block';
       document.querySelector('#cards').style.display = 'inline-block';
       document.querySelector('#continua').style.display = 'block';
     }  
@@ -77,7 +77,7 @@ interactiveCanvas.ready({
     if (data.scene === 'impostazioni'){
       noneSelector('impostazioni');
       document.querySelector('#backHome').style.display = 'inline-block';
-      //document.querySelector('#tutorial').style.display = 'inline-block';
+      document.querySelector('#tutorial').style.display = 'inline-block';
       document.querySelector('#robotDx').style.display = 'block';
       document.querySelector('#nome').style.display = 'block';
     }
@@ -85,7 +85,7 @@ interactiveCanvas.ready({
     if (data.scene === 'sfondi'){
       noneSelector('sfondi');
       document.querySelector('#backHome').style.display = 'inline-block';
-      //document.querySelector('#tutorial').style.display = 'inline-block';
+      document.querySelector('#tutorial').style.display = 'inline-block';
       document.querySelector('#robotDx').style.display = 'block';
       document.querySelector('#sfondi').style.display = 'block';
     }
@@ -93,7 +93,7 @@ interactiveCanvas.ready({
     if (data.scene === 'robotColor'){
       noneSelector('colore');
       document.querySelector('#backHome').style.display = 'inline-block';
-      //document.querySelector('#tutorial').style.display = 'inline-block';
+      document.querySelector('#tutorial').style.display = 'inline-block';
       document.querySelector('#robotDx').style.display = 'block';
       document.querySelector('#coloreRobot').style.display = 'block';
     }
@@ -101,9 +101,18 @@ interactiveCanvas.ready({
     if (data.scene === 'home'){
       noneSelector('home');
       document.querySelector('#impostazioni').style.display = 'inline-block';
-      //document.querySelector('#tutorial').style.display = 'inline-block';
+      document.querySelector('#tutorial').style.display = 'inline-block';
       document.querySelector('#cards').style.display = 'inline-block';
       document.querySelector('#welcome').style.display = 'block';
+      document.querySelector('#backHome').style.display = 'none';
+    }
+    if (data.scene === 'tutorial-home'){
+      document.querySelector('#backHome').style.display = 'none';
+    }
+    if (data.scene === 'tutorial-insegnami'){
+      document.querySelector('#backHome').style.display = 'none';
+    }
+    if (data.scene === 'tutorial-impostazioni'){
       document.querySelector('#backHome').style.display = 'none';
     }
     //visualizzazione delle cards
