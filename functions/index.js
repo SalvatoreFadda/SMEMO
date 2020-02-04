@@ -87,6 +87,8 @@ app.intent('Default Welcome Intent', conv => {
         else conv.ask(`Bentornata ${name}!`);
       }
       else conv.ask(`Ciao!`);
+      console.log(`sfondo: ${sfondo}`);
+      console.log(`coloreRobot: ${coloreRobot}`);
       conv.ask(new HtmlResponse({
         url: `https://${firebaseConfig.projectId}.firebaseapp.com/`,
         data: {
@@ -603,25 +605,28 @@ app.intent('Cards(3)', conv => {
 
 
 app.intent('eliminazione intento si', conv => {
-  conv.ask('Perfetto, elimino subito la card ');
-  var intento = conv.user.storage.intento;
-  myDeleteIntent(intento);
-  conv.ask(new HtmlResponse({
-    url: `https://${firebaseConfig.projectId}.firebaseapp.com/`
-  }));
-  return db.collection('intents').get()
-  .then(intents => {
-    var strs = JSON.stringify(intents);
-    console.log(`intents: ${strs}`);
-    intents.forEach(intent => {
-      if (intent.get('domanda').valueOf() == intento.valueOf()) {
-        var id = intent.id ;
-        db.collection('intents').doc(id).delete();
-      }
-    });
-    }).catch(err => {
-      console.error(err);
-    });
+  return  admin.database().ref('data').once('value').then((snapshot) => {
+    conv.ask('Perfetto, elimino subito la card ');
+    var intento = conv.user.storage.intento;
+    myDeleteIntent(intento);
+    conv.ask(new HtmlResponse({
+      url: `https://${firebaseConfig.projectId}.firebaseapp.com/`
+
+    }));
+    return db.collection('intents').get()
+    .then(intents => {
+      var strs = JSON.stringify(intents);
+      console.log(`intents: ${strs}`);
+      intents.forEach(intent => {
+        if (intent.get('domanda').valueOf() == intento.valueOf()) {
+          var id = intent.id ;
+          db.collection('intents').doc(id).delete();
+        }
+      });
+      }).catch(err => {
+        console.error(err);
+      });
+
 });
 
 app.intent('eliminazione intento no', conv => {
