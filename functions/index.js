@@ -651,7 +651,7 @@ app.intent('eliminazione intento no', conv => {
   });
 });
 
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ aggiunta fino a qua
+
 app.intent('elimina singola card', conv => {
   conv.ask('Vuoi eliminare la card selezionata ? rispondi "si" oppure "no"');
   conv.user.storage.intento = conv.user.storage.domanda;
@@ -662,18 +662,36 @@ app.intent('elimina singola card', conv => {
 
 
 app.intent('esci dalla lista', conv => {
-  conv.ask('ok, ti porto subito alla schermata iniziale');
-  conv.ask(new HtmlResponse({
-    url: `https://${firebaseConfig.projectId}.firebaseapp.com/`
-  }));
+  return  admin.database().ref('data').once('value').then((snapshot) => {
+    conv.ask('ok, ti porto subito alla schermata iniziale');
+    const coloreRobot = snapshot.child('coloreRobot').val();
+    const sfondo = snapshot.child('sfondo').val();
+  	conv.ask(new HtmlResponse({
+          url: `https://${firebaseConfig.projectId}.firebaseapp.com/`,
+          data: {
+            scene: 'home',
+            sfondo: `${sfondo}`,
+            coloreRobot: `${coloreRobot}`,
+          }
+        }));
+  });
 });
 
 
 app.intent('esci dalla lista 2', conv => {
-  conv.ask('ok, ti porto subito alla schermata iniziale');
-  conv.ask(new HtmlResponse({
-    url: `https://${firebaseConfig.projectId}.firebaseapp.com/`
-  }));
+  return  admin.database().ref('data').once('value').then((snapshot) => {
+    conv.ask('ok, ti porto subito alla schermata iniziale');
+    const coloreRobot = snapshot.child('coloreRobot').val();
+    const sfondo = snapshot.child('sfondo').val();
+    conv.ask(new HtmlResponse({
+          url: `https://${firebaseConfig.projectId}.firebaseapp.com/`,
+          data: {
+            scene: 'home',
+            sfondo: `${sfondo}`,
+            coloreRobot: `${coloreRobot}`,
+          }
+        }));
+    });
 });
 
 
