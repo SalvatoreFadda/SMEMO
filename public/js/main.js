@@ -105,15 +105,8 @@ interactiveCanvas.ready({
       document.querySelector('#cards').style.display = 'inline-block';
       document.querySelector('#welcome').style.display = 'block';
       document.querySelector('#backHome').style.display = 'none';
-      if (data.coloreRobot === "robotBlu"){
-          document.querySelector('#cards').style.display = 'none';
-      }
-      if (data.sfondo === "caramelle") {
-          document.querySelector('#impostazioni').style.display = 'none';
-      }
-      
-      //Colore(data.coloreRobot);
-      //cambioSfondo(data.sfondo);
+      cambioColore(data.coloreRobot);
+      cambioSfondo(data.sfondo);
     }
     if (data.scene === 'tutorial-home'){
       document.querySelector('#backHome').style.display = 'none';
@@ -170,19 +163,19 @@ function noneSelector(scene){
 //setta lo sfondo dell'applicazione
 function cambioSfondo(sfondo){
 //setta lo sfondo dell'applicazione in bianco  
-    if(sfondo === 'bianco'){
+    if(sfondo === "bianco"){
     document.body.style.backgroundImage = "url('')";    
     }
     //cambio sfondo generale dell'applicazione in spazio
-    if(sfondo === 'spazio'){
+    if(sfondo === "spazio"){
     document.body.style.backgroundImage = "url('assets/images/spazio.svg')";    
     }
       //cambio sfondo generale in dinosauri
-    if(sfondo === 'dinosauri'){
+    if(sfondo === "dinosauri"){
     document.body.style.backgroundImage = "url('assets/images/dinosauri.svg')";     
     }
     //cambio sfondo generale in caramelle
-    if(sfondo === 'caramelle'){
+    if(sfondo === "caramelle"){
     document.body.style.backgroundImage = "url('assets/images/caramelleS.svg')"; 
     //document.querySelector('#user-choice').src = `images/${data.userChoice}.png`;    
     }
@@ -191,19 +184,19 @@ function cambioSfondo(sfondo){
 //cambia il colore del robot in verde
 function cambioColore(colore){
     //cambia il colore del robot in blu
-    if(colore === 'robotBlu'){
+    if(colore === "robotBlu"){
     document.getElementById("robotCentroImg").src = "assets/images/robot.svg"; 
     document.getElementById("robotDxImg").src = "assets/images/robot.svg"; 
     //document.querySelector('#user-choice').src = `images/${data.userChoice}.png`;    
     }
     //cambia il colore del robot in viola
-    if(colore === 'robotViola'){
+    if(colore === "robotViola"){
     document.getElementById("robotCentroImg").src = "assets/images/robotViola.svg"; 
     document.getElementById("robotDxImg").src = "assets/images/robotViola.svg"; 
     //document.querySelector('#user-choice').src = `images/${data.userChoice}.png`;    
     }
     //cambia il colore del robot in verde
-    if(colore === 'robotVerde'){
+    if(colore === "robotVerde"){
     document.getElementById("robotCentroImg").src = "assets/images/robotVerde.svg"; 
     document.getElementById("robotDxImg").src = "assets/images/robotVerde.svg"; 
     //document.querySelector('#user-choice').src = `images/${data.userChoice}.png`;    
