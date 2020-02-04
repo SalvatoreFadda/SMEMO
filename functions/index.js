@@ -609,10 +609,16 @@ app.intent('eliminazione intento si', conv => {
     conv.ask('Perfetto, elimino subito la card ');
     var intento = conv.user.storage.intento;
     myDeleteIntent(intento);
+    const coloreRobot = snapshot.child('coloreRobot').val();
+    const sfondo = snapshot.child('sfondo').val();
     conv.ask(new HtmlResponse({
-      url: `https://${firebaseConfig.projectId}.firebaseapp.com/`
-
-    }));
+          url: `https://${firebaseConfig.projectId}.firebaseapp.com/`,
+          data: {
+            scene: 'home',
+            sfondo: `${sfondo}`,
+            coloreRobot: `${coloreRobot}`,
+          }
+        }));
     return db.collection('intents').get()
     .then(intents => {
       var strs = JSON.stringify(intents);
@@ -626,17 +632,26 @@ app.intent('eliminazione intento si', conv => {
       }).catch(err => {
         console.error(err);
       });
-
+    });
 });
 
 app.intent('eliminazione intento no', conv => {
-  conv.ask('Ok, non elimino la card ');
-  conv.ask(new HtmlResponse({
-    url: `https://${firebaseConfig.projectId}.firebaseapp.com/`
-  }));
+  return  admin.database().ref('data').once('value').then((snapshot) => {
+    conv.ask('Ok, non elimino la card ');
+    const coloreRobot = snapshot.child('coloreRobot').val();
+    const sfondo = snapshot.child('sfondo').val();
+    conv.ask(new HtmlResponse({
+          url: `https://${firebaseConfig.projectId}.firebaseapp.com/`,
+          data: {
+            scene: 'home',
+            sfondo: `${sfondo}`,
+            coloreRobot: `${coloreRobot}`,
+          }
+        }));
+  });
 });
 
-
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ aggiunta fino a qua
 app.intent('elimina singola card', conv => {
   conv.ask('Vuoi eliminare la card selezionata ? rispondi "si" oppure "no"');
   conv.user.storage.intento = conv.user.storage.domanda;
