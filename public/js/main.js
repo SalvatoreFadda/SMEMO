@@ -105,8 +105,15 @@ interactiveCanvas.ready({
       document.querySelector('#cards').style.display = 'inline-block';
       document.querySelector('#welcome').style.display = 'block';
       document.querySelector('#backHome').style.display = 'none';
-      cambioColore(data.coloreRobot);
-      cambioSfondo(data.sfondo);
+      if (data.coloreRobot === "robotBlu"){
+          document.querySelector('#cards').style.display = 'none';
+      }
+      if (data.sfondo === "caramelle") {
+          document.querySelector('#impostazioni').style.display = 'none';
+      }
+      
+      //Colore(data.coloreRobot);
+      //cambioSfondo(data.sfondo);
     }
     if (data.scene === 'tutorial-home'){
       document.querySelector('#backHome').style.display = 'none';
