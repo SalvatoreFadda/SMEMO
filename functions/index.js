@@ -301,7 +301,7 @@ app.intent('CambioColoreRobot-verde', conv => {
     }
   }));
   const color = "robotVerde";
-  conv.ask(`Ok, cambio il colore di smemo in verde`);
+  conv.ask(`sono verde come un avocado`);
   return admin.database().ref('data/coloreRobot').set(color);
 });
 
@@ -323,7 +323,7 @@ app.intent('CambioSfondo-dinosauri', conv => {
     }
   }));
   const sfondo = "dinosauri";
-  conv.ask(`Perfetto, imposto subito lo sfondo dei dinosauri`);
+  conv.ask(`allora non si sono estinti !`);
   return admin.database().ref('data/sfondo').set(sfondo);
 });
 
@@ -334,7 +334,7 @@ app.intent('CambioSfondo-caramelle', conv => {
     }
   }));
   const sfondo = "caramelle";
-  conv.ask(`Perfetto, imposto subito lo sfondo delle caramelle`);
+  conv.ask(`mmmmmmm che buone`);
   return admin.database().ref('data/sfondo').set(sfondo);
 });
 
@@ -345,7 +345,7 @@ app.intent('CambioSfondo-spazio', conv => {
     }
   }));
   const sfondo = "spazio";
-  conv.ask(`Perfetto, imposto subito lo sfondo dello spazio`);
+  conv.ask(`houston abbiamo un problema`);
   return admin.database().ref('data/sfondo').set(sfondo);
 });
 
@@ -356,7 +356,7 @@ app.intent('CambioSfondo-bianco', conv => {
     }
   }));
   const sfondo = "bianco";
-  conv.ask(`Perfetto, imposto subito lo sfondo bianco`);
+  conv.ask(`bello e semplice`);
   return admin.database().ref('data/sfondo').set(sfondo);
 });
 
