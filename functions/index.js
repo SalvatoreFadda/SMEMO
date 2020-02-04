@@ -55,25 +55,6 @@ const db = admin.firestore();
 
 // ################## INIZIO INTENTI ################################################################
 
-app.intent('aaa-tutorial', conv => {
-  conv.ask(new HtmlResponse({
-    data: {
-      scene: 'home',
-    }
-  }));
-  const ssml = '<speak>' +
-    'Ciao! <break time="0.4s" />. ' +
-    'Io mi chiamo Smemo, e sono un agente super intelligente, capace di imparare qualsiasi informazione!  <break time="0.2s" />. ' +
-    `Purtroppo tempo fa a causa di un corto circuito ho dimenticato tutto quanto, e adesso non ricordo niente oltre il mio nome... <break time="0.4s" />.` +
-    'Tu però potresti aiutarmi ad arricchire tutta la mia memoria! <break time="0.4s" />.' +
-    'Ti spiego come fare. <break time="0.1s" />.'+
-    '</speak>';
-  conv.ask(ssml);
-});
-
-
-
-
 app.intent('Default Welcome Intent', conv => {
     return  admin.database().ref('data').once('value').then((snapshot) => {
       const name = snapshot.child('userName').val();
