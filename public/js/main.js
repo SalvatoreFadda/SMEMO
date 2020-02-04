@@ -123,7 +123,7 @@ interactiveCanvas.ready({
     //capire come far uscire tutte le card del bambino...?
     }
     //setta lo sfondo dell'applicazione
-    if(data.scene === 'bianco' || data.scene === 'spazio' || data.scene === 'spazio' || data.scene === 'caramelle'){
+    if(data.scene === 'bianco' || data.scene === 'spazio' || data.scene === 'dinosauri' || data.scene === 'caramelle'){
     cambioSfondo(data.scene);
     }
     //cambia il colore del robot in blu
