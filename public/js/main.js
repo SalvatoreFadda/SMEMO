@@ -104,7 +104,6 @@ interactiveCanvas.ready({
       document.querySelector('#tutorial').style.display = 'inline-block';
       document.querySelector('#cards').style.display = 'inline-block';
       document.querySelector('#welcome').style.display = 'block';
-      document.querySelector('#backHome').style.display = 'none';
       cambioColore(data.coloreRobot);
       cambioSfondo(data.sfondo);
     }
