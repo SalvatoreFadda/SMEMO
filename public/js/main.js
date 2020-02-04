@@ -105,6 +105,8 @@ interactiveCanvas.ready({
       document.querySelector('#cards').style.display = 'inline-block';
       document.querySelector('#welcome').style.display = 'block';
       document.querySelector('#backHome').style.display = 'none';
+      cambioColore(data.coloreRobot);
+      cambioSfondo(data.sfondo);
     }
     if (data.scene === 'tutorial-home'){
       document.querySelector('#backHome').style.display = 'none';
@@ -121,40 +123,13 @@ interactiveCanvas.ready({
       document.querySelector('#robotDx').style.display = 'block';
     //capire come far uscire tutte le card del bambino...?
     }
-    //setta lo sfondo dell'applicazione in bianco  
-    if(data.scene === 'bianco'){
-    document.body.style.backgroundImage = "url('')";    
-    }
-    //cambio sfondo generale dell'applicazione in spazio
-    if(data.scene === 'spazio'){
-    document.body.style.backgroundImage = "url('assets/images/spazio.svg')";    
-    }
-      //cambio sfondo generale in dinosauri
-    if(data.scene === 'dinosauri'){
-    document.body.style.backgroundImage = "url('assets/images/dinosauri.svg')";     
-    }
-    //cambio sfondo generale in caramelle
-    if(data.scene === 'caramelle'){
-    document.body.style.backgroundImage = "url('assets/images/caramelleS.svg')"; 
-    //document.querySelector('#user-choice').src = `images/${data.userChoice}.png`;    
+    //setta lo sfondo dell'applicazione
+    if(data.scene === 'bianco' || data.scene === 'spazio' || data.scene === 'spazio' || data.scene === 'caramelle'){
+    cambioSfondo(data.scene);
     }
     //cambia il colore del robot in blu
-    if(data.scene === 'robotBlu'){
-    document.getElementById("robotCentroImg").src = "assets/images/robot.svg"; 
-    document.getElementById("robotDxImg").src = "assets/images/robot.gif"; 
-    //document.querySelector('#user-choice').src = `images/${data.userChoice}.png`;    
-    }
-    //cambia il colore del robot in viola
-    if(data.scene === 'robotViola'){
-    document.getElementById("robotCentroImg").src = "assets/images/robotViola.svg"; 
-    document.getElementById("robotDxImg").src = "assets/images/robotViola.svg"; 
-    //document.querySelector('#user-choice').src = `images/${data.userChoice}.png`;    
-    }
-    //cambia il colore del robot in verde
-    if(data.scene === 'robotVerde'){
-    document.getElementById("robotCentroImg").src = "assets/images/robotVerde.svg"; 
-    document.getElementById("robotDxImg").src = "assets/images/robotVerde.svg"; 
-    //document.querySelector('#user-choice').src = `images/${data.userChoice}.png`;    
+    if(data.scene === 'robotBlu' || data.scene === 'robotViola' || data.scene === 'robotVerde'){
+    cambioColore(data.scene);   
     }
     //default page
     if(data.scene === 'default') {
@@ -184,8 +159,49 @@ function noneSelector(scene){
     document.querySelector('#coloreRobot').style.display = 'none';
     document.querySelector('#defaultPage').style.display = 'none';
     }
- 
+                        
+//setta lo sfondo dell'applicazione
+function cambioSfondo(sfondo){
+//setta lo sfondo dell'applicazione in bianco  
+    if(sfondo === 'bianco'){
+    document.body.style.backgroundImage = "url('')";    
+    }
+    //cambio sfondo generale dell'applicazione in spazio
+    if(sfondo === 'spazio'){
+    document.body.style.backgroundImage = "url('assets/images/spazio.svg')";    
+    }
+      //cambio sfondo generale in dinosauri
+    if(sfondo === 'dinosauri'){
+    document.body.style.backgroundImage = "url('assets/images/dinosauri.svg')";     
+    }
+    //cambio sfondo generale in caramelle
+    if(sfondo === 'caramelle'){
+    document.body.style.backgroundImage = "url('assets/images/caramelleS.svg')"; 
+    //document.querySelector('#user-choice').src = `images/${data.userChoice}.png`;    
+    }
+}
 
+//cambia il colore del robot in verde
+function cambioColore(colore){
+    //cambia il colore del robot in blu
+    if(colore === 'robotBlu'){
+    document.getElementById("robotCentroImg").src = "assets/images/robot.svg"; 
+    document.getElementById("robotDxImg").src = "assets/images/robot.svg"; 
+    //document.querySelector('#user-choice').src = `images/${data.userChoice}.png`;    
+    }
+    //cambia il colore del robot in viola
+    if(colore === 'robotViola'){
+    document.getElementById("robotCentroImg").src = "assets/images/robotViola.svg"; 
+    document.getElementById("robotDxImg").src = "assets/images/robotViola.svg"; 
+    //document.querySelector('#user-choice').src = `images/${data.userChoice}.png`;    
+    }
+    //cambia il colore del robot in verde
+    if(colore === 'robotVerde'){
+    document.getElementById("robotCentroImg").src = "assets/images/robotVerde.svg"; 
+    document.getElementById("robotDxImg").src = "assets/images/robotVerde.svg"; 
+    //document.querySelector('#user-choice').src = `images/${data.userChoice}.png`;    
+    }
+}
 
 
 
