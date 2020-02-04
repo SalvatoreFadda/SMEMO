@@ -97,21 +97,33 @@ app.intent('Default Fallback Intent', conv => {
 });
 
 app.intent('Tutorial-home', conv => {
-  conv.ask(new HtmlResponse({
-    data: {
-      scene: 'tutorial-home',
-    }
-  }));
-  conv.ask(`Hei, hai bisogno una mano ? Guarda questo aiuto.`);
+  return admin.database().ref('data').once('value').then((snapshot) => {
+      const value = snapshot.child('userName').val();
+      if (value != null){
+        conv.ask(`${value}, adesso ti aiuto io`);
+      }
+      else conv.ask(`Adesso ti aiuto io`);
+    conv.ask(new HtmlResponse({
+      data: {
+        scene: 'tutorial-home',
+      }
+    }));
+  });
 });
 
 app.intent('Tutorial-insegnare', conv => {
-  conv.ask(new HtmlResponse({
-    data: {
-      scene: 'tutorial-insegnare',
-    }
-  }));
-  conv.ask(`Hei, hai bisogno una mano per insegnarmi qualcosa ? Guarda questo aiuto.`);
+  return admin.database().ref('data').once('value').then((snapshot) => {
+      const value = snapshot.child('userName').val();
+      if (value != null){
+        conv.ask(`${value}, ti aiuto io a insegnarmi qualcosa`);
+      }
+      else conv.ask(`Ti aiuto io ad insegnarmi qualcosa`);
+    conv.ask(new HtmlResponse({
+      data: {
+        scene: 'tutorial-insegnare',
+      }
+    }));
+  });
 });
 
 app.intent('Insegnare(1)', conv => {
@@ -225,7 +237,7 @@ app.intent('CambioNome(1)', conv => {
       scene: 'impostazioni',
     }
   }));
-  conv.ask(`Perfetto ora dimmi il tuo nome`);
+  conv.ask(`come ti chiami ?`);
 });
 
 app.intent('CambioNome(2)', conv => {
@@ -258,7 +270,7 @@ app.intent('CambioSfondo', conv => {
       scene: 'sfondi',
     }
   }));
-  conv.ask(`Ti mostro gli sfondi che puoi impostare`);
+  conv.ask(`scegli lo sfondo che ti piace`);
 });
 
 
@@ -268,7 +280,7 @@ app.intent('CambioColoreRobot', conv => {
       scene: 'robotColor',
     }
   }));
-  conv.ask(`Ti mostro i colori che puoi scegliere per il robot`);
+  conv.ask(`cambia il mio colore`);
 });
 
 app.intent('CambioColoreRobot-blue', conv => {
@@ -278,7 +290,7 @@ app.intent('CambioColoreRobot-blue', conv => {
     }
   }));
   const color = "robotBlu";
-  conv.ask(`Ok, cambio il colore di smemo in blue`);
+  conv.ask(`cucù ! ora sono blu`);
   return admin.database().ref('data/coloreRobot').set(color);
 });
 
@@ -300,7 +312,7 @@ app.intent('CambioColoreRobot-viola', conv => {
     }
   }));
   const color = "robotViola";
-  conv.ask(`Ok, cambio il colore di smemo in viola`);
+  conv.ask(`sono viola come il fiore`);
   return admin.database().ref('data/coloreRobot').set(color);
 });
 
@@ -349,12 +361,18 @@ app.intent('CambioSfondo-bianco', conv => {
 });
 
 app.intent('Tutorial-impostazioni', conv => {
-  conv.ask(new HtmlResponse({
-    data: {
-      scene: 'tutorial-impostazioni',
-    }
-  }));
-  conv.ask(`Hei, hai bisogno una mano per le impostazioni ? Guarda questo aiuto.`);
+  return admin.database().ref('data').once('value').then((snapshot) => {
+      const value = snapshot.child('userName').val();
+      if (value != null){
+        conv.ask(`${value}, ti guido io`);
+      }
+      else conv.ask(`Ti guido io`);
+    conv.ask(new HtmlResponse({
+      data: {
+        scene: 'tutorial-impostazioni',
+      }
+    }));
+  });
 });
 
 //################# INTENTI PER TORNARE ALLA HOME
