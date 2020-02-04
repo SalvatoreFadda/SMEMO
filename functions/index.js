@@ -55,19 +55,45 @@ const db = admin.firestore();
 
 // ################## INIZIO INTENTI ################################################################
 
+app.intent('aaa-tutorial', conv => {
+  conv.ask(new HtmlResponse({
+    data: {
+      scene: 'home',
+    }
+  }));
+  const ssml = '<speak>' +
+    'Ciao! <break time="0.4s" />. ' +
+    'Io mi chiamo Smemo, e sono un agente super intelligente, capace di imparare qualsiasi informazione!  <break time="0.2s" />. ' +
+    `Purtroppo tempo fa a causa di un corto circuito ho dimenticato tutto quanto, e adesso non ricordo niente oltre il mio nome... <break time="0.4s" />.` +
+    'Tu però potresti aiutarmi ad arricchire tutta la mia memoria! <break time="0.4s" />.' +
+    'Ti spiego come fare. <break time="0.1s" />.'+
+    '</speak>';
+  conv.ask(ssml);
+});
+
+
+
+
 app.intent('Default Welcome Intent', conv => {
     return  admin.database().ref('data').once('value').then((snapshot) => {
       const name = snapshot.child('userName').val();
       const sex = snapshot.child('sesso').val();
+      const coloreRobot = snapshot.child('coloreRobot').val();
+      const sfondo = snapshot.child('sfondo').val();
       if (name != null){
         if (sex == 'maschio'){
           conv.ask(`Bentornato ${name}!`);
         }
         else conv.ask(`Bentornata ${name}!`);
       }
-      else conv.ask(`Ciao, molto piacere, io sono Smemo`);
+      else conv.ask(`Ciao!`);
       conv.ask(new HtmlResponse({
-        url: `https://${firebaseConfig.projectId}.firebaseapp.com/`
+        url: `https://${firebaseConfig.projectId}.firebaseapp.com/`,
+        data: {
+          scene: 'home',
+          sfondo: `${sfondo}`,
+          coloreRobot: `${coloreRobot}`,
+        }
       }));
     });
 });
@@ -268,7 +294,9 @@ app.intent('CambioColoreRobot-blue', conv => {
       scene: 'robotBlu',
     }
   }));
+  const color = "robotBlu";
   conv.ask(`Ok, cambio il colore di smemo in blue`);
+  return admin.database().ref('data/coloreRobot').set(color);
 });
 
 app.intent('CambioColoreRobot-verde', conv => {
@@ -277,7 +305,9 @@ app.intent('CambioColoreRobot-verde', conv => {
       scene: 'robotVerde',
     }
   }));
+  const color = "robotVerde";
   conv.ask(`Ok, cambio il colore di smemo in verde`);
+  return admin.database().ref('data/coloreRobot').set(color);
 });
 
 app.intent('CambioColoreRobot-viola', conv => {
@@ -286,7 +316,9 @@ app.intent('CambioColoreRobot-viola', conv => {
       scene: 'robotViola',
     }
   }));
+  const color = "robotViola";
   conv.ask(`Ok, cambio il colore di smemo in viola`);
+  return admin.database().ref('data/coloreRobot').set(color);
 });
 
 app.intent('CambioSfondo-dinosauri', conv => {
@@ -295,7 +327,9 @@ app.intent('CambioSfondo-dinosauri', conv => {
       scene: 'dinosauri',
     }
   }));
+  const sfondo = "dinosauri";
   conv.ask(`Perfetto, imposto subito lo sfondo dei dinosauri`);
+  return admin.database().ref('data/sfondo').set(sfondo);
 });
 
 app.intent('CambioSfondo-caramelle', conv => {
@@ -304,7 +338,9 @@ app.intent('CambioSfondo-caramelle', conv => {
       scene: 'caramelle',
     }
   }));
+  const sfondo = "caramelle";
   conv.ask(`Perfetto, imposto subito lo sfondo delle caramelle`);
+  return admin.database().ref('data/sfondo').set(sfondo);
 });
 
 app.intent('CambioSfondo-spazio', conv => {
@@ -313,7 +349,9 @@ app.intent('CambioSfondo-spazio', conv => {
       scene: 'spazio',
     }
   }));
+  const sfondo = "spazio";
   conv.ask(`Perfetto, imposto subito lo sfondo dello spazio`);
+  return admin.database().ref('data/sfondo').set(sfondo);
 });
 
 app.intent('CambioSfondo-bianco', conv => {
@@ -322,7 +360,9 @@ app.intent('CambioSfondo-bianco', conv => {
       scene: 'bianco',
     }
   }));
+  const sfondo = "bianco";
   conv.ask(`Perfetto, imposto subito lo sfondo bianco`);
+  return admin.database().ref('data/sfondo').set(sfondo);
 });
 
 app.intent('Tutorial-impostazioni', conv => {
@@ -346,10 +386,19 @@ app.intent('vai alla Home', conv => {
 
 
 app.intent('vai alla Home 2', conv => {
-  conv.ask('ok, ti porto subito alla schermata iniziale');
-  conv.ask(new HtmlResponse({
-    url: `https://${firebaseConfig.projectId}.firebaseapp.com/`
-  }));
+  return  admin.database().ref('data').once('value').then((snapshot) => {
+    conv.ask('ok, ti porto subito alla schermata iniziale');
+    const coloreRobot = snapshot.child('coloreRobot').val();
+    const sfondo = snapshot.child('sfondo').val();
+  	conv.ask(new HtmlResponse({
+          url: `https://${firebaseConfig.projectId}.firebaseapp.com/`,
+          data: {
+            scene: 'home',
+            sfondo: `${sfondo}`,
+            coloreRobot: `${coloreRobot}`,
+          }
+    }));
+  });
 });
 
 
