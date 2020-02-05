@@ -108,13 +108,20 @@ interactiveCanvas.ready({
       cambioSfondo(data.sfondo);
     }
     if (data.scene === 'tutorial-home'){
-      document.querySelector('#backHome').style.display = 'none';
+      noneSelector('default');
+      //document.querySelector('#chiudiHome').style.display = 'none';
+      document.querySelector('#aiutoHome').style.display = 'none';
+        
     }
     if (data.scene === 'tutorial-insegnami'){
-      document.querySelector('#backHome').style.display = 'none';
+      noneSelector('default');
+      //document.querySelector('#chiudiIns').style.display = 'none';
+      document.querySelector('#aiutoIns').style.display = 'none';
     }
     if (data.scene === 'tutorial-impostazioni'){
-      document.querySelector('#backHome').style.display = 'none';
+      noneSelector('default');
+      //document.querySelector('#chiudiImp').style.display = 'none';
+      document.querySelector('#aiutoImp').style.display = 'none';
     }
     //visualizzazione delle cards
     if (data.scene === 'cardsPage'){ //NON PRESENTE NELLA DEMO
@@ -157,6 +164,10 @@ function noneSelector(scene){
     document.querySelector('#sfondi').style.display = 'none';
     document.querySelector('#coloreRobot').style.display = 'none';
     document.querySelector('#defaultPage').style.display = 'none';
+    document.querySelector('#aiutoHome').style.display = 'none';
+    document.querySelector('#aiutoIns').style.display = 'none';
+    document.querySelector('#aiutoImp').style.display = 'none';
+
     }
                         
 //setta lo sfondo dell'applicazione

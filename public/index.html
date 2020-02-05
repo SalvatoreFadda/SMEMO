@@ -1,73 +1,3 @@
-<!--
-
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
-
-  //  update the version number as needed
-    <script defer src="/__/firebase/7.5.1/firebase-app.js"></script>
-   // include only the Firebase features as you need
-    <script defer src="/__/firebase/7.5.1/firebase-auth.js"></script>
-    <script defer src="/__/firebase/7.5.1/firebase-database.js"></script>
-    <script defer src="/__/firebase/7.5.1/firebase-messaging.js"></script>
-    <script defer src="/__/firebase/7.5.1/firebase-storage.js"></script>
-   // initialize the SDK after all desired features are loaded
-    <script defer src="/__/firebase/init.js"></script>
-
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
-    </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
-        try {
-          let app = firebase.app();
-          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
-</html>
-
--->
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -342,14 +272,69 @@ devo dare?
 
 </div>
 </div>
-                          <!-- ELEMENTI GLOBALI -->
+                                       
+                            <!-- SLIDER AIUTO HOME -->
+<div class="slider-container" id="aiutoHome">
+  <div class="SlidesH fade">
+    <img src="assets/images/aiuto__home1.png" style="width:100%">
+  </div>
+
+  <div class="SlidesH fade">
+    <img src="assets/images/aiuto__home2.png" style="width:100%">
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1, 'SlidesH')">&#10094;</a>
+  <a class="next" onclick="plusSlides(1, 'SlidesH')">&#10095;</a>
+</div>
+
+                            <!-- SLIDER AIUTO IMPOSTAZIONI -->
+<div class="slider-container" id="aiutoImp">
+<div class="SlidesIp fade">
+    <img src="assets/images/aiuto__imp1.png" style="width:100%">
+  </div>
+
+  <div class="SlidesIp fade">
+    <img src="assets/images/aiuto__imp2.png" style="width:100%">
+  </div>
+    
+    <div class="SlidesIp fade">
+    <img src="assets/images/aiuto__imp3.png" style="width:100%">
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1, 'SlidesIp')">&#10094;</a>
+  <a class="next" onclick="plusSlides(1, 'SlidesIp')">&#10095;</a>
+</div>
+        
+        
+                              <!-- SLIDER AIUTO INSEGNAMI -->
+<div class="slider-container" id="aiutoIns">
+  <div class="SlidesIs fade">
+    <img src="assets/images/aiuto__ins1.png" style="width:100%">
+  </div>
+
+  <div class="SlidesIs fade">
+    <img src="assets/images/aiuto__ins2.png" style="width:100%">
+  </div>
+    
+    <div class="SlidesIs fade">
+    <img src="assets/images/aiuto__ins3.png" style="width:100%">
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1, 'SlidesIs')">&#10094;</a>
+  <a class="next" onclick="plusSlides(1, 'SlidesIs')">&#10095;</a>
+</div>  
+                                <!-- ELEMENTI GLOBALI -->
 
 
-      <div id="cards">
+        <div id="cards">
     	<img src="assets/images/card.svg" data-choice="cards">
 
             </div>
 </div>
     <script src="js/main.js"> </script>
+    <script src="js/slider.js"> </script>
   </body>
 </html>
