@@ -110,18 +110,18 @@ interactiveCanvas.ready({
     if (data.scene === 'tutorial-home'){
       noneSelector('default');
       //document.querySelector('#chiudiHome').style.display = 'none';
-      document.querySelector('#aiutoHome').style.display = 'none';
+      document.querySelector('#aiutoHome').style.display = 'block';
         
     }
     if (data.scene === 'tutorial-insegnami'){
       noneSelector('default');
       //document.querySelector('#chiudiIns').style.display = 'none';
-      document.querySelector('#aiutoIns').style.display = 'none';
+      document.querySelector('#aiutoIns').style.display = 'block';
     }
     if (data.scene === 'tutorial-impostazioni'){
       noneSelector('default');
       //document.querySelector('#chiudiImp').style.display = 'none';
-      document.querySelector('#aiutoImp').style.display = 'none';
+      document.querySelector('#aiutoImp').style.display = 'block';
     }
     //visualizzazione delle cards
     if (data.scene === 'cardsPage'){ //NON PRESENTE NELLA DEMO
