@@ -55,7 +55,7 @@ body {
 width: 13%;
 top: 75px;
 position: absolute;
-right: 30px;
+right: 50px;
 }
 
 #robotCentro {
@@ -71,7 +71,7 @@ right: 30px;
 
 #robotDx {
   /* per visualizzare inserire display: block */
-  display: none;
+  display: block;
   width: 15%;
 margin-left: 75%;
 bottom: 10%;
@@ -81,7 +81,7 @@ position: absolute;
 
 #cards {
   /* per visualizzare inserire display: inline-block */
-  display: inline-block;
+  display: none;
   width: 12%;
   left: 15px;
   bottom: -10px;
@@ -98,7 +98,7 @@ div.container {
 
 #welcome { /*------------------------------------------------------------------------------------------------------------------*/
   /* per visualizzare inserire display: block */
-  display: bock;
+  display: none;
 
 }
 
@@ -334,7 +334,7 @@ width: 120%;
 /* accendere robotDx */
 #coloreRobot { /*------------------------------------------------------------------------------------------------------------------*/
 /* per visualizzare inserire display: block */
-display: none;
+display: block;
 margin-bottom: 40%;
 }
 
@@ -369,27 +369,26 @@ margin-right: 15%;
 }
 
 #bloccoColore {
-display: block;
-width: 13%;
-position: absolute;
-bottom: 44%;
-right: 89%;
+  width: 15%;
+    position: absolute;
+    bottom: 45%;
+    right: 87%;
 }
 
 #bloccoSfondo {
-display: block;
-width: 15%;
-right: 90%;
-position: absolute;
-bottom: 29%;
+  display: block;
+    width: 15%;
+    right: 89%;
+    position: absolute;
+    bottom: 25%;
 }
 
 #bloccoNome {
-display: block;
-width: 15%;
-position: absolute;
-bottom: 15%;
-right: 90%;
+  display: block;
+      width: 15%;
+      position: absolute;
+      bottom: 5%;
+      right: 89%;
 }
 
 #T2 {
@@ -573,7 +572,7 @@ right: 88%;
     width: 10%;
     position: absolute;
     bottom: 2%;
-    right: 6%; 
+    right: 6%;
 }
 
 #aiutoHome {
@@ -632,7 +631,7 @@ right: 88%;
 
 .prev {
   left: 2%;
-    
+
 }
 
 /* On hover, add a black background color with a little bit see-through */
@@ -656,4 +655,3 @@ right: 88%;
   from {opacity: .4}
   to {opacity: 1}
 }
-                                
