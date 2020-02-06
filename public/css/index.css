@@ -556,6 +556,14 @@ right: 88%;
 
 
                                   /* PAGINE - AIUTO */
+#chiudiImp{
+    display: none;
+}
+
+#chiudiIns{
+    display: none;
+}
+
 #aiutoHome {
     display: none;
 }

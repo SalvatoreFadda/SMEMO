@@ -1,0 +1,36 @@
+<svg id="Livello_1" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 59 29">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #56beec;
+        stroke-width: 3px;
+      }
+
+      .cls-3, .cls-4 {
+        isolation: isolate;
+      }
+
+      .cls-4 {
+        font-size: 8px;
+        fill: #5bc0eb;
+        font-family: GillSansStd-ExtraBold, Gill Sans Std;
+        font-weight: 800;
+      }
+    </style>
+  </defs>
+  <title>chiudi</title>
+  <g id="Group_62" data-name="Group 62">
+    <g id="Rectangle_52" data-name="Rectangle 52">
+      <rect class="cls-1" width="59" height="29" rx="8"/>
+      <rect class="cls-2" x="1.5" y="1.5" width="56" height="26" rx="6.5"/>
+    </g>
+    <g id="chiudi" class="cls-3">
+      <text class="cls-4" transform="translate(16.34 17)">chiudi</text>
+    </g>
+  </g>
+</svg>
