@@ -43,7 +43,7 @@ body {
 
 #tutorial {
 
- display: none;
+ display: inline-block;
  width: 13%;
  top: 73px;
  right: -15px;
@@ -51,7 +51,7 @@ body {
 }
 
 #impostazioni {
- display: none;
+ display: inline-block;
 width: 13%;
 top: 75px;
 position: absolute;
@@ -81,7 +81,7 @@ position: absolute;
 
 #cards {
   /* per visualizzare inserire display: inline-block */
-  display: none;
+  display: inline-block;
   width: 12%;
   left: 15px;
   bottom: -10px;
@@ -98,7 +98,7 @@ div.container {
 
 #welcome { /*------------------------------------------------------------------------------------------------------------------*/
   /* per visualizzare inserire display: block */
-  display: none;
+  display: bock;
 
 }
 
@@ -558,7 +558,7 @@ right: 88%;
                                   /* PAGINE - AIUTO */
 
 #chiudiHome{
-    display: inline-block;
+    display: none;
 }
 
 #chiudiImp{
@@ -572,12 +572,12 @@ right: 88%;
 .chiudiButton {
     width: 10%;
     position: absolute;
-    bottom: 6%;
+    bottom: 2%;
     right: 6%; 
 }
 
 #aiutoHome {
-    display: block;
+    display: none;
 }
 
 #aiutoImp {
@@ -592,7 +592,7 @@ right: 88%;
 .slider-container {
   position: absolute;
   left: 5%;
-  width: 90%;
+  width: 70%;
   top: 15%;
 }
 
