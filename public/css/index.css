@@ -43,7 +43,7 @@ body {
 
 #tutorial {
 
- display: inline-block;
+ display: none;
  width: 13%;
  top: 73px;
  right: -15px;
@@ -51,7 +51,7 @@ body {
 }
 
 #impostazioni {
- display: inline-block;
+ display: none;
 width: 13%;
 top: 75px;
 position: absolute;
@@ -81,7 +81,7 @@ position: absolute;
 
 #cards {
   /* per visualizzare inserire display: inline-block */
-  display: inline-block;
+  display: none;
   width: 12%;
   left: 15px;
   bottom: -10px;
@@ -98,7 +98,7 @@ div.container {
 
 #welcome { /*------------------------------------------------------------------------------------------------------------------*/
   /* per visualizzare inserire display: block */
-  display: block;
+  display: none;
 
 }
 
@@ -556,6 +556,11 @@ right: 88%;
 
 
                                   /* PAGINE - AIUTO */
+
+#chiudiHome{
+    display: inline-block;
+}
+
 #chiudiImp{
     display: none;
 }
@@ -564,8 +569,15 @@ right: 88%;
     display: none;
 }
 
+.chiudiButton {
+    width: 10%;
+    position: absolute;
+    bottom: 6%;
+    right: 6%; 
+}
+
 #aiutoHome {
-    display: none;
+    display: block;
 }
 
 #aiutoImp {
@@ -579,7 +591,9 @@ right: 88%;
 /* Slider container */
 .slider-container {
   position: absolute;
-  margin: auto;
+  left: 5%;
+  width: 90%;
+  top: 15%;
 }
 
 /* Hide the images by default */
@@ -614,11 +628,10 @@ right: 88%;
 /* Position the "next button" to the right */
 .next {
   right: 3%;
-  border-radius: 3px 0 0 3px;
 }
 
 .prev {
-  left: 4%;
+  left: 2%;
     
 }
 

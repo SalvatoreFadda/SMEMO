@@ -109,18 +109,18 @@ interactiveCanvas.ready({
     }
     if (data.scene === 'tutorial-home'){
       noneSelector('default');
-      //document.querySelector('#chiudiHome').style.display = 'block';
+      document.querySelector('#chiudiHome').style.display = 'inline-block';
       document.querySelector('#aiutoHome').style.display = 'block';
         
     }
     if (data.scene === 'tutorial-insegnare'){
       noneSelector('default');
-      document.querySelector('#chiudiIns').style.display = 'block';
+      document.querySelector('#chiudiIns').style.display = 'inline-block';
       document.querySelector('#aiutoIns').style.display = 'block';
     }
     if (data.scene === 'tutorial-impostazioni'){
       noneSelector('default');
-      document.querySelector('#chiudiImp').style.display = 'block';
+      document.querySelector('#chiudiImp').style.display = 'inline-block';
       document.querySelector('#aiutoImp').style.display = 'block';
     }
     //visualizzazione delle cards
@@ -169,6 +169,7 @@ function noneSelector(scene){
     document.querySelector('#aiutoImp').style.display = 'none';
     document.querySelector('#chiudiIns').style.display = 'none';
     document.querySelector('#chiudiImp').style.display = 'none';
+    document.querySelector('#chiudiHome').style.display = 'none';
     }
                         
 //setta lo sfondo dell'applicazione
