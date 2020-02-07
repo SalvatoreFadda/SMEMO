@@ -55,7 +55,7 @@ body {
 width: 13%;
 top: 75px;
 position: absolute;
-right: 60px;
+right: 55px;
 }
 
 #robotCentro {
@@ -71,7 +71,7 @@ right: 60px;
 
 #robotDx {
   /* per visualizzare inserire display: block */
-  display: block;
+  display: none;
   width: 15%;
 margin-left: 75%;
 bottom: 10%;
@@ -189,12 +189,12 @@ font-style: normal;
 
 #testoRisposta  {
   display: block;
-      color: var(--azzurro);
-      font-family: gill-sans-nova, sans-serif;
-      font-weight: 900;
-      font-style: normal;
-      line-height: 9px;
-      margin-top: 30%;
+    color: var(--azzurro);
+    font-family: gill-sans-nova, sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    line-height: 9px;
+    margin-top: 30%;
 }
                             /* PAGINA - CONTINUA */
 
@@ -205,11 +205,11 @@ font-style: normal;
  }
 
 #robotWow {
-  display: block;
+  display: none;
   width: 20%;
   position: absolute;
   left: 40%;
-  top: 25%;
+  top: 30%;
 }
 #testoContinua {
   display: block;
@@ -306,25 +306,26 @@ width: 7%;
 }
 
 #bloccoColore {
-  width: 15%;
-    position: absolute;
-    bottom: 30%;
-    right: 87%;
+  display: block;
+width: 13%;
+position: absolute;
+bottom: 34%;
+right: 88%;
 }
 
 #bloccoSfondo {
   display: block;
-    width: 15%;
-    right: 89%;
+    width: 13%;
     position: absolute;
-    bottom: 5%;
+    bottom: 13%;
+    right: 90%;
 }
 
 #bloccoNome {
   display: block;
-      width: 15%;
+      width: 13%;
       position: absolute;
-      bottom: -20%;
+      bottom: -15%;
       right: 89%;
 }
 
@@ -374,27 +375,27 @@ width: 10%;
 }
 
 #bloccoColore2 {
-display: block;
-width: 15%;
-position: absolute;
-bottom: 30%;
-right: 89%;
+  display: block;
+  width: 13%;
+  position: absolute;
+  bottom: 34%;
+  right: 90%;
 }
 
 #bloccoSfondo2 {
-display: block;
-width: 16%;
-position: absolute;
-bottom: 5%;
-right: 87%;
+  display: block;
+      width: 13%;
+      position: absolute;
+      bottom: 13%;
+      right: 88%;
 }
 
 #bloccoNome2 {
-display: block;
-width: 15%;
-position: absolute;
-bottom: -20%;
-right: 89%;
+  display: block;
+      width: 13%;
+      position: absolute;
+      bottom: -8%;
+      right: 90%;
 }
 
 #T4 {
@@ -413,7 +414,7 @@ right: 10%;
 /* accendere robotDx */
 #nome { /*------------------------------------------------------------------------------------------------------------------*/
 /* per visualizzare inserire display: block */
-display: block;
+display: none;
 }
 
 #Tnome {
@@ -447,35 +448,35 @@ line-height: 5.5px;
 }
 
 #bloccoColore3 {
-display: block;
-width: 15%;
-position: absolute;
-bottom: 30%;
-right: 89%;
+  display: block;
+  width: 13%;
+  position: absolute;
+  bottom: 34%;
+  right: 90%;
 }
 
 #bloccoSfondo3 {
-display: block;
-width: 15%;
-position: absolute;
-bottom: 5%;
-right: 89%;
+  display: block;
+      width: 13%;
+      position: absolute;
+      bottom: 13%;
+      right: 90%;
 
 }
 
 #bloccoNome3 {
-display: block;
-width: 16%;
-position: absolute;
-bottom: -20%;
-right: 87%;
+  display: block;
+      width: 13%;
+      position: absolute;
+      bottom: -8%;
+      right: 88%;
 }
 
 
                                   /* PAGINE - AIUTO */
 
 #chiudiHome{
-    display: none;
+    display: block;
 }
 
 #chiudiImp{
@@ -490,11 +491,11 @@ right: 87%;
     width: 10%;
     position: absolute;
     bottom: 2%;
-    right: 6%;
+    right: 12%;
 }
 
 #aiutoHome {
-    display: none;
+    display: block;
 }
 
 #aiutoImp {
@@ -508,7 +509,7 @@ right: 87%;
 /* Slider container */
 .slider-container {
   position: absolute;
-  left: 5%;
+  left: 15%;
   width: 70%;
   top: 15%;
 }
