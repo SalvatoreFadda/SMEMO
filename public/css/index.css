@@ -81,7 +81,7 @@ position: absolute;
 
 #cards {
   /* per visualizzare inserire display: inline-block */
-  display: none;
+  display: inline-block;
   width: 12%;
   left: 15px;
   bottom: -10px;
@@ -95,7 +95,6 @@ position: absolute;
 }
 
 #avantiButton {
-    display: block;
     width: 10%;
 }
 
@@ -109,7 +108,7 @@ div.container {
 
 #welcome { /*------------------------------------------------------------------------------------------------------------------*/
   /* per visualizzare inserire display: block */
-  display: none;
+  display: block;
 
 }
 
@@ -119,6 +118,14 @@ div.container {
   margin-top: 10%;
 
 
+}
+
+#storiaButton {
+    width: 10%;
+    display: inline-block;
+    right: 27px;
+    bottom: 2px;
+    position: absolute;
 }
 
 #ins {
@@ -487,7 +494,7 @@ line-height: 5.5px;
                                   /* PAGINE - AIUTO */
 
 #chiudiHome{
-    display: block;
+    display: none;
 }
 
 #chiudiImp{
@@ -506,7 +513,7 @@ line-height: 5.5px;
 }
 
 #aiutoHome {
-    display: block;
+    display: none;
 }
 
 #aiutoImp {
