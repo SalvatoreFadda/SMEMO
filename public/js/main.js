@@ -166,14 +166,14 @@ function cambioColore(colore){
     if(colore === "robotViola"){
     document.getElementById("robotCentroImg").src = "assets/images/robotViola.svg"; 
     document.getElementById("robotDxImg").src = "assets/images/robotViola.svg";
-    document.getElementById("robotViolaWow").src = "assets/images/robot.svg";
+    document.getElementById("robotWow").src = "assets/images/robotViolaWow.svg";
     //document.querySelector('#user-choice').src = `images/${data.userChoice}.png`;    
     }
     //cambia il colore del robot in verde
     if(colore === "robotVerde"){
     document.getElementById("robotCentroImg").src = "assets/images/robotVerde.svg"; 
     document.getElementById("robotDxImg").src = "assets/images/robotVerde.svg";
-    document.getElementById("robotVerdeWow").src = "assets/images/robot.svg";
+    document.getElementById("robotWow").src = "assets/images/robotVerdeWow.svg";
     //document.querySelector('#user-choice').src = `images/${data.userChoice}.png`;    
     }
 }
