@@ -113,6 +113,19 @@ app.intent('Tutorial-home', conv => {
   });
 });
 
+
+app.intent('chiudiTutorial-home', conv => {
+  // chiude il tutorial per la sezione "home"
+  conv.ask(new HtmlResponse({
+    data: {
+      scene: 'home',
+    }
+  }));
+});
+
+
+// INIZIO FLOW PER INSEGNARE INTENTI
+
 app.intent('Tutorial-insegnare', conv => {
   // mostro il tutorial per la sezione "insegnare"
   return admin.database().ref('data').once('value').then((snapshot) => {
@@ -129,7 +142,18 @@ app.intent('Tutorial-insegnare', conv => {
   });
 });
 
-// INIZIO FLOW PER INSEGNARE INTENTI
+
+app.intent('chiudiTutorial-insegnare', conv => {
+  // chiude il tutorial per la sezione "insegnare"
+  conv.contexts.set('Contesto', 1, parameters);
+  conv.ask(new HtmlResponse({
+    data: {
+      scene: 'insegnami',
+    }
+  }));
+});
+
+
 app.intent('Insegnare(1)', conv => {
   conv.ask('Ok! In quale categoria vuoi insegnarmi ?');
   const parameters = {
@@ -400,6 +424,17 @@ app.intent('Tutorial-impostazioni', conv => {
       }
     }));
   });
+});
+
+
+app.intent('chiudiTutorial-impostazioni', conv => {
+  // chiude il tutorial per la sezione "insegnare"
+  conv.contexts.set('impostazioni', 1, parameters);
+  conv.ask(new HtmlResponse({
+    data: {
+      scene: 'impostazioni',
+    }
+  }));
 });
 
 //################# INTENTI PER TORNARE ALLA HOME
