@@ -124,6 +124,17 @@ app.intent('chiudiTutorial-home', conv => {
 });
 
 
+app.intent('la mia storia', conv => {
+  // mostro la sotia di Smemo
+    conv.ask(`Ti mostro la mia storia`);
+    conv.ask(new HtmlResponse({
+      data: {
+        scene: 'laMiaStoria',
+      }
+    }));
+});
+
+
 // INIZIO FLOW PER INSEGNARE INTENTI
 
 app.intent('Tutorial-insegnare', conv => {
@@ -428,7 +439,7 @@ app.intent('Tutorial-impostazioni', conv => {
 
 
 app.intent('chiudiTutorial-impostazioni', conv => {
-  // chiude il tutorial per la sezione "insegnare"
+  // chiude il tutorial per la sezione "impostazioni"
   conv.contexts.set('impostazioni', 1, parameters);
   conv.ask(new HtmlResponse({
     data: {
