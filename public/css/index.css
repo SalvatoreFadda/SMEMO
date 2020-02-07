@@ -55,7 +55,7 @@ body {
 width: 13%;
 top: 75px;
 position: absolute;
-right: 30px;
+right: 60px;
 }
 
 #robotCentro {
@@ -71,7 +71,7 @@ right: 30px;
 
 #robotDx {
   /* per visualizzare inserire display: block */
-  display: none;
+  display: block;
   width: 15%;
 margin-left: 75%;
 bottom: 10%;
@@ -81,7 +81,7 @@ position: absolute;
 
 #cards {
   /* per visualizzare inserire display: inline-block */
-  display: inline-block;
+  display: none;
   width: 12%;
   left: 15px;
   bottom: -10px;
@@ -98,7 +98,7 @@ div.container {
 
 #welcome { /*------------------------------------------------------------------------------------------------------------------*/
   /* per visualizzare inserire display: block */
-  display: bock;
+  display: none;
 
 }
 
@@ -262,72 +262,8 @@ font-style: normal;
   margin-top: 30%;
 }
 
-                              /* PAGINA - SINGLE CARD */
-
-#singleCard { /*------------------------------------------------------------------------------------------------------------------*/
-
-  display: none;
-}
 
 
-                             /* PAGINA - NEW CARD */
-/* accendere robotDx */
-#newCard { /*------------------------------------------------------------------------------------------------------------------*/
-  /* per visualizzare inserire display: block */
-  display: none;
-
-}
-
-#testoNewCard {
-  display: inline;
-      color: white;
-      font-family: gill-sans-nova, sans-serif;
-      font-weight: 900;
-      font-size: 35px;
-      font-style: normal;
-      margin: auto;
-      position: absolute;
-      top: 36%;
-      right: 29%;
-      line-height: 4px;
-}
-
-#card1 {
-  width: 30%;
-    margin: auto;
-    position: absolute;
-    top: 52%;
-    right: 35%;
-}
-
-#colore {
-width: 120%;
-}
-                            /* PAGINA - DEFAULT */
-
-#defaultPage { /*------------------------------------------------------------------------------------------------------------------*/
-  /* per visualizzare inserire display: block */
-  display: none;
-}
-
-#robotDefault {
-
-  width: 20%;
-  margin: auto;
-  position: relative;
-  top: -80px;
-}
-
-#testoDefault {
-  display: block;
-    color: var(--azzurro);
-    font-family: gill-sans-nova, sans-serif;
-  font-weight: 900;
-  font-style: normal;
-  margin: auto;
-  line-height: 9px;
-  margin-top: 15%;
-}
 
                                       /* PAGINA - COLORE */
 
@@ -353,65 +289,46 @@ width: 7%;
 #verde {
 display: inline-block;
 width: 7%;
-margin-right: 15%;
+
 
 }
 
 #Tcolore {
-display: inline-block;
-color: var(--azzurro);
-font-family: gill-sans-nova, sans-serif;
-font-weight: 900;
-margin-bottom: 2%;
-margin-top: 38%;
-margin-right: 15%;
+  display: inline-block;
+  color: var(--azzurro);
+  font-family: gill-sans-nova, sans-serif;
+  font-weight: 900;
+  margin: auto;
+  margin-bottom: 2%;
+  margin-top: 48%;
+
 
 }
 
 #bloccoColore {
-display: block;
-width: 13%;
-position: absolute;
-bottom: 44%;
-right: 89%;
+  width: 15%;
+    position: absolute;
+    bottom: 30%;
+    right: 87%;
 }
 
 #bloccoSfondo {
-display: block;
-width: 15%;
-right: 90%;
-position: absolute;
-bottom: 29%;
+  display: block;
+    width: 15%;
+    right: 89%;
+    position: absolute;
+    bottom: 5%;
 }
 
 #bloccoNome {
-display: block;
-width: 15%;
-position: absolute;
-bottom: 15%;
-right: 90%;
+  display: block;
+      width: 15%;
+      position: absolute;
+      bottom: -20%;
+      right: 89%;
 }
 
-#T2 {
-display: inline-block;
-color: var(--azzurro);
-font-family: gill-sans-nova, sans-serif;
-font-size: 8px;
-bottom: 25%;
-position: absolute;
-line-height: 10%;
-right: 8%;
-}
-#T2F {
-display: inline-block;
-color: var(--rosso);
-font-family: gill-sans-nova, sans-serif;
-font-size: 10px;
-bottom: 39%;
-position: absolute;
-line-height: 15%;
-right: 14%;
-}
+
 
 
                                      /* PAGINA - SFONDO */
@@ -458,26 +375,26 @@ width: 10%;
 
 #bloccoColore2 {
 display: block;
-width: 13%;
+width: 15%;
 position: absolute;
-bottom: 44%;
-right: 90%;
+bottom: 30%;
+right: 89%;
 }
 
 #bloccoSfondo2 {
 display: block;
 width: 16%;
 position: absolute;
-bottom: 29%;
-right: 88%;
+bottom: 5%;
+right: 87%;
 }
 
 #bloccoNome2 {
 display: block;
 width: 15%;
 position: absolute;
-bottom: 15%;
-right: 90%;
+bottom: -20%;
+right: 89%;
 }
 
 #T4 {
@@ -496,7 +413,7 @@ right: 10%;
 /* accendere robotDx */
 #nome { /*------------------------------------------------------------------------------------------------------------------*/
 /* per visualizzare inserire display: block */
-display: none;
+display: block;
 }
 
 #Tnome {
@@ -505,9 +422,9 @@ color: var(--azzurro);
 font-family: gill-sans-nova, sans-serif;
 font-weight: 900;
 margin: auto;
-margin-top: 20%;
-margin-bottom: 5%;
-line-height: 5.5px;
+margin-bottom: 2%;
+margin-top: 12%;
+line-height: 5px;
 }
 
 #Tnome2 {
@@ -531,18 +448,18 @@ line-height: 5.5px;
 
 #bloccoColore3 {
 display: block;
-width: 13%;
+width: 15%;
 position: absolute;
-bottom: 44%;
-right: 90%;
+bottom: 30%;
+right: 89%;
 }
 
 #bloccoSfondo3 {
 display: block;
 width: 15%;
 position: absolute;
-bottom: 29%;
-right: 90%;
+bottom: 5%;
+right: 89%;
 
 }
 
@@ -550,8 +467,8 @@ right: 90%;
 display: block;
 width: 16%;
 position: absolute;
-bottom: 15%;
-right: 88%;
+bottom: -20%;
+right: 87%;
 }
 
 
@@ -573,7 +490,7 @@ right: 88%;
     width: 10%;
     position: absolute;
     bottom: 2%;
-    right: 6%; 
+    right: 6%;
 }
 
 #aiutoHome {
@@ -632,7 +549,7 @@ right: 88%;
 
 .prev {
   left: 2%;
-    
+
 }
 
 /* On hover, add a black background color with a little bit see-through */
@@ -656,4 +573,3 @@ right: 88%;
   from {opacity: .4}
   to {opacity: 1}
 }
-                                

@@ -6,7 +6,7 @@ interactiveCanvas.ready({
   onUpdate(data) {
     //visualizzazione pagina dove il bambino insegna a SMEMO
     if (data.scene === 'insegnami') {
-      noneSelector('insegnami');
+      noneSelector();
       document.querySelector('#backHome').style.display = 'inline-block';
       document.querySelector('#impostazioni').style.display = 'inline-block';
       document.querySelector('#tutorial').style.display = 'inline-block';
@@ -15,51 +15,22 @@ interactiveCanvas.ready({
       document.querySelector('#insegnami').style.display = 'block';
     }
     if (data.scene === 'domanda') {
-      noneSelector('domanda');
-      document.querySelector('#backHome').style.display = 'inline-block';
-      //document.querySelector('#impostazioni').style.display = 'inline-block';
-      //document.querySelector('#tutorial').style.display = 'inline-block';
+      noneSelector();
+      document.querySelector('#backHome').style.display = 'inline-block'; 
       document.querySelector('#cards').style.display = 'inline-block';
       document.querySelector('#robotCentro').style.display = 'block';
       document.querySelector('#domanda').style.display = 'block';
     }
     if (data.scene === 'risposta') {
-      noneSelector('risposta');
+      noneSelector();
       document.querySelector('#backHome').style.display = 'inline-block';
-      //document.querySelector('#impostazioni').style.display = 'inline-block';
-      //document.querySelector('#tutorial').style.display = 'inline-block';
       document.querySelector('#cards').style.display = 'inline-block';
       document.querySelector('#robotCentro').style.display = 'block';
       document.querySelector('#risposta').style.display = 'block';
-    }
-    if (data.scene === 'continua') {
-      noneSelector('continua');
-      document.querySelector('#backHome').style.display = 'inline-block';
-      //document.querySelector('#impostazioni').style.display = 'inline-block';
-      //document.querySelector('#tutorial').style.display = 'inline-block';
-      document.querySelector('#cards').style.display = 'inline-block';
-      document.querySelector('#continua').style.display = 'block';
-    }  
-    //visualizzazione pagina della richietsa del bambino a SMEMO
-    if (data.scene === 'chiedimi') {
-      noneSelector('chiedimi');
-      document.querySelector('#backHome').style.display = 'inline-block';
-      document.querySelector('#impostazioni').style.display = 'inline-block';
-      //document.querySelector('#tutorial').style.display = 'inline-block';
-      document.querySelector('#cards').style.display = 'inline-block';
-      document.querySelector('#robotCentro').style.display = 'block';
-      //document.querySelector('#chiedimiMess').innerText = data.message;
-      document.querySelector('#chiedimi').style.display = 'block';
-     }
-    //passaggio dalla creazione degli intenti alla visualizazzione degli intenti creati
-    if (data.scene === 'createIntent') {  //NON PRESENTE NELLA DEMO 
-      noneSelector('createIntent');
-      document.querySelector('#robotDx').style.display = 'block';
-     // document.querySelector('#singleCard').style.display = 'block';
-    }
+    } 
     //visualizzazione della card appena creata
     if (data.scene === 'newCard'){
-      noneSelector('newCard');
+      noneSelector();
       document.querySelector('#intentVideo').style.display = 'block';
       document.getElementById("tada").autoplay = true;
       document.getElementById("tada").load();
@@ -67,15 +38,14 @@ interactiveCanvas.ready({
         document.getElementById("tada").autoplay = false;
         document.querySelector('#intentVideo').style.display = 'none';
         document.querySelector('#impostazioni').style.display = 'inline-block';
-        //document.querySelector('#tutorial').style.display = 'inline-block';
-        //document.querySelector('#newCard').style.display = 'block';
+        document.querySelector('#tutorial').style.display = 'inline-block';
         document.querySelector('#cards').style.display = 'inline-block';
         document.querySelector('#welcome').style.display = 'block';
-      }, 7000);
+      }, 5000);
     }
     //visualizzazione impostazioni, di default parte l'impostazione del nome e del sesso(M/F)
     if (data.scene === 'impostazioni'){
-      noneSelector('impostazioni');
+      noneSelector();
       document.querySelector('#backHome').style.display = 'inline-block';
       document.querySelector('#tutorial').style.display = 'inline-block';
       document.querySelector('#robotDx').style.display = 'block';
@@ -83,7 +53,7 @@ interactiveCanvas.ready({
     }
     //visualizzazione impostazioni per cambio sfondo
     if (data.scene === 'sfondi'){
-      noneSelector('sfondi');
+      noneSelector();
       document.querySelector('#backHome').style.display = 'inline-block';
       document.querySelector('#tutorial').style.display = 'inline-block';
       document.querySelector('#robotDx').style.display = 'block';
@@ -91,7 +61,7 @@ interactiveCanvas.ready({
     }
     //visualizzazione impostazioni per cambio colore del robot
     if (data.scene === 'robotColor'){
-      noneSelector('colore');
+      noneSelector();
       document.querySelector('#backHome').style.display = 'inline-block';
       document.querySelector('#tutorial').style.display = 'inline-block';
       document.querySelector('#robotDx').style.display = 'block';
@@ -99,7 +69,7 @@ interactiveCanvas.ready({
     }
     //ritorno alla home page(welcome)
     if (data.scene === 'home'){
-      noneSelector('home');
+      noneSelector();
       document.querySelector('#impostazioni').style.display = 'inline-block';
       document.querySelector('#tutorial').style.display = 'inline-block';
       document.querySelector('#cards').style.display = 'inline-block';
@@ -108,26 +78,20 @@ interactiveCanvas.ready({
       cambioSfondo(data.sfondo);
     }
     if (data.scene === 'tutorial-home'){
-      noneSelector('default');
+      noneSelector();
       document.querySelector('#chiudiHome').style.display = 'block';
       document.querySelector('#aiutoHome').style.display = 'block';
         
     }
     if (data.scene === 'tutorial-insegnare'){
-      noneSelector('default');
+      noneSelector();
       document.querySelector('#chiudiIns').style.display = 'block';
       document.querySelector('#aiutoIns').style.display = 'block';
     }
     if (data.scene === 'tutorial-impostazioni'){
-      noneSelector('default');
+      noneSelector();
       document.querySelector('#chiudiImp').style.display = 'block';
       document.querySelector('#aiutoImp').style.display = 'block';
-    }
-    //visualizzazione delle cards
-    if (data.scene === 'cardsPage'){ //NON PRESENTE NELLA DEMO
-      noneSelector('cardsPage');
-      document.querySelector('#robotDx').style.display = 'block';
-    //capire come far uscire tutte le card del bambino...?
     }
     //setta lo sfondo dell'applicazione
     if(data.scene === 'bianco' || data.scene === 'spazio' || data.scene === 'dinosauri' || data.scene === 'caramelle'){
@@ -137,17 +101,16 @@ interactiveCanvas.ready({
     if(data.scene === 'robotBlu' || data.scene === 'robotViola' || data.scene === 'robotVerde'){
     cambioColore(data.scene);   
     }
-    //default page
-    if(data.scene === 'default') {
-      noneSelector('default');
-      document.querySelector('#backHome').style.display = 'inline-block';
-      document.querySelector('#defaultPage').style.display = 'block';
+    //ti porta alla pagina della storia di SMEMO
+    if(data.scene === 'laMiaStoria'){
+      noneSelector();
+      //document.querySelector('#laMiaStoria').style.display = 'block';
     }
   }
 });
 
 //funzione che si occupa di nascondere gli elementi non necessari ---> elemento di default sempre on --> #backHome
-function noneSelector(scene){
+function noneSelector(){
     document.querySelector('#impostazioni').style.display = 'none';
     document.querySelector('#tutorial').style.display = 'none';
     document.querySelector('#cards').style.display = 'none';
@@ -155,21 +118,19 @@ function noneSelector(scene){
     document.querySelector('#robotCentro').style.display = 'none';
     document.querySelector('#welcome').style.display = 'none';
     document.querySelector('#insegnami').style.display = 'none';
-    document.querySelector('#chiedimi').style.display = 'none';
     document.querySelector('#domanda').style.display = 'none';
     document.querySelector('#risposta').style.display = 'none';
     document.querySelector('#continua').style.display = 'none';
-    //document.querySelector('#newCard').style.display = 'none';
     document.querySelector('#nome').style.display = 'none';
     document.querySelector('#sfondi').style.display = 'none';
     document.querySelector('#coloreRobot').style.display = 'none';
-    document.querySelector('#defaultPage').style.display = 'none';
     document.querySelector('#aiutoHome').style.display = 'none';
     document.querySelector('#aiutoIns').style.display = 'none';
     document.querySelector('#aiutoImp').style.display = 'none';
     document.querySelector('#chiudiIns').style.display = 'none';
     document.querySelector('#chiudiImp').style.display = 'none';
     document.querySelector('#chiudiHome').style.display = 'none';
+    //document.querySelector('#laMiaStoria').style.display = 'none';
     }
                         
 //setta lo sfondo dell'applicazione
@@ -188,8 +149,7 @@ function cambioSfondo(sfondo){
     }
     //cambio sfondo generale in caramelle
     if(sfondo === "caramelle"){
-    document.body.style.backgroundImage = "url('assets/images/caramelleS.svg')"; 
-    //document.querySelector('#user-choice').src = `images/${data.userChoice}.png`;    
+    document.body.style.backgroundImage = "url('assets/images/caramelleS.svg')";   
     }
 }
 
