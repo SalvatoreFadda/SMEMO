@@ -1,4 +1,5 @@
 
+// ################## SETUP DI COSTANTI E ACCESSO DB ################################################################
 const admin = require('firebase-admin');
 const functions = require('firebase-functions');
 const {
@@ -97,6 +98,7 @@ app.intent('Default Fallback Intent', conv => {
 });
 
 app.intent('Tutorial-home', conv => {
+  // mostro il tutorial per la home
   return admin.database().ref('data').once('value').then((snapshot) => {
       const value = snapshot.child('userName').val();
       if (value != null){
@@ -112,6 +114,7 @@ app.intent('Tutorial-home', conv => {
 });
 
 app.intent('Tutorial-insegnare', conv => {
+  // mostro il tutorial per la sezione "insegnare"
   return admin.database().ref('data').once('value').then((snapshot) => {
       const value = snapshot.child('userName').val();
       if (value != null){
@@ -126,6 +129,7 @@ app.intent('Tutorial-insegnare', conv => {
   });
 });
 
+// INIZIO FLOW PER INSEGNARE INTENTI
 app.intent('Insegnare(1)', conv => {
   conv.ask('Ok! In quale categoria vuoi insegnarmi ?');
   const parameters = {
@@ -139,6 +143,7 @@ app.intent('Insegnare(1)', conv => {
 });
 
 app.intent('Contesto(2-new)', conv => {
+  // salvo il contesto e chiedo a quale domanda deve rispondere
   conv.ask(`A quale domanda devo rispondere ?`);
   var contestoDatoDaUser = conv.input.raw;
   const parameters = {
@@ -154,6 +159,7 @@ app.intent('Contesto(2-new)', conv => {
 
 
 app.intent('Domanda(3)', conv => {
+  // salvo la domanda e chiedo che risposta deve dare
   conv.ask('Che risposta devo dare ?');
   var contestoDatoDaUser = conv.contexts.input.domanda.parameters.contestoDaUser;
   const parameters = {
@@ -169,6 +175,7 @@ app.intent('Domanda(3)', conv => {
 
 
 app.intent('Risposta(4)', conv => {
+  // ho tutti iparametri quindi chiamo funzione per creare l'intento e chiedo se vuole insegnare altro
   var contestoDatoDaUser = conv.contexts.input.risposta.parameters.contestoDatoDaUser;
   var domandaDatoDaUser = conv.contexts.input.risposta.parameters.domandaDatoDaUser;
   const parameters = {
@@ -196,6 +203,7 @@ app.intent('Risposta(4)', conv => {
 });
 
 app.intent('Loop Creazione Intento', conv => {
+  // se mi ha risposto con il nome della categoria dell'intento insegnato precedentemente allora vuole insegnarmi altro (Loop)
   if(conv.input.raw != conv.contexts.input.loopcreazioneintento.parameters.contestoDatoDaUser) {
     conv.ask(new HtmlResponse({
       data: {
@@ -232,6 +240,7 @@ app.intent('vai alle impostazioni', conv => {
 
 
 app.intent('CambioNome(1)', conv => {
+  // vuole cambiare nome
   conv.ask(new HtmlResponse({
     data: {
       scene: 'impostazioni',
@@ -241,6 +250,7 @@ app.intent('CambioNome(1)', conv => {
 });
 
 app.intent('CambioNome(2)', conv => {
+  // acquisisco il nuovo nome e lo salvo nel DB
   conv.ask(new HtmlResponse({
     data: {
       scene: 'impostazioni',
@@ -253,6 +263,7 @@ app.intent('CambioNome(2)', conv => {
 
 
 app.intent('CambioSesso', conv => {
+  // acquisisco il nuovo sesso e lo salvo nel DB
   conv.ask(new HtmlResponse({
     data: {
       scene: 'impostazioni',
@@ -265,6 +276,7 @@ app.intent('CambioSesso', conv => {
 
 
 app.intent('CambioSfondo', conv => {
+  // vuole cambiare sfondo
   conv.ask(new HtmlResponse({
     data: {
       scene: 'sfondi',
@@ -275,6 +287,7 @@ app.intent('CambioSfondo', conv => {
 
 
 app.intent('CambioColoreRobot', conv => {
+  // vuole cambiare il colore del robot
   conv.ask(new HtmlResponse({
     data: {
       scene: 'robotColor',
@@ -283,7 +296,9 @@ app.intent('CambioColoreRobot', conv => {
   conv.ask(`cambia il mio colore`);
 });
 
+
 app.intent('CambioColoreRobot-blue', conv => {
+  // salvo nel DB il nuovo colore: blu
   conv.ask(new HtmlResponse({
     data: {
       scene: 'robotBlu',
@@ -294,7 +309,9 @@ app.intent('CambioColoreRobot-blue', conv => {
   return admin.database().ref('data/coloreRobot').set(color);
 });
 
+
 app.intent('CambioColoreRobot-verde', conv => {
+  // salvo nel DB il nuovo colore: verde
   conv.ask(new HtmlResponse({
     data: {
       scene: 'robotVerde',
@@ -306,6 +323,7 @@ app.intent('CambioColoreRobot-verde', conv => {
 });
 
 app.intent('CambioColoreRobot-viola', conv => {
+  // salvo nel DB il nuovo colore: viola
   conv.ask(new HtmlResponse({
     data: {
       scene: 'robotViola',
@@ -316,7 +334,9 @@ app.intent('CambioColoreRobot-viola', conv => {
   return admin.database().ref('data/coloreRobot').set(color);
 });
 
+
 app.intent('CambioSfondo-dinosauri', conv => {
+  // salvo nel DB il nuovo sfondo: dinosauri
   conv.ask(new HtmlResponse({
     data: {
       scene: 'dinosauri',
@@ -327,7 +347,9 @@ app.intent('CambioSfondo-dinosauri', conv => {
   return admin.database().ref('data/sfondo').set(sfondo);
 });
 
+
 app.intent('CambioSfondo-caramelle', conv => {
+  // salvo nel DB il nuovo sfondo: caramelle
   conv.ask(new HtmlResponse({
     data: {
       scene: 'caramelle',
@@ -338,7 +360,9 @@ app.intent('CambioSfondo-caramelle', conv => {
   return admin.database().ref('data/sfondo').set(sfondo);
 });
 
+
 app.intent('CambioSfondo-spazio', conv => {
+  // salvo nel DB il nuovo sfondo: spazio
   conv.ask(new HtmlResponse({
     data: {
       scene: 'spazio',
@@ -349,7 +373,9 @@ app.intent('CambioSfondo-spazio', conv => {
   return admin.database().ref('data/sfondo').set(sfondo);
 });
 
+
 app.intent('CambioSfondo-bianco', conv => {
+  // salvo nel DB il nuovo sfondo: bianco
   conv.ask(new HtmlResponse({
     data: {
       scene: 'bianco',
@@ -360,7 +386,9 @@ app.intent('CambioSfondo-bianco', conv => {
   return admin.database().ref('data/sfondo').set(sfondo);
 });
 
+
 app.intent('Tutorial-impostazioni', conv => {
+  // mostro tutorial per le impostazioni
   return admin.database().ref('data').once('value').then((snapshot) => {
       const value = snapshot.child('userName').val();
       if (value != null){
@@ -377,6 +405,7 @@ app.intent('Tutorial-impostazioni', conv => {
 
 //################# INTENTI PER TORNARE ALLA HOME
 app.intent('vai alla Home', conv => {
+  // intento per tornare alla home partendo da una pagina all'interno della web application
   conv.ask('ok, ti porto subito alla schermata iniziale');
   conv.ask(new HtmlResponse({
     data: {
@@ -387,6 +416,7 @@ app.intent('vai alla Home', conv => {
 
 
 app.intent('vai alla Home 2', conv => {
+  // intento per tornare alla home partendo da una pagina fuori dalla web application
   return  admin.database().ref('data').once('value').then((snapshot) => {
     conv.ask('ok, ti porto subito alla schermata iniziale');
     const coloreRobot = snapshot.child('coloreRobot').val();
@@ -424,7 +454,7 @@ app.intent('Fallback Chiedimi', conv => {
 //################# INTENTI DELLA SEZIONE CARDS
 
 const createList = conv => {
-  // per la creazione di una lista di items
+  // const per la creazione di una lista di items
   items = conv.user.storage.items;
   conv.ask(new List({
     title: 'Le tue Cards',
@@ -435,7 +465,7 @@ const createList = conv => {
 }
 
 const createSingleList = conv => {
-  // per la creazione di una lista che contiene un solo item
+  // const per la creazione di una lista che contiene un solo item
   itemTitle = conv.user.storage.domanda;
   itemText = conv.user.storage.risposta;
   itemContext = conv.user.storage.contesto;
@@ -604,6 +634,7 @@ app.intent('Cards(3)', conv => {
 
 
 app.intent('eliminazione intento si', conv => {
+  // riposta affermativa per la cancellazione dell'intento
   return  admin.database().ref('data').once('value').then((snapshot) => {
     conv.ask('Perfetto, elimino subito la card ');
     var intento = conv.user.storage.intento;
@@ -635,6 +666,7 @@ app.intent('eliminazione intento si', conv => {
 });
 
 app.intent('eliminazione intento no', conv => {
+  // risposta negativa per la cancellezione dell'intento
   return  admin.database().ref('data').once('value').then((snapshot) => {
     conv.ask('Ok, non elimino la card ');
     const coloreRobot = snapshot.child('coloreRobot').val();
@@ -661,6 +693,7 @@ app.intent('elimina singola card', conv => {
 
 
 app.intent('esci dalla lista', conv => {
+  // esce dalla lista delle categorie degli intenti
   return  admin.database().ref('data').once('value').then((snapshot) => {
     conv.ask('ok, ti porto subito alla schermata iniziale');
     const coloreRobot = snapshot.child('coloreRobot').val();
@@ -678,6 +711,7 @@ app.intent('esci dalla lista', conv => {
 
 
 app.intent('esci dalla lista 2', conv => {
+  // esce dalla lista degli intenti per una specifica categoria
   return  admin.database().ref('data').once('value').then((snapshot) => {
     conv.ask('ok, ti porto subito alla schermata iniziale');
     const coloreRobot = snapshot.child('coloreRobot').val();
