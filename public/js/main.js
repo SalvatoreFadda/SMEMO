@@ -27,6 +27,13 @@ interactiveCanvas.ready({
       document.querySelector('#cards').style.display = 'inline-block';
       document.querySelector('#robotCentro').style.display = 'block';
       document.querySelector('#risposta').style.display = 'block';
+    }
+    if (data.scene === 'continua') {
+      noneSelector();
+      document.querySelector('#backHome').style.display = 'inline-block';
+      document.querySelector('#cards').style.display = 'inline-block';
+      document.querySelector('#robotCentro').style.display = 'block';
+      document.querySelector('#continua').style.display = 'block';
     } 
     //visualizzazione della card appena creata
     if (data.scene === 'newCard'){
