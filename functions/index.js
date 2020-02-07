@@ -97,6 +97,7 @@ app.intent('Default Fallback Intent', conv => {
   });
 });
 
+
 app.intent('Tutorial-home', conv => {
   // mostro il tutorial per la home
   return admin.database().ref('data').once('value').then((snapshot) => {
@@ -134,6 +135,15 @@ app.intent('la mia storia', conv => {
     }));
 });
 
+
+app.intent('esci dalla mia storia', conv => {
+  // esce dalla storia di Smemo
+    conv.ask(new HtmlResponse({
+      data: {
+        scene: 'home',
+      }
+    }));
+});
 
 // INIZIO FLOW PER INSEGNARE INTENTI
 
