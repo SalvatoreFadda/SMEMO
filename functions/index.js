@@ -193,10 +193,9 @@ app.intent('Risposta(4)', conv => {
     risposta: `${conv.input.raw}`
   });
   const ssml = '<speak>' +
-    'Perfetto ! <break time="0.3s" />. ' +
-    'Ho imparato qualcosa di nuovo. <break time="0.3s" />. ' +
-    `Se vuoi creare altro in questa categoria dimmi: ${contestoDatoDaUser}. <break time="0.4s" />.` +
-    'Altrimenti dimmi "Ho finito" <break time="0.1s" />.' +
+    'Grazie, ho imparato qualcosa di nuovo. <break time="0.3s" />. ' +
+    `Se vuoi creare altro in questa categoria dimmi: <emphasis level="high"> ${contestoDatoDaUser} </emphasis>" <break time="0.4s" />.` +
+    'Altrimenti dimmi: <emphasis level="high"> ho finito </emphasis> <break time="0.1s" />.' +
     '</speak>';
   conv.ask(ssml);
   conv.contexts.set('LoopCreazioneIntento', 1, parameters);
@@ -212,7 +211,7 @@ app.intent('Loop Creazione Intento', conv => {
     }));
   }
   else {
-    conv.ask(`a quale nuova domanda devo rispondere ?`);
+    conv.ask(`a quale domanda devo rispondere ?`);
     const parameters = {
       contestoDaUser: conv.input.raw,
     };
@@ -235,7 +234,7 @@ app.intent('vai alle impostazioni', conv => {
   const parameters = {
   };
   conv.contexts.set('impostazioni', 5, parameters);
-  conv.ask(`Ok, andiamo nelle impostazioni.`);
+  conv.ask(`Andiamo nelle impostazioni.`);
 });
 
 
@@ -406,7 +405,7 @@ app.intent('Tutorial-impostazioni', conv => {
 //################# INTENTI PER TORNARE ALLA HOME
 app.intent('vai alla Home', conv => {
   // intento per tornare alla home partendo da una pagina all'interno della web application
-  conv.ask('ok, ti porto subito alla schermata iniziale');
+  conv.ask('Ti porto alla schermata iniziale');
   conv.ask(new HtmlResponse({
     data: {
       scene: 'home',
@@ -418,7 +417,7 @@ app.intent('vai alla Home', conv => {
 app.intent('vai alla Home 2', conv => {
   // intento per tornare alla home partendo da una pagina fuori dalla web application
   return  admin.database().ref('data').once('value').then((snapshot) => {
-    conv.ask('ok, ti porto subito alla schermata iniziale');
+    conv.ask('Andiamo alla schermata iniziale');
     const coloreRobot = snapshot.child('coloreRobot').val();
     const sfondo = snapshot.child('sfondo').val();
   	conv.ask(new HtmlResponse({
@@ -554,7 +553,7 @@ app.intent('Cards', (conv) => {
       // se la lista è formata da un numero maggiore di 2 elementi creo una lista normale di items
       conv.user.storage.items = items;
       createList(conv);
-      conv.ask('Ok, ti mostro le tue categorie');
+      conv.ask('queste sono le categorie che hai creato');
     }
     else {
       // se la lista da creare ha meno di due elementi non posso creare una lista normale di items (limitazione di Google)
@@ -636,7 +635,7 @@ app.intent('Cards(3)', conv => {
 app.intent('eliminazione intento si', conv => {
   // riposta affermativa per la cancellazione dell'intento
   return  admin.database().ref('data').once('value').then((snapshot) => {
-    conv.ask('Perfetto, elimino subito la card ');
+    conv.ask('che peccato dimenticare quello che mi hai insegnato');
     var intento = conv.user.storage.intento;
     myDeleteIntent(intento);
     const coloreRobot = snapshot.child('coloreRobot').val();
@@ -668,7 +667,7 @@ app.intent('eliminazione intento si', conv => {
 app.intent('eliminazione intento no', conv => {
   // risposta negativa per la cancellezione dell'intento
   return  admin.database().ref('data').once('value').then((snapshot) => {
-    conv.ask('Ok, non elimino la card ');
+    conv.ask('fiù, per un pelo');
     const coloreRobot = snapshot.child('coloreRobot').val();
     const sfondo = snapshot.child('sfondo').val();
     conv.ask(new HtmlResponse({
@@ -695,7 +694,7 @@ app.intent('elimina singola card', conv => {
 app.intent('esci dalla lista', conv => {
   // esce dalla lista delle categorie degli intenti
   return  admin.database().ref('data').once('value').then((snapshot) => {
-    conv.ask('ok, ti porto subito alla schermata iniziale');
+    conv.ask('voliamo alla schermata iniziale');
     const coloreRobot = snapshot.child('coloreRobot').val();
     const sfondo = snapshot.child('sfondo').val();
   	conv.ask(new HtmlResponse({
@@ -713,7 +712,7 @@ app.intent('esci dalla lista', conv => {
 app.intent('esci dalla lista 2', conv => {
   // esce dalla lista degli intenti per una specifica categoria
   return  admin.database().ref('data').once('value').then((snapshot) => {
-    conv.ask('ok, ti porto subito alla schermata iniziale');
+    conv.ask('voliamo alla schermata iniziale');
     const coloreRobot = snapshot.child('coloreRobot').val();
     const sfondo = snapshot.child('sfondo').val();
     conv.ask(new HtmlResponse({
