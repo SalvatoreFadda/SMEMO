@@ -88,6 +88,17 @@ position: absolute;
   position: absolute;
 }
 
+                                        /* PAGINA - HOME */
+
+#laMiaStoria {
+    display: none;
+}
+
+#avantiButton {
+    display: block;
+    width: 10%;
+}
+
 
                                       /* PAGINA - HOME */
 
