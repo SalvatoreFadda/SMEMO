@@ -156,7 +156,8 @@ app.intent('Tutorial-insegnare', conv => {
 
 app.intent('chiudiTutorial-insegnare', conv => {
   // chiude il tutorial per la sezione "insegnare"
-  conv.contexts.set('Contesto', 1, parameters);
+  conv.contexts.set('Contesto', 1);
+  conv.ask('Ora dimmi la categoria');
   conv.ask(new HtmlResponse({
     data: {
       scene: 'insegnami',
@@ -440,7 +441,7 @@ app.intent('Tutorial-impostazioni', conv => {
 
 app.intent('chiudiTutorial-impostazioni', conv => {
   // chiude il tutorial per la sezione "impostazioni"
-  conv.contexts.set('impostazioni', 1, parameters);
+  conv.contexts.set('impostazioni', 1);
   conv.ask(new HtmlResponse({
     data: {
       scene: 'impostazioni',
