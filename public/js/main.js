@@ -147,11 +147,11 @@ function cambioSfondo(sfondo){
     }
     //cambio sfondo generale dell'applicazione in spazio
     if(sfondo === "spazio"){
-    document.body.style.backgroundImage = "url('assets/images/spazio.svg')";    
+    document.body.style.backgroundImage = "url('assets/images/spazio.png')";    
     }
       //cambio sfondo generale in dinosauri
     if(sfondo === "dinosauri"){
-    document.body.style.backgroundImage = "url('assets/images/dinosauri.svg')";     
+    document.body.style.backgroundImage = "url('assets/images/dinosauri.png')";     
     }
     //cambio sfondo generale in caramelle
     if(sfondo === "caramelle"){

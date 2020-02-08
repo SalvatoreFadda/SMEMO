@@ -88,7 +88,7 @@ position: absolute;
   position: absolute;
 }
 
-                                        /* PAGINA - HOME */
+                                        /* PAGINA - STORIA */
 
 #laMiaStoria {
     display: none;
@@ -223,7 +223,7 @@ font-style: normal;
  }
 
 #robotWow {
-  display: none;
+  display: block;
   width: 20%;
   position: absolute;
   left: 40%;
@@ -339,13 +339,13 @@ width: 7%;
 
 #bloccoSfondo {
     position: absolute;
-    bottom: 27%;
+    bottom: 23%;
     right: 90%;
 }
 
 #bloccoNome {
   position: absolute;
-    bottom: 14%;
+    bottom: 8%;
     right: 90%;
 }
 
@@ -402,13 +402,13 @@ width: 10%;
 
 #bloccoSfondo2 {
   position: absolute;
-  bottom: 27%;
+  bottom: 23%;
   right: 87%;
 }
 
 #bloccoNome2 {
   position: absolute;
-    bottom: 14%;
+    bottom: 8%;
     right: 90%;
 }
 
@@ -469,14 +469,14 @@ line-height: 5.5px;
 
 #bloccoSfondo3 {
       position: absolute;
-      bottom: 27%;
+      bottom: 23%;
       right: 90%;
 
 }
 
 #bloccoNome3 {
   position: absolute;
-    bottom: 14%;
+    bottom: 8%;
     right: 87%;
 }
 
@@ -499,7 +499,7 @@ line-height: 5.5px;
     width: 20%;
     position: absolute;
     bottom: 2%;
-    right: 12%;
+    right: 9%;
 }
 
 #aiutoHome {
