@@ -81,7 +81,7 @@ position: absolute;
 
 #cards {
   /* per visualizzare inserire display: inline-block */
-  display: none;
+  display: inline-block;
   width: 12%;
   left: 15px;
   bottom: -10px;
@@ -108,7 +108,7 @@ div.container {
 
 #welcome { /*------------------------------------------------------------------------------------------------------------------*/
   /* per visualizzare inserire display: block */
-  display: none;
+  display: block;
 
 }
 
@@ -295,7 +295,7 @@ margin-left: -40%;
 /* accendere robotDx */
 #coloreRobot { /*------------------------------------------------------------------------------------------------------------------*/
 /* per visualizzare inserire display: block */
-display: block;
+display: none;
 margin-bottom: 40%;
 }
 
