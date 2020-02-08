@@ -100,8 +100,9 @@ position: absolute;
 
 #storiaSmemo {
     width: 60%;
+    margin-top: 10%;
+    margin-left: 10%;
 }
-
                                       /* PAGINA - HOME */
 
 div.container {
@@ -399,7 +400,7 @@ width: 10%;
 
 #bloccoColore2 {
   position: absolute;
-  bottom: 25%;
+  bottom: 27%;
   right: 90%;
 }
 
@@ -472,7 +473,7 @@ line-height: 5.5px;
 
 #bloccoSfondo3 {
       position: absolute;
-      bottom: 10%;
+      bottom: 12%;
       right: 90%;
 
 }
