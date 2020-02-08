@@ -81,7 +81,7 @@ position: absolute;
 
 #cards {
   /* per visualizzare inserire display: inline-block */
-  display: inline-block;
+  display: none;
   width: 12%;
   left: 15px;
   bottom: -10px;
@@ -108,7 +108,7 @@ div.container {
 
 #welcome { /*------------------------------------------------------------------------------------------------------------------*/
   /* per visualizzare inserire display: block */
-  display: block;
+  display: none;
 
 }
 
@@ -285,10 +285,17 @@ font-style: normal;
 
                                       /* PAGINA - COLORE */
 
+
+.min {
+
+width: 80%;
+margin-left: -40%;
+
+}
 /* accendere robotDx */
 #coloreRobot { /*------------------------------------------------------------------------------------------------------------------*/
 /* per visualizzare inserire display: block */
-display: none;
+display: block;
 margin-bottom: 40%;
 }
 
@@ -323,28 +330,23 @@ width: 7%;
 
 }
 
+
 #bloccoColore {
-  display: block;
-width: 13%;
-position: absolute;
-bottom: 34%;
-right: 88%;
+  position: absolute;
+    bottom: 40%;
+    right: 87%;
 }
 
 #bloccoSfondo {
-  display: block;
-    width: 13%;
     position: absolute;
-    bottom: 13%;
+    bottom: 27%;
     right: 90%;
 }
 
 #bloccoNome {
-  display: block;
-      width: 13%;
-      position: absolute;
-      bottom: -15%;
-      right: 89%;
+  position: absolute;
+    bottom: 14%;
+    right: 90%;
 }
 
 
@@ -393,27 +395,21 @@ width: 10%;
 }
 
 #bloccoColore2 {
-  display: block;
-  width: 13%;
   position: absolute;
-  bottom: 34%;
+  bottom: 40%;
   right: 90%;
 }
 
 #bloccoSfondo2 {
-  display: block;
-      width: 13%;
-      position: absolute;
-      bottom: 13%;
-      right: 88%;
+  position: absolute;
+  bottom: 27%;
+  right: 87%;
 }
 
 #bloccoNome2 {
-  display: block;
-      width: 13%;
-      position: absolute;
-      bottom: -8%;
-      right: 90%;
+  position: absolute;
+    bottom: 14%;
+    right: 90%;
 }
 
 #T4 {
@@ -466,28 +462,22 @@ line-height: 5.5px;
 }
 
 #bloccoColore3 {
-  display: block;
-  width: 13%;
   position: absolute;
-  bottom: 34%;
+  bottom: 40%;
   right: 90%;
 }
 
 #bloccoSfondo3 {
-  display: block;
-      width: 13%;
       position: absolute;
-      bottom: 13%;
+      bottom: 27%;
       right: 90%;
 
 }
 
 #bloccoNome3 {
-  display: block;
-      width: 13%;
-      position: absolute;
-      bottom: -8%;
-      right: 88%;
+  position: absolute;
+    bottom: 14%;
+    right: 87%;
 }
 
 
