@@ -119,6 +119,7 @@ interactiveCanvas.ready({
 
 //funzione che si occupa di nascondere gli elementi non necessari ---> elemento di default sempre on --> #backHome
 function noneSelector(){
+    document.getElementById("storiaSmemo").pause();
     document.querySelector('#impostazioni').style.display = 'none';
     document.querySelector('#tutorial').style.display = 'none';
     document.querySelector('#cards').style.display = 'none';
