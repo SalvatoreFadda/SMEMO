@@ -62,23 +62,36 @@ app.intent('Default Welcome Intent', conv => {
       const sex = snapshot.child('sesso').val();
       const coloreRobot = snapshot.child('coloreRobot').val();
       const sfondo = snapshot.child('sfondo').val();
+      const newUser = snapshot.child('newUser').val();
       if (name != ""){
         if (sex == 'maschio'){
           conv.ask(`Bentornato ${name}!`);
         }
         else conv.ask(`Bentornata ${name}!`);
       }
-      else conv.ask(`Ciao! giochiamo insieme`);
-      console.log(`sfondo: ${sfondo}`);
-      console.log(`coloreRobot: ${coloreRobot}`);
-      conv.ask(new HtmlResponse({
-        url: `https://${firebaseConfig.projectId}.firebaseapp.com/`,
-        data: {
-          scene: 'home',
-          sfondo: `${sfondo}`,
-          coloreRobot: `${coloreRobot}`,
-        }
-      }));
+      else conv.ask(`Ciao!`);
+      if (newUser == false) {
+        // non è un nuovo user quindi lo porto alla home
+        conv.ask(new HtmlResponse({
+          url: `https://${firebaseConfig.projectId}.firebaseapp.com/`,
+          data: {
+            scene: 'home',
+            sfondo: `${sfondo}`,
+            coloreRobot: `${coloreRobot}`,
+          }
+        }));
+      }
+      else {
+        // è un nuovo user, quindi gli mostro come prima cosa la storia di Smemo
+        conv.ask(`Ti mostro la mia storia`);
+        conv.ask(new HtmlResponse({
+          url: `https://${firebaseConfig.projectId}.firebaseapp.com/`,
+          data: {
+            scene: 'laMiaStoria',
+          }
+        }));
+        return admin.database().ref('data/newUser').set(false);
+      }
     });
 });
 
