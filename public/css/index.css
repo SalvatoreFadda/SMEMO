@@ -34,7 +34,7 @@ body {
 
 #backHome {
   /* per visualizzare inserire display: inline-block */
- display: inline-block;
+ display: none;
  width: 13%;
  top: 75px;
  left: 20px;
@@ -43,7 +43,7 @@ body {
 
 #tutorial {
 
- display: inline-block;
+ display: none;
  width: 13%;
  top: 73px;
  right: -15px;
@@ -51,7 +51,7 @@ body {
 }
 
 #impostazioni {
- display: inline-block;
+ display: none;
 width: 13%;
 top: 75px;
 position: absolute;
@@ -81,7 +81,7 @@ position: absolute;
 
 #cards {
   /* per visualizzare inserire display: inline-block */
-  display: inline-block;
+  display: none;
   width: 12%;
   left: 15px;
   bottom: -10px;
@@ -91,13 +91,16 @@ position: absolute;
                                         /* PAGINA - STORIA */
 
 #laMiaStoria {
-    display: none;
+    display: block;
 }
 
 #avantiButton {
     width: 10%;
 }
 
+#storiaSmemo {
+    width: 60%;
+}
 
                                       /* PAGINA - HOME */
 
@@ -108,7 +111,7 @@ div.container {
 
 #welcome { /*------------------------------------------------------------------------------------------------------------------*/
   /* per visualizzare inserire display: block */
-  display: block;
+  display: none;
 
 }
 

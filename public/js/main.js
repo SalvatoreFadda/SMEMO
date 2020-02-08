@@ -110,7 +110,9 @@ interactiveCanvas.ready({
     //ti porta alla pagina della storia di SMEMO
     if(data.scene === 'laMiaStoria'){
       noneSelector();
-      //document.querySelector('#laMiaStoria').style.display = 'block';
+      document.querySelector('#laMiaStoria').style.display = 'block';
+      document.getElementById("storiaSmemo").autoplay = true;
+      document.getElementById("storiaSmemo").load();
     }
   }
 });
@@ -136,7 +138,8 @@ function noneSelector(){
     document.querySelector('#chiudiIns').style.display = 'none';
     document.querySelector('#chiudiImp').style.display = 'none';
     document.querySelector('#chiudiHome').style.display = 'none';
-    //document.querySelector('#laMiaStoria').style.display = 'none';
+    document.querySelector('#laMiaStoria').style.display = 'none';
+    document.getElementById("storiaSmemo").autoplay = false;
     }
                         
 //setta lo sfondo dell'applicazione
