@@ -663,7 +663,7 @@ app.intent('Cards(2)', (conv) => {
                   title: `${intent.get('domanda')}`,
 
                   //description: `${intent.get('risposta')}`,
-                  description: 'schiaccia per eliminare questa card',
+                  description: 'premi per eliminare questa card',
                   image: new Image({
                     url: `${cardImage(intent.get('contesto'))}`,
                     alt: 'Image alternate text',
