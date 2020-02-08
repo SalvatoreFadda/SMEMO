@@ -62,13 +62,13 @@ app.intent('Default Welcome Intent', conv => {
       const sex = snapshot.child('sesso').val();
       const coloreRobot = snapshot.child('coloreRobot').val();
       const sfondo = snapshot.child('sfondo').val();
-      if (name != null){
+      if (name != ""){
         if (sex == 'maschio'){
           conv.ask(`Bentornato ${name}!`);
         }
         else conv.ask(`Bentornata ${name}!`);
       }
-      else conv.ask(`Ciao!`);
+      else conv.ask(`Ciao! giochiamo insieme`);
       console.log(`sfondo: ${sfondo}`);
       console.log(`coloreRobot: ${coloreRobot}`);
       conv.ask(new HtmlResponse({
