@@ -140,7 +140,6 @@ app.intent('chiudiTutorial-home', conv => {
 
 app.intent('la mia storia', conv => {
   // mostro la sotia di Smemo
-    conv.ask(`Ti mostro la mia storia`);
     conv.ask(new HtmlResponse({
       data: {
         scene: 'laMiaStoria',
