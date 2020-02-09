@@ -83,17 +83,20 @@ interactiveCanvas.ready({
       cambioColore(data.coloreRobot);
       cambioSfondo(data.sfondo);
     }
+    //visualizzazione aiutoi della home
     if (data.scene === 'tutorial-home'){
       noneSelector();
       document.querySelector('#chiudiHome').style.display = 'block';
       document.querySelector('#aiutoHome').style.display = 'block';
         
     }
+    //visualizzazione aiutoi della parte di insegnamento intenti
     if (data.scene === 'tutorial-insegnare'){
       noneSelector();
       document.querySelector('#chiudiIns').style.display = 'block';
       document.querySelector('#aiutoIns').style.display = 'block';
     }
+    //visualizzazione aiutoi delle impostazioni  
     if (data.scene === 'tutorial-impostazioni'){
       noneSelector();
       document.querySelector('#chiudiImp').style.display = 'block';

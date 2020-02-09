@@ -1,14 +1,15 @@
+//chiamata delle classi degli slider per lo show e il setting della variabile delle pagine
 var slideIndex = 1;
 showSlides(slideIndex, 'SlidesH');
 showSlides(slideIndex, 'SlidesIp');
 showSlides(slideIndex, 'SlidesIs');
 
-// Next/previous controls
+//funzione chiamata dai bottoni degli slider
 function plusSlides(n, slideId) {
   showSlides(slideIndex += n, slideId);
 }
 
-
+//funzione per lo scorrimento degli slider
 function showSlides(n, slideId) {
   var i;
   var slides = document.getElementsByClassName(slideId);

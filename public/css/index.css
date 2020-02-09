@@ -526,7 +526,7 @@ line-height: 5.5px;
   top: 15%;
 }
 
-/* Hide the images by default */
+/* classi dei diversi slider */
 .SlidesH {
   display: none;
 }
@@ -539,7 +539,7 @@ line-height: 5.5px;
   display: none;
 }
 
-/* Next & previous buttons */
+/* bottoni avanti ed indietro */
 .prev, .next {
   cursor: pointer;
   position: absolute;
@@ -555,7 +555,6 @@ line-height: 5.5px;
   user-select: none;
 }
 
-/* Position the "next button" to the right */
 .next {
   right: 3%;
 }
@@ -565,11 +564,12 @@ line-height: 5.5px;
 
 }
 
-/* On hover, add a black background color with a little bit see-through */
+/* On hover*/
 .prev:hover, .next:hover {
   background-color: #5ABFEA;
 }
 
+/* animazione per lo scorrimento delle slides */
 .fade {
   -webkit-animation-name: fade;
   -webkit-animation-duration: 1.5s;
