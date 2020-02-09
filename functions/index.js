@@ -249,11 +249,20 @@ app.intent('Risposta(4)', conv => {
     domanda: `${domandaDatoDaUser}`,
     risposta: `${conv.input.raw}`
   });
-  const ssml = '<speak>' +
-    'Grazie, ho imparato qualcosa di nuovo. <break time="0.3s" />. ' +
+  if (sex == 'maschio'){
+    const ssml = '<speak>' +
+    `<emphasis level="high">Bravissimo ${name}!</emphasis> ho imparato qualcosa di nuovo. <break time="0.3s" />. ` +
     `Se vuoi creare altro in questa categoria dimmi: <emphasis level="high"> ${contestoDatoDaUser} </emphasis>" <break time="0.4s" />.` +
     'Altrimenti dimmi: <emphasis level="high"> ho finito </emphasis> <break time="0.1s" />.' +
     '</speak>';
+  }
+  else {
+    const ssml = '<speak>' +
+    `<emphasis level="high">Bravissima ${name}!</emphasis> ho imparato qualcosa di nuovo. <break time="0.3s" />. ` +
+    `Se vuoi creare altro in questa categoria dimmi: <emphasis level="high"> ${contestoDatoDaUser} </emphasis>" <break time="0.4s" />.` +
+    'Altrimenti dimmi: <emphasis level="high"> ho finito </emphasis> <break time="0.1s" />.' +
+    '</speak>';
+  }
   conv.ask(ssml);
   conv.contexts.set('LoopCreazioneIntento', 1, parameters);
 });
