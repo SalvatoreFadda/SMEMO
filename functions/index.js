@@ -89,7 +89,7 @@ app.intent('Default Welcome Intent', conv => {
             scene: 'laMiaStoria',
           }
         }));
-        //return admin.database().ref('data/newUser').set(false);
+        return admin.database().ref('data/newUser').set(false);
       }
     });
 });
