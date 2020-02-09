@@ -258,6 +258,7 @@ app.intent('Risposta(4)', conv => {
       `Se vuoi creare altro in questa categoria dimmi: <emphasis level="high"> ${contestoDatoDaUser} </emphasis>" <break time="0.4s" />.` +
       'Altrimenti dimmi: <emphasis level="high"> ho finito </emphasis> <break time="0.1s" />.' +
       '</speak>';
+      conv.ask(ssml);
     }
     else {
       const ssml = '<speak>' +
@@ -265,8 +266,8 @@ app.intent('Risposta(4)', conv => {
       `Se vuoi creare altro in questa categoria dimmi: <emphasis level="high"> ${contestoDatoDaUser} </emphasis>" <break time="0.4s" />.` +
       'Altrimenti dimmi: <emphasis level="high"> ho finito </emphasis> <break time="0.1s" />.' +
       '</speak>';
+      conv.ask(ssml);
     }
-    conv.ask(ssml);
     conv.contexts.set('LoopCreazioneIntento', 1, parameters);
   });
 });
