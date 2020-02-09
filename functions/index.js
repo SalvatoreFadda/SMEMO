@@ -232,39 +232,43 @@ app.intent('Domanda(3)', conv => {
 
 
 app.intent('Risposta(4)', conv => {
-  // ho tutti iparametri quindi chiamo funzione per creare l'intento e chiedo se vuole insegnare altro
-  var contestoDatoDaUser = conv.contexts.input.risposta.parameters.contestoDatoDaUser;
-  var domandaDatoDaUser = conv.contexts.input.risposta.parameters.domandaDatoDaUser;
-  const parameters = {
-     contestoDatoDaUser: contestoDatoDaUser
-  };
-  conv.ask(new HtmlResponse({
-    data: {
-      scene: 'continua',
+  return  admin.database().ref('data').once('value').then((snapshot) => {
+    const sex = snapshot.child('sesso').val();
+    const name = snapshot.child('userName').val();
+    // ho tutti iparametri quindi chiamo funzione per creare l'intento e chiedo se vuole insegnare altro
+    var contestoDatoDaUser = conv.contexts.input.risposta.parameters.contestoDatoDaUser;
+    var domandaDatoDaUser = conv.contexts.input.risposta.parameters.domandaDatoDaUser;
+    const parameters = {
+       contestoDatoDaUser: contestoDatoDaUser
+    };
+    conv.ask(new HtmlResponse({
+      data: {
+        scene: 'continua',
+      }
+    }));
+    CreateIntent(contestoDatoDaUser, domandaDatoDaUser, conv.input.raw);
+    db.collection('intents').add({
+      contesto: `${contestoDatoDaUser}`,
+      domanda: `${domandaDatoDaUser}`,
+      risposta: `${conv.input.raw}`
+    });
+    if (sex == 'maschio'){
+      const ssml = '<speak>' +
+      `<emphasis level="high">Bravissimo ${name}!</emphasis> ho imparato qualcosa di nuovo. <break time="0.3s" />. ` +
+      `Se vuoi creare altro in questa categoria dimmi: <emphasis level="high"> ${contestoDatoDaUser} </emphasis>" <break time="0.4s" />.` +
+      'Altrimenti dimmi: <emphasis level="high"> ho finito </emphasis> <break time="0.1s" />.' +
+      '</speak>';
     }
-  }));
-  CreateIntent(contestoDatoDaUser, domandaDatoDaUser, conv.input.raw);
-  db.collection('intents').add({
-    contesto: `${contestoDatoDaUser}`,
-    domanda: `${domandaDatoDaUser}`,
-    risposta: `${conv.input.raw}`
+    else {
+      const ssml = '<speak>' +
+      `<emphasis level="high">Bravissima ${name}!</emphasis> ho imparato qualcosa di nuovo. <break time="0.3s" />. ` +
+      `Se vuoi creare altro in questa categoria dimmi: <emphasis level="high"> ${contestoDatoDaUser} </emphasis>" <break time="0.4s" />.` +
+      'Altrimenti dimmi: <emphasis level="high"> ho finito </emphasis> <break time="0.1s" />.' +
+      '</speak>';
+    }
+    conv.ask(ssml);
+    conv.contexts.set('LoopCreazioneIntento', 1, parameters);
   });
-  if (sex == 'maschio'){
-    const ssml = '<speak>' +
-    `<emphasis level="high">Bravissimo ${name}!</emphasis> ho imparato qualcosa di nuovo. <break time="0.3s" />. ` +
-    `Se vuoi creare altro in questa categoria dimmi: <emphasis level="high"> ${contestoDatoDaUser} </emphasis>" <break time="0.4s" />.` +
-    'Altrimenti dimmi: <emphasis level="high"> ho finito </emphasis> <break time="0.1s" />.' +
-    '</speak>';
-  }
-  else {
-    const ssml = '<speak>' +
-    `<emphasis level="high">Bravissima ${name}!</emphasis> ho imparato qualcosa di nuovo. <break time="0.3s" />. ` +
-    `Se vuoi creare altro in questa categoria dimmi: <emphasis level="high"> ${contestoDatoDaUser} </emphasis>" <break time="0.4s" />.` +
-    'Altrimenti dimmi: <emphasis level="high"> ho finito </emphasis> <break time="0.1s" />.' +
-    '</speak>';
-  }
-  conv.ask(ssml);
-  conv.contexts.set('LoopCreazioneIntento', 1, parameters);
 });
 
 app.intent('Loop Creazione Intento', conv => {
